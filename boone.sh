@@ -5,7 +5,7 @@
 # this expects to be in bashrc in your home directory, it will break otherwise
 
 # list of modules to load
-modules=(git_quick hg_mass swap)
+modules=(git_quick hg_mass swap aliases)
 
 # just load all ok?
 for module in "${modules[@]}"; do

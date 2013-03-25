@@ -12,6 +12,7 @@ This is a repo of things for me to source @ work, @ home, @ play
 - hg_mass: scripts for dealing with lots of pulls / pushes at once
 - git_quick: often tasks in git automated
 - swap: swap out configs and id's
+- aliases: quick and dirty list of aliases
 
 ##Caveats
 
