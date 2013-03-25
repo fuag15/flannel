@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # to load put this in wherever your shell is sourced (.bashrc, .bash_profile)
-# [[ -s "$HOME/bashrc/boone.sh" ]] && . "$HOME/bashrc/boone.sh" [modules to load by name]
+# [[ -s ~/bashrc/boone.sh ]] && . ~/bashrc/boone.sh <modules to load by name>
 # this expects to be in bashrc in your home directory, it will break otherwise
 # you can pass vars into this
 
