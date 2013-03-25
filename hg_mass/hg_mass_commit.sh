@@ -2,6 +2,12 @@
 
 # takes a list of dirs then cd's in and commits each one each on
 hg_mass_commit() {
+  # print help?
+  if [[ "$#" == 0 ]]; then
+    echo "<message> [list of dirs]"
+    exit 0
+  fi
+
   # naively set message as first input
   message="$1"
 

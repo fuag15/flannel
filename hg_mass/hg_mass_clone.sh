@@ -2,11 +2,17 @@
 
 # takes username and host as arguments then a list of repo names and clones them
 hg_mass_clone() {
+  # print help?
+  if [[ "$#" == 0 ]]; then
+    echo "-n <name> -h <host> [list of clonins]"
+    exit 0
+  fi
+
   # set the option indicator var
   OPTIND=1
 
   # loop through our named ops
-  while getopts "n:h:" opt; do
+  while getopts "n:h:?" opt; do
     case "$opt" in
       n) name=$OPTARG
         ;;
