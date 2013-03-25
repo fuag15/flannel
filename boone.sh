@@ -11,6 +11,6 @@ modules=(git_quick hg_mass swap aliases)
 for module in "${modules[@]}"; do
   # all files in the modules folder
   for file in $(ls ~/bashrc/"$module"/*); do
-    source "$file"
+    . "$file"
   done
 done

@@ -10,8 +10,8 @@ swap_id() {
   fi
 
   # copy rsa id over
-  cp ~/.ssh/${@} ~/.ssh/id_rsa
-  cp ~/.ssh/${@}_pub ~/.ssh/id_rsa.pub
+  cp ~/.ssh/"${@}" ~/.ssh/id_rsa
+  cp ~/.ssh/"${@}"_pub ~/.ssh/id_rsa.pub
 
   # remove stored keychain identities
   if [[ -x ssh-add ]]; then
@@ -19,8 +19,8 @@ swap_id() {
   fi
 
   # move git username
-  cp ~/${@}.gitconfig ~/.gitconfig
+  cp ~/"${@}".gitconfig ~/.gitconfig
 
   # move hg username
-  cp ~/${@}.hgrc ~/.hgrc
+  cp ~/"${@}".hgrc ~/.hgrc
 }
