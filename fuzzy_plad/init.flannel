@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# load our home extensions
+cat ~/.flannelrc | flannel
+
+# if we have a local .flannelrc load tha
+if [[ -f .plad_patch ]]; then
+  cat ~/.plad_patch | flannel
+fi
