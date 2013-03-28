@@ -8,3 +8,4 @@ alias hgmm=hg_mass_manage
 alias swapid=swap_id
 alias gc='git commit -am'
 alias ga='git add .'
+alias gac='ga && gc'
