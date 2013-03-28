@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# requires python 2.7
+# sets MAYA_PLUGIN_DIR
+# appends PYTHONPATH
+# default sets maya plugins 0.6

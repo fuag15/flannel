@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# requires maya 2012
+# sets versioned env vars
+# prepends PYTHONPATH
