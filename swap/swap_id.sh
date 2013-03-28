@@ -19,8 +19,8 @@ swap_id() {
   fi
 
   # move git username
-  cp ~/"$@".gitconfig ~/.gitconfig
+  cp ~/."$@".gitconfig ~/.gitconfig
 
   # move hg username
-  cp ~/"$@".hgrc ~/.hgrc
+  cp ~/."$@".hgrc ~/.hgrc
 }
