@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# fails on osx
 colorize_prompt() {
     local user_and_host="\[\033[01;32m\]\u\[\033[01;31m\]@"
     local cur_location="\[\033[01;33m\]\w"

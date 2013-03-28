@@ -33,6 +33,9 @@ flannel() {
     . "$file"
   done
 
+  # back to normal stat
+  shopt -u nullglob
+
   # now load the modules requirements if it has any
   [[ -f ~/flannel/"$module"/init.flannel ]] && . ~/flannel/"$module"/init.flannel -c "$breadcrumbs$module'$@'" "$@"
 }
