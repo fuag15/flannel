@@ -1,29 +1,30 @@
 #!/bin/bash
 
+# to install put this where your bash is sourced
+# [[ -f ~/flannel/init.sh ]] && . ~/flannel/init.sh fuzzy_plaid
+
 # mill some flannel, or wherever that wondermilk comes from
 flannel() {
-  # dont include glob literal string for empty glob
+  # dont return our literal glob expression on null globs
   shopt -s nullglob
 
-  # set the option indicator var
+  # take in any breadcrumbs and module name
   OPTIND=1
-
-  # loop through our named ops
-  while getopts "c:" opt; do
+  while getopts "c:" opt; do  # loop through our bread crumbs
     case "$opt" in
       c) local breadcrumbs="$OPTARG"
         ;;
     esac
   done
-
-  # shift off the remaining options and optional --
+  
+  # shift off parsed options
   shift $((OPTIND-1))
 
   # set our module and shift it off
-  local module="$1"; shift
+  local module="$1"; shift 
 
-  # if breadcrumb contains $module'$@' then we are done break
-  if [[ $breadcrubs && $breadcrumbs == *"$module'$@'"* ]]; then 
+  # if breadcrumb contains $module'$@' then we have already loaded it, break
+  if [[ -n $breadcrubs && $breadcrumbs == *"$module'$@'"* ]]; then 
     exit 0
   fi
 
@@ -33,9 +34,7 @@ flannel() {
   done
 
   # now load the modules requirements if it has any
-  if [[ -f ~/flannel/"$module"/init.flannel ]]; then
-    . ~/flannel/"$module"/init.flannel -c "$breadcrumbs$module'$@'" "$@"
-  fi
+  [[ -f ~/flannel/"$module"/init.flannel ]] && . ~/flannel/"$module"/init.flannel -c "$breadcrumbs$module'$@'" "$@"
 }
 
 # run our first config
