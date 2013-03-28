@@ -25,7 +25,7 @@ hg_mass_clone() {
   shift $((OPTIND-1))
 
   # get our hg path
-  hg_path="ssh://$name@$host/"
+  local hg_path="ssh://$name@$host/"
   
   for repo in "$@"; do
     hg clone "$hg_path$repo"

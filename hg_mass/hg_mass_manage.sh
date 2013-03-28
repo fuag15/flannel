@@ -9,7 +9,7 @@ hg_mass_manage() {
   fi
 
   # naively set command as first input
-  hgcom="$1"
+  local hgcom="$1"
 
   # shift it on over
   shift;

@@ -1,14 +1,8 @@
 # wear our default flannel, its cold in bash
 jacket() { 
-  shopt -s nullglob
+  # wear home config
+  [[ -f ~/.flannelrc ]] && wear < ~/.flannelrc
 
-  # load home config
-  for config in ~/.flannelrc; do
-    wear < "$config"
-  done
-  
-  # load local config
-  for plad_patch in ~/.*.plad_patch; do
-    wear < "$plad_patch"
-  done
+  # wear patches
+  [[ -f ./.plad_patch ]] && wear < ./.plad_patch
 }

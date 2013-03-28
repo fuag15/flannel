@@ -9,7 +9,7 @@ hg_mass_commit() {
   fi
 
   # naively set message as first input
-  message="$1"
+  local message="$1"
 
   # shift it on over
   shift
