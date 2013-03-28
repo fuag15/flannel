@@ -4,5 +4,5 @@ jacket() {
   [[ -f ~/.flannelrc ]] && wear < ~/.flannelrc
 
   # wear patches
-  [[ -f ./.plad_patch ]] && wear < ./.plad_patch
+  [[ -f ./.plaid_patch ]] && wear < ./.plaid_patch
 }
