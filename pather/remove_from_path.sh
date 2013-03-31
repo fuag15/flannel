@@ -10,5 +10,5 @@ remove_from_path() {
   local path_contents="${!1//${2}:/}"
 
   # clear from end of path
-  export "$1"="${path_contents%:${2}"
+  export "$1"="${path_contents%:${2}}"
 }
