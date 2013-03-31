@@ -5,7 +5,7 @@
 
 # mill some flannel, or wherever that wondermilk comes from
 flannel() {
-  shopt -s nullglob
+  shopt -s nullglob extglob
   local module_glob="$1"; shift 
   for module in ~/.flannel/$module_glob; do
     # did we already consume this?
@@ -18,12 +18,12 @@ flannel() {
       . "$file"
     done
 
-    shopt -u nullglob
+    shopt -u nullglob extglob
     # now load the modules requirements if it has any
     [[ -f "$module"/init.flannel ]] && . "$module"/init.flannel "$@"
-    shopt -s nullglob
+    shopt -s nullglob extglob
   done
-  shopt -u nullglob
+  shopt -u nullglob extglob
 }
 
 # run our first config
