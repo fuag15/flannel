@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # takes a list of dirs then cd's in and runs command
 hg_mass_manage() {

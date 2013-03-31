@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 replace_in_path() {
   # could be a blank path
   if [[ -z "${!1}" ]]; then

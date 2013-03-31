@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #just some initial aliases i like
 alias gqp=git_quick_publish

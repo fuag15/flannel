@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 remove_from_path() {
   # could be the only thing in path
   if [[ "${!1}" == "$2" ]]; then

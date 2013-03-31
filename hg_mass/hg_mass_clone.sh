@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # takes username and host as arguments then a list of repo names and clones them
 hg_mass_clone() {

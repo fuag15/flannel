@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # to install put this where your bash is sourced
 # [[ -f ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid

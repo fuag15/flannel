@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # should clean this up
 colorize_prompt() {
   local user_and_host="\[\033[01;32m\]\u\[\033[01;31m\]@"

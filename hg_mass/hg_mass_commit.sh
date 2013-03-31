@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # takes a list of dirs then cd's in and commits each one each on
 hg_mass_commit() {

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 create_path() {
   # if path exists prepend
   if [[ -n "${!1}" ]]; then

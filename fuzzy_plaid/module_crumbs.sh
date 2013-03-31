@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # consumes a module succeds if there are crumbs
 module_crumbs() {

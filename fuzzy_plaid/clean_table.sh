@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # dont leave a mess for the next generation man
 clean_table() {
   # if we left crumbs, clean them up!

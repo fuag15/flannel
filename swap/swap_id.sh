@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # helper to swap rsa identities and git / hg configs
 # takes the identity name base as an arg
