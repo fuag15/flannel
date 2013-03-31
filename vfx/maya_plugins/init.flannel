@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-flannel vfx/maya_plugins/0.6
+if [[ "$1" == "clear "]]; then
+  flannel vfx/maya/plugins/0.? clear
+else
+  flannel vfx/maya_plugins/0.6 
+fi
