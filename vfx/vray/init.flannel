@@ -1,0 +1,3 @@
+#!/bin/bash
+
+flannel vfx/vray/1.8.34

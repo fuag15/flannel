@@ -1,0 +1,10 @@
+#!/bin/bash
+
+flannel pather
+
+if [[ "$1" == "clear" ]]; then
+  remove_from_path PYTHONPATH /usr/bin/python/2.6
+else
+  flannel "vfx/python/!(2.6)" clear
+  create_path PYTHONPATH /usr/bin/python/2.6
+fi

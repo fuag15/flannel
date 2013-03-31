@@ -1,0 +1,3 @@
+#!/bin/bash
+
+flannel vfx/maya_plugins/0.6

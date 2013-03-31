@@ -1,0 +1,3 @@
+#!/bin/bash
+
+flannel vfx/python/2.7

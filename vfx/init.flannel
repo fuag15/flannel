@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# defaults to vray loaded
+flannel vfx/maya/2013

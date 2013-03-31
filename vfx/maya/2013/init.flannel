@@ -1,0 +1,17 @@
+#!/bin/bash
+
+local required=(pather vfx/python2.7)
+
+for module in "${required[@]}"; do
+  flannel "$module"
+done
+
+if [[ "$1" == "clear" ]]; then
+  remove_from_path MAYA_PLUGIN_DIR /maya/plugin/2013
+  remove_from_path PYTHONPATH /usr/bin/maya/2013/python
+else
+  flannel "vfx/maya/!(2013)" clear
+  create_path MAYA_PLUGIN_DIR /maya/plugin/2013
+  append_path PYTHONPATH /usr/bin/maya/2013/python
+  flannel vfx/maya_plugins/0.6
+fi

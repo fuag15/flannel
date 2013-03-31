@@ -9,3 +9,6 @@ alias swapid=swap_id
 alias gc='git commit -am'
 alias ga='git add .'
 alias gac='ga && gc'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpoc='git push origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
