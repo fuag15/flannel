@@ -1,3 +1,4 @@
 #!/bin/bash
 
 # defaults to vray loaded
+flannel vfx/vray

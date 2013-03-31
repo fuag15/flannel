@@ -1,5 +1,13 @@
-init.flannel
+#!/bin/bash
 
-# requires maya 2013
-# prepends MAYA_PLUGIN_PATH
-# prepends PYTHONPATH
+flannel vfx/pather
+flannel vfx/maya/2013
+
+
+if [[ ! in_path "MAYA_PLUGIN_PATH" /etc/maya/plugin_path/0.6 ]]; then
+  prepend_path "MAYA_PLUGIN_PATH" /etc/maya/plugin_path/0.6
+fi
+
+if [[ ! in_path "PYTHONPATH" /etc/user/python/maya_plugin/0.6 ]]; then
+  prepend_path "PYTHONPATH" /etc/user/python/maya_plugin/0.6
+fi

@@ -1,5 +1,13 @@
 #!/bin/bash
 
-# requires maya 2013
-# sets versioned env var
-# prepends PYTHONPATH
+local required(vfx/pather vfx/maya/2013)
+
+for module in "$required"; do
+  flannel "$module"
+done
+
+export VRAY_1_8_34=/some/path/to/vray/1.8.4
+
+if [[ ! in_path "PYTHONPATH" /some/python/path/vray/1.8.4 ]]; then
+  prepend_path "PYTHONPATH" /some/python/path/vray/1.8.4
+fi

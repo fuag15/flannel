@@ -1,6 +1,13 @@
 #!/bin/bash
 
-# requires python 2.6
-# sets MAYA_PLUGIN_DIR
-# appends PYTHONPATH
-# default sets maya plugins 0.1
+required=(vfx/pather vfx/python2.6)
+
+export MAYA_PLUGIN_DIR=/maya/plugin/2012
+
+if [[ in_path "PYTHONPATH" '/usr/bin/maya/201?/python' ]]; then
+  replace_in_path "PYTHONPATH" '/usr/bin/maya/201?/python' '/usr/bin/maya/2012/python'
+else
+  append_path "PYTHONPATH" '/usr/bin/maya/2012/python'
+fi
+
+flannel vfx/maya_plugins/0.1

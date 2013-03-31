@@ -7,9 +7,9 @@ colorize_prompt() {
     local git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
     
     if [[ $UID -ne 0 ]]; then
-        local prompt_tail="\[\033[35m\]$"
+        local prompt_tail="\[\033[35m\]∫"
     else 
-        local prompt_tail="\[\033[35m\]#"
+        local prompt_tail="\[\033[35m\]√"
     fi
 
     local last_color="\[\033[00m\]"

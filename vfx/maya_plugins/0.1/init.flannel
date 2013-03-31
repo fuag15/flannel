@@ -1,5 +1,13 @@
 #!/bin/bash
 
-# requires maya 2012
-# prepends PYTHONPATH
-# prepends MAYA_PLUGIN_PATH
+flannel vfx/pather
+flannel vfx/maya/2012
+
+
+if [[ ! in_path "MAYA_PLUGIN_PATH" /etc/maya/plugin_path/0.1 ]]; then
+  prepend_path "MAYA_PLUGIN_PATH" /etc/maya/plugin_path/0.1
+fi
+
+if [[ ! in_path "PYTHONPATH" /etc/user/python/maya_plugin/0.1 ]]; then
+  prepend_path "PYTHONPATH" /etc/user/python/maya_plugin/0.1
+fi

@@ -1,0 +1,14 @@
+#!/bin/bash
+replace_in_path() {
+  # could be the only thing in path
+  if [[ "${!1}" == "$2" ]]; then
+    export "$1"="$2"
+    return
+  fi
+
+  # replace from beggining or middle
+  local modified_path="${!1//${2}:/${3}:"
+
+  # replace from end
+  export "$1"="${modified_path/%:$2/:$3}"
+}

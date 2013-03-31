@@ -1,3 +1,4 @@
+#!/bin/bash
 # wear our default flannel, its cold in bash
 jacket() { 
   # wear home config

@@ -1,5 +1,22 @@
 #!/bin/bash
 
-# requires maya 2012
-# sets versioned env vars
-# prepends PYTHONPATH
+local required(vfx/pather vfx/maya/2012)
+
+for module in "$required"; do
+  flannel "$module"
+done
+
+export VRAY_1_6_0=/some/path/to/vray/1.6.0
+
+if [[ ! in_path "PYTHONPATH" /some/python/path/vray/1.6.0 ]]; then
+  prepend_path "PYTHONPATH" /some/python/path/vray/1.6.0
+fi
+
+local required(vfx/pather vfx/maya/2012)
+
+for module in "$required"; do
+  flannel "$module"
+done
+
+set_path VRAY_1_6_0=/some/path/to/vray/1.6.0
+prepend_path "PYTHONPATH" /some/python/path/vray/1.6.0

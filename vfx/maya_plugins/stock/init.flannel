@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# clears prepends from PYTHON_PATH
-# clears prepends from MAYA_PLUGIN_PATH
+flannel vfx/maya_plugins/0.1 -r
+flannel vfx/maya_plugins/0.6 -r

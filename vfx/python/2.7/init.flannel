@@ -1,3 +1,9 @@
 #!/bin/bash
 
-# sets PYTHONPATH
+if [[ -n "$PYTHONPATH" ]]; then
+  export PYTHONPATH='/usr/bin/python/2.?'
+elif [[ in_path "PYTHONPATH" '/usr/bin/python/2.?' ]]; then
+  replace_in_path "PYTHONPATH" '/usr/bin/python/2.?' '/usr/bin/python/2.7'
+else
+  prepend_path "PYTHONPATH" '/usr/bin/python/2.7'
+fi

@@ -5,35 +5,18 @@
 
 # mill some flannel, or wherever that wondermilk comes from
 flannel() {
-  # dont return our literal glob expression on null globs
-  shopt -s nullglob
-
-  # take in any breadcrumbs and module name
-  OPTIND=1
-  while getopts "c:" opt; do  # loop through our bread crumbs
-    case "$opt" in
-      c) local breadcrumbs="$OPTARG"
-        ;;
-    esac
-  done
-  
-  # shift off parsed options
-  shift $((OPTIND-1))
-
-  # set our module and shift it off
   local module="$1"; shift 
 
-  # if breadcrumb contains $module'$@' then we have already loaded it, break
-  if [[ -n $breadcrubs && $breadcrumbs == *"$module'$@'"* ]]; then 
-    exit 0
+  # did we already consume this?
+  if declare -f module_crumbs >/dev/null && module_crumbs "$module'$@'"; then
+    return 0
   fi
 
-  # load our modules base files
+  # load our modules base files without nullglob returning literal string
+  shopt -s nullglob
   for file in ~/flannel/"$module"/*.{sh,bash}; do
     . "$file"
   done
-
-  # back to normal stat
   shopt -u nullglob
 
   # now load the modules requirements if it has any
