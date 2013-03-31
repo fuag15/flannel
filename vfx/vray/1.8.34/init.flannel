@@ -1,13 +1,16 @@
 #!/bin/bash
 
-local required(vfx/pather vfx/maya/2013)
+local required(pather vfx/maya/2013)
 
-for module in "$required"; do
+for module in "${required[@]}"; do
   flannel "$module"
 done
 
-export VRAY_1_8_34=/some/path/to/vray/1.8.4
-
-if [[ ! in_path "PYTHONPATH" /some/python/path/vray/1.8.4 ]]; then
-  prepend_path "PYTHONPATH" /some/python/path/vray/1.8.4
+if [[ "$1" == "clear" ]]; then
+  remove_from_path VRAY_1_8_34 /some/path/to/vray/1.8.34
+  remove_from_path PYTHONPATH /some/python/path/vray/1.8.34
+else
+  flannel "vfx/vray/!(1.8.34)" clear
+  create_path VRAY_1_8_34 /some/path/to/vray/1.8.34
+  prepend_path PYTHONPATH /some/python/path/vray/1.8.34
 fi

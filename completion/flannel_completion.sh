@@ -3,7 +3,7 @@
 __flannel_completion () {
   shopt -s nullglob
   case "${COMP_WORDS[COMP_CWORD-1]}" in
-    flannel)
+    vest)
       COMPREPLY=(~/.flannel/"${COMP_WORDS[COMP_CWORD]}"*/)
       COMPREPLY=("${COMPREPLY[@]#~/.flannel}")
       COMPREPLY=("${COMPREPLY[@]%/}")

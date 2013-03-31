@@ -1,13 +1,17 @@
 #!/bin/bash
 
-required=(vfx/pather vfx/python2.6)
+local required=(pather vfx/python2.7)
 
-export MAYA_PLUGIN_DIR=/maya/plugin/2012
+for module in "${required[@]}"; do
+  flannel "$module"
+done
 
-if [[ in_path "PYTHONPATH" '/usr/bin/maya/201?/python' ]]; then
-  replace_in_path "PYTHONPATH" '/usr/bin/maya/201?/python' '/usr/bin/maya/2012/python'
+if [[ "$1" == "clear" ]]; then
+  clear_from_path MAYA_PLUGIN_DIR /maya/plugin/2012
+  clear_from_path PYTHONPATH /maya/plugin/2012
 else
-  append_path "PYTHONPATH" '/usr/bin/maya/2012/python'
+  flannel "vfx/maya/!(2012)" clear
+  create_path MAYA_PLUGIN_DIR /maya/plugin/2012
+  append_path PYTHONPATH /usr/bin/maya/2012/python
+  flannel vfx/maya_plugins/0.1
 fi
-
-flannel vfx/maya_plugins/0.1

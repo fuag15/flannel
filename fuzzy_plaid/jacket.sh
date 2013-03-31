@@ -1,6 +1,9 @@
 #!/bin/bash
 # wear our default flannel, its cold in bash
 jacket() { 
+  # dont leave your place messy or you'll be mad when you get back!
+  clean_table
+
   # wear home config
   [[ -f ~/.flannelrc ]] && wear < ~/.flannelrc
 

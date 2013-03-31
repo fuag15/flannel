@@ -1,13 +1,16 @@
 #!/bin/bash
 
-flannel vfx/pather
-flannel vfx/maya/2013
+local required(pather vfx/maya/2013)
 
+for module in "${required[@]}"; do
+  flannel "$module"
+done
 
-if [[ ! in_path "MAYA_PLUGIN_PATH" /etc/maya/plugin_path/0.6 ]]; then
-  prepend_path "MAYA_PLUGIN_PATH" /etc/maya/plugin_path/0.6
-fi
-
-if [[ ! in_path "PYTHONPATH" /etc/user/python/maya_plugin/0.6 ]]; then
-  prepend_path "PYTHONPATH" /etc/user/python/maya_plugin/0.6
+if [[ "$1" == "clear" ]]; then
+  remove_from_path MAYA_PLUGIN_PATH /etc/maya/pluginpath/0.6
+  remove_from_path PYTHONPATH /etc/user/python/maya_plugin/0.6
+else
+  flannel "vfx/maya_plugins/!(0.6)" clear
+  append_path MAYA_PLUGIN_PATH /etc/maya/pluginpath/0.6
+  append_path PYTHONPATH /etc/user/python/maya_plugin/0.6
 fi

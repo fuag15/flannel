@@ -1,4 +1,14 @@
 #!/bin/bash
 
-flannel vfx/maya_plugins/0.1 -r
-flannel vfx/maya_plugins/0.6 -r
+local required(pather vfx/maya/2013)
+
+for module in "${required[@]}"; do
+  flannel "$module"
+done
+
+if [[ "$1" == "clear" ]]; then
+  # we cant clear stock you crazy one
+  return
+else
+  flannel "vfx/maya_plugins/(!stock)" clear
+fi

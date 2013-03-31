@@ -1,4 +1,3 @@
 #!/bin/bash
 
-flannel vfx/pather
 flannel vfx/vray/1.8.34
