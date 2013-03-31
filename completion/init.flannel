@@ -1,0 +1,3 @@
+#!/bin/bash
+
+complete -o dirnames -F __flannel_completion flannel
