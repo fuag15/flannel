@@ -14,10 +14,8 @@ hg_mass_clone() {
   # loop through our named ops
   while getopts "n:h:?" opt; do
     case "$opt" in
-      n) name="$OPTARG"
-        ;;
-      h) host="$OPTARG"
-        ;;
+      n) name="$OPTARG" ;;
+      h) host="$OPTARG" ;;
     esac
   done
 

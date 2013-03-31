@@ -1,0 +1,8 @@
+#!/bin/bash
+# enable verboes xtrace
+
+if [[ "$1" == "clear" ]]; then
+  set +xv
+else
+  set -xv
+fi
