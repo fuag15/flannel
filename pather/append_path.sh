@@ -6,7 +6,7 @@ append_path() {
   fi
 
   # if path is empty then just set
-  if [[ -z "$!1" ]]; then
+  if [[ -z "${!1}" ]]; then
     export "$1"="$2"
   else
     export "$1"="${!1}:${2}"

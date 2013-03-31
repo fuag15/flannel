@@ -6,9 +6,9 @@ prepend_path() {
   fi
 
   # if path is empty then just set
-  if [[ -z "$!1" ]]; then
+  if [[ -z "${!1}" ]]; then
     export "$1"="$2"
   else # prepend
-    export "$1"="${2}:${1}"
+    export "$1"="${2}:${!1}"
   fi
 }
