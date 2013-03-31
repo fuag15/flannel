@@ -2,7 +2,7 @@
 remove_from_path() {
   # if we get a clear command undo what this does
   if [[ "${@:(-1)}" == "clear" ]]; then
-    append_path "${@:1:$#}"
+    append_path "${@:1:(($#-1))}"
     return
   fi
 

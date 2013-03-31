@@ -2,7 +2,7 @@
 create_path() {
   # if we get a clear command undo what this does
   if [[ "${@:(-1)}" == "clear" ]]; then
-    remove_from_path "${@:1:$#}"
+    remove_from_path "${@:1:(($#-1))}"
     return
   fi
 
