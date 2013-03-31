@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-local required=(pather vfx/maya/2012)
-
-for module in "${required[@]}"; do
-  flannel "$module"
-done
-
+build_closet pather vfx/maya/2012
 flannel "vfx/maya_plugins/!(0.1)" clear
 prepend_path MAYA_PLUGIN_PATH /etc/maya/plugin_path/0.1 "$@"
 prepend_path PYTHONPATH /etc/user/python/maya_plugin/0.1 "$@"

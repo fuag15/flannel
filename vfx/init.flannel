@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
-# defaults to maya 2013 loaded
 flannel vfx/maya/2013 "$@"
