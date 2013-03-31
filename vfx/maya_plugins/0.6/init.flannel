@@ -1,6 +1,6 @@
 #!/bin/bash
 
-local required(pather vfx/maya/2013)
+local required=(pather vfx/maya/2013)
 
 for module in "${required[@]}"; do
   flannel "$module"

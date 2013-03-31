@@ -1,13 +1,13 @@
 #!/bin/bash
 
-local required(pather vfx/maya/2013)
+local required=(pather vfx/maya/2013)
 
 for module in "${required[@]}"; do
   flannel "$module"
 done
 
 if [[ "$1" == "clear" ]]; then
-  # we cant clear stock you crazy one
+  # stock can't be cleared
   return
 else
   flannel "vfx/maya_plugins/(!stock)" clear

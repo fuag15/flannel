@@ -1,6 +1,6 @@
 #!/bin/bash
 
-local required=(pather vfx/python2.7)
+local required=(pather vfx/python/2.7)
 
 for module in "${required[@]}"; do
   flannel "$module"

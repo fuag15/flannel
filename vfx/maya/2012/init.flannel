@@ -1,14 +1,14 @@
 #!/bin/bash
 
-local required=(pather vfx/python2.7)
+local required=(pather vfx/python/2.7)
 
 for module in "${required[@]}"; do
   flannel "$module"
 done
 
 if [[ "$1" == "clear" ]]; then
-  clear_from_path MAYA_PLUGIN_DIR /maya/plugin/2012
-  clear_from_path PYTHONPATH /maya/plugin/2012
+  remove_from_path MAYA_PLUGIN_DIR /maya/plugin/2012
+  remove_from_path PYTHONPATH /maya/plugin/2012
 else
   flannel "vfx/maya/!(2012)" clear
   create_path MAYA_PLUGIN_DIR /maya/plugin/2012
