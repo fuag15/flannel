@@ -9,3 +9,5 @@ alias swapid=swap_id
 alias gc='git commit -am'
 alias ga='git add .'
 alias gac='ga && gc'
+alias gp='git push'
+alias gpo='git push origin'
