@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 
-if [[ "$1" == "clear" ]]; then
-  flannel vfx/maya/201? clear
-else
-  flannel vfx/maya/2013 "$@"
-fi
+flannel vfx/maya/2013 "$@"

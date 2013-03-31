@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-# defaults to vray loaded
-flannel vfx/maya "$@"
+# defaults to maya 2013 loaded
+flannel vfx/maya/2013 "$@"
