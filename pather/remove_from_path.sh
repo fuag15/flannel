@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 remove_from_path() {
+  # if we get a clear command undo what this does
+  if [[ "${@:(-1)}" == "clear" ]]; then
+    append_path "${@:1:$#}"
+    return
+  fi
+
   # could be the only thing in path
   if [[ "${!1}" == "$2" ]]; then
     unset "$1"

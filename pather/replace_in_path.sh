@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 replace_in_path() {
+  # if we get a clear command undo what this does
+  if [[ "${@:(-1)}" == "clear" ]]; then
+    replace_in_path "$1" "$3" "$2"
+    return
+  fi
+
   # could be a blank path
   if [[ -z "${!1}" ]]; then
     create_path "$1" "$3"
