@@ -2,7 +2,8 @@
 
 - Next change set set up versions
 - Make clear a convention
-- Organize for distribution
+- Add README.md to complex modules
+- Organize for distribution *( most likely lib, dist, conf model )*
 - Set up central distribution / version file
 - Stabilize
 - Enjoy
