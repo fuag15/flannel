@@ -4,27 +4,22 @@
 hg_mass_clone() {
   # print help?
   if [[ "$#" == 0 ]]; then
-    echo "-n <name> -h <host> [list of clonins]"
+    echo "-u <name> -h <host> [list of clonins]"
     exit 0
   fi
-
-  # set the option indicator var
-  OPTIND=1
-
+  
   # loop through our named ops
-  while getopts "n:h:?" opt; do
+  OPTIND=1; while getopts "n:h:" opt; do
     case "$opt" in
       n) name="$OPTARG" ;;
       h) host="$OPTARG" ;;
     esac
-  done
-
-  # shift off the remaining options and optional --
-  shift $((OPTIND-1))
+  done; shift $((OPTIND-1))
 
   # get our hg path
   local hg_path="ssh://$name@$host/"
   
+  # one loop to clone them all
   for repo in "$@"; do
     hg clone "$hg_path$repo"
   done

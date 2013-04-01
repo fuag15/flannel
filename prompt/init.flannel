@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-
+# colorize our prompt
+# note not using the built in prompt env var, no real reason why, or why we should that I know of
+# maybe it would play nicely in an ideal world but reality is everyone exports directly to PS1 anyway
 _flannel_prompt_colorize
