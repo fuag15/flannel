@@ -45,24 +45,26 @@
 
 <ul>
 <li>If you do it twice, automate it</li>
-<li>Nice code is nice, automation is nicer, make pretty a secondary concern, improve over time, share lots. :)</li>
+<li>Nice code is nice, automation is nicer, make pretty a secondary concern</li>
+<li>improve over time</li>
+<li>share lots. :)</li>
 </ul><h2>Installation</h2>
 
 <p>OSX: <em>( one liner sources in bash_profile )</em></p>
 
-<pre><code>git clone git@github.com:fuag15/flannel ~/.flannel.git &amp;&amp; echo "[[ -f ~/.flannel/init.sh ]] &amp;&amp; . ~/.flannel/init.sh fuzzy_plaid &gt;&gt; ~/.bash_profile &amp;&amp; . ~/.bash_profile"
+<pre><code>git clone git@github.com:fuag15/flannel ~/.flannel.git &amp;&amp; echo "[[ -s ~/.flannel/init.sh ]] &amp;&amp; . ~/.flannel/init.sh fuzzy_plaid" &gt;&gt; ~/.bash_profile &amp;&amp; . ~/.bash_profile
 </code></pre>
 
 <p>Unix/Linux: <em>( one liner sources in bashrc )</em></p>
 
-<pre><code>git clone git@github.com:fuag15/flannel ~/.flannel.git &amp;&amp; echo "[[ -f ~/.flannel/init.sh ]] &amp;&amp; . ~/.flannel/init.sh fuzzy_plaid &gt;&gt; ~/.bashrc &amp;&amp; . ~/.bashrc"
+<pre><code>git clone git@github.com:fuag15/flannel ~/.flannel.git &amp;&amp; echo "[[ -s ~/.flannel/init.sh ]] &amp;&amp; . ~/.flannel/init.sh fuzzy_plaid" &gt;&gt; ~/.bashrc &amp;&amp; . ~/.bashrc
 </code></pre>
 
 <p>Windows: <em>( look into power shell? <a href="http://msdn.microsoft.com/en-us/library/dd835506(v=VS.85).aspx" title="Microsoft Developer Network">glhf</a> )</em></p>
 
 <h2>Basic Usage</h2>
 
-<p>Once Installed the important functions are <code>vest</code>: <em>load a module</em> and <code>jacket</code>: load default config, named config, local configs.</p>
+<p>Once Installed the important functions are <code>vest</code> - <em>load a module</em> and <code>jacket</code> - load default config, named config, local configs.</p>
 
 <p>Vest currently supports a form of auto complete.</p>
 
