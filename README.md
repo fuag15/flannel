@@ -32,7 +32,7 @@ Windows: *( look into power shell? [glhf][msdn-powershell] )*
 
 ## Basic Usage
 
-Once Installed the important functions are `vest`: *load a module* and `jacket`: load default config, named config, local configs.
+Once Installed the important functions are `vest` - *load a module* and `jacket` - load default config, named config, local configs.
 
 Vest currently supports a form of auto complete.
 
