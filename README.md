@@ -13,18 +13,20 @@ For a more developer oriented overview see the [developers][developers-md] markd
 ## Manifesto
 
 - If you do it twice, automate it
-- Nice code is nice, automation is nicer, make pretty a secondary concern, improve over time, share lots. :)
+- Nice code is nice, automation is nicer, make pretty a secondary concern
+- improve over time
+- share lots. :)
 
 ## Installation
 
 OSX: *( one liner sources in bash_profile )*
 
-    git clone git@github.com:fuag15/flannel ~/.flannel.git && echo "[[ -f ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid >> ~/.bash_profile && . ~/.bash_profile"
+    git clone git@github.com:fuag15/flannel ~/.flannel.git && echo "[[ -s ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid" >> ~/.bash_profile && . ~/.bash_profile
 
 
 Unix/Linux: *( one liner sources in bashrc )*
 
-    git clone git@github.com:fuag15/flannel ~/.flannel.git && echo "[[ -f ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid >> ~/.bashrc && . ~/.bashrc"
+    git clone git@github.com:fuag15/flannel ~/.flannel.git && echo "[[ -s ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid" >> ~/.bashrc && . ~/.bashrc
 
 Windows: *( look into power shell? [glhf][msdn-powershell] )*
 
