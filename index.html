@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Flannel by fuag15</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Flannel</h1>
+        <p>a collection of usefull utils for me to source in my bashrc / profile</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/fuag15/flannel" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/fuag15/flannel/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/fuag15/flannel/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Flannel - Bash Looks Better in Plaid</h1>
+
+<p>This is a modular bash framework for sharing common scripts between your friends and fellow coders!</p>
+
+<p>This is opinionated code! Chances are if what your doing doesn't fit in here, you can easily re factor it to play nice.</p>
+
+<p>This is just a beginning of a project, note that we haven't reached beta yet, we haven't even reached a version number! This will use <a href="http://semver.org/" title="Semantic Versioning Overview">semantic versions</a> with tagged releases when we get there. Nothing revolutionary should change to the usage API but I'm making no promises yet!</p>
+
+<p>There is also a proof of concept environment variable manager for visual effects inspired by <a href="https://github.com/odgrim" class="user-mention">@odgrim</a>. <a href="https://github.com/odgrim" class="user-mention">@odgrim</a> did the ground work on auto completion and prompt as well as inspired this whole project / provided the specs and use cases for environment manager proof of concept.</p>
+
+<h2>Manifesto</h2>
+
+<ul>
+<li>If you do it twice, automate it</li>
+<li>Nice code is nice, automation is nicer, make pretty a secondary concern, improve over time, share lots. :)</li>
+</ul><h2>Installation</h2>
+
+<p>OSX: <em>( one liner sources in bash_profile )</em></p>
+
+<pre><code>git clone git@github.com:fuag15/flannel ~/.flannel.git &amp;&amp; echo "[[ -f ~/.flannel/init.sh ]] &amp;&amp; . ~/.flannel/init.sh fuzzy_plaid &gt;&gt; ~/.bash_profile &amp;&amp; . ~/.bash_profile"
+</code></pre>
+
+<p>Unix/Linux: <em>( one liner sources in bashrc )</em></p>
+
+<pre><code>git clone git@github.com:fuag15/flannel ~/.flannel.git &amp;&amp; echo "[[ -f ~/.flannel/init.sh ]] &amp;&amp; . ~/.flannel/init.sh fuzzy_plaid &gt;&gt; ~/.bashrc &amp;&amp; . ~/.bashrc"
+</code></pre>
+
+<p>Windows: <em>( look into power shell? <a href="http://msdn.microsoft.com/en-us/library/dd835506(v=VS.85).aspx" title="Microsoft Developer Network">glhf</a> )</em></p>
+
+<h2>Basic Usage</h2>
+
+<p>Once Installed the important functions are <code>vest</code>: <em>load a module</em> and <code>jacket</code>: load default config, named config, local configs.</p>
+
+<p>Vest currently supports a form of auto complete.</p>
+
+<p><code>vest</code>: <em>vest module_path_glob [options]</em></p>
+
+<pre><code>vest prompt
+vest vfx/maya/2013
+vest vfx/maya/2013 clear
+</code></pre>
+
+<p><code>jacket</code>: <em>jacket [named config]</em></p>
+
+<pre><code>jacket # will reload ~/.flannelrc and any ./.plaid_patch files
+jacket work # will reload ~/.flannelrc then  ~/.work.flannelrc then any ./.plaid_patch files
+</code></pre>
+
+<h2>More Documentation / References</h2>
+
+<ul>
+<li>
+<a href="ROADMAP.md" title="Road Map Markdown">Roadmap</a> where are we going</li>
+<li>
+<a href="DEVELOPERS.md" title="Developers Markdown">Developers</a> how do I write code for this</li>
+<li>
+<a href="CONTRIBUTING.md" title="Contributing Markdown">Contributing</a> how can I help</li>
+<li>
+<a href="CHANGELOG.md" title="Changelog Markdown">Change Log</a> What has changed</li>
+<li>
+<a href="BREAKING_CHANGES.md" title="Breaking Changes Markdown">Breaking Changes</a> What did you break? Why?</li>
+<li>
+<a href="LEGAL_LICENSING.md" title="Legal and Licensing information">Legal / Licensing</a> I'd like to use this for work or profit or play, how do I play nice?</li>
+</ul>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/fuag15">fuag15</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
