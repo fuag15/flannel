@@ -2,4 +2,4 @@
 
 Doc to come, read the codez
 
-[readme-md]: README.md "Flannel Readme"
+[readme-md]: ../README.md "Flannel Readme"

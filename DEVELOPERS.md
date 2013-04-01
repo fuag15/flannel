@@ -19,4 +19,4 @@ note that this organization allows for circular dependencies, and submodules.
 Now is when you go to [fuzzy_plaid][fuzzy_plaid-readme] to read in more depth :)
 
 [fuzzy_plaid-readme]: fuzzy_plaid/README.md "Core Flannel Doc"
-[readme-md]: README.md "Flannel Readme"
+[readme-md]: ../README.md "Flannel Readme"
