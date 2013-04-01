@@ -8,7 +8,7 @@ This is just a beginning of a project, note that we haven't reached beta yet, we
 
 There is also a proof of concept environment variable manager for visual effects inspired by @odgrim. @odgrim did the ground work on auto completion and prompt as well as inspired this whole project / provided the specs and use cases for environment manager proof of concept.
 
-In general the more complex modules should have an associated README.md with them, for example [vfx][vfx-readme], [pather][pather-readme], [fuzzy_plaid][fuzzy_plaid-readme]
+For a more developer oriented overview see [developers][developers-md]. In general the more complex modules should have an associated README.md with them, for example [vfx][vfx-readme], [pather][pather-readme], [fuzzy_plaid][fuzzy_plaid-readme].
 
 ## Manifesto
 
@@ -56,7 +56,7 @@ Vest currently supports a form of auto complete.
 
 [msdn-powershell]: http://msdn.microsoft.com/en-us/library/dd835506(v=VS.85).aspx "Microsoft Developer Network"
 [semantic-versioning-org]: http://semver.org/ "Semantic Versioning Overview"
-[roadmap-md]: http://github.com/fuag15/flannel/blob/master/ROADMAP.md "Road Map Markdown"
+[roadmap-md]: http://github.com/fuag15/flannel/blob/master/ROAD_MAP.md "Road Map Markdown"
 [developers-md]: http://github.com/fuag15/flannel/blob/master/DEVELOPERS.md "Developers Markdown"
 [contributing-md]: http://github.com/fuag15/flannel/blob/master/CONTRIBUTING.md "Contributing Markdown"
 [changelog-md]: http://github.com/fuag15/flannel/blob/master/CHANGELOG.md "Changelog Markdown"
