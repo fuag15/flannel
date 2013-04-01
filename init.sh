@@ -9,7 +9,7 @@ flannel() {
   local module_glob="$1"; shift 
   for module in ~/.flannel/$module_glob; do
     # did we already consume this?
-    if declare -f module_crumbs >/dev/null && module_crumbs "${module#~/.flannel}'$@'"; then
+    if declare -f _flannel_fuzzy_plaid_module_crumbs >/dev/null && _flannel_fuzzy_plaid_module_crumbs "${module#~/.flannel}'$@'"; then
       return 0
     fi
  

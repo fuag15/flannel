@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-complete -o filenames -o nospace -F completion_for_vest vest
+complete -o filenames -o nospace -F __flannel_completion_for_vest vest

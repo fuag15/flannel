@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # to all the flannel vested on us
 vest() {
-  clean_table
+  _flannel_fuzzy_plaid_clean_table
   flannel "$@"
 }
