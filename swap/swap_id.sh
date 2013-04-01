@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # helper to swap rsa identities and git / hg configs
 # takes the identity name base as an arg
 swap_id() {
@@ -9,7 +8,8 @@ swap_id() {
     exit 0
   fi
 
-  # copy rsa id over
+  # copy rsa id over I find this easier than maintaining a .ssh config per host
+  # although it is more dangerouse
   cp ~/.ssh/"$@" ~/.ssh/id_rsa
   cp ~/.ssh/"$@"_pub ~/.ssh/id_rsa.pub
 
