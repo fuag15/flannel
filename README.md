@@ -8,7 +8,7 @@ This is just a beginning of a project, note that we haven't reached beta yet, we
 
 There is also a proof of concept environment variable manager for visual effects inspired by @odgrim. @odgrim did the ground work on auto completion and prompt as well as inspired this whole project / provided the specs and use cases for environment manager proof of concept.
 
-For a more developer oriented overview see [developers][developers-md]. In general the more complex modules should have an associated README.md with them, for example [vfx][vfx-readme], [pather][pather-readme], [fuzzy_plaid][fuzzy_plaid-readme].
+For a more developer oriented overview see the [developers][developers-md] markdown. In general the more complex modules should have an associated README.md with them, for example [vfx][vfx-readme], [pather][pather-readme], [fuzzy_plaid][fuzzy_plaid-readme].
 
 ## Manifesto
 
