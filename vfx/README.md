@@ -25,7 +25,7 @@ Here we go!
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
-Voila! Now, if you were clever, you noticed a problem with that which is addressed in `Known Limitations` and has a feature planned that will fix it.
+Voila! Now, if you were clever, you noticed a problem with that which is addressed in **Known Limitations** and has a feature planned that will fix it.
 
 ## example config flannel
 
