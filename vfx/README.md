@@ -12,24 +12,18 @@ Here is an example run. We set maya 2012 which sets python to be 2.6 then we set
 
 Here we go!
 
-    $ echo "$MAYA_PLUGIN_DIR"
-    $ vest vfx/maya/2012
-    $ echo "$MAYA_PLUGIN_DIR"
-    /maya/plugin/2012
-    $ echo "$PYTHONPATH"
-    /etc/user/python/maya_plugin/0.1:/usr/bin/python/2.6:/usr/bin/maya/2012/python
-    $ vest vfx/vray
-    $ echo "$MAYA_PLUGIN_DIR"
-    /maya/plugin/2013
-    $ echo "$PYTHONPATH"
-    /some/python/path/vray/1.8.34:/usr/bin/python/2.7:/usr/bin/maya/2013/python:/etc/user/python/maya_plugin/0.6
-    $ vest vfx/maya_plugins/0.1
-    $ echo "$MAYA_PLUGIN_DIR"
-    /maya/plugin/2012
-    $ echo "$PYTHONPATH"
-    /etc/user/python/maya_plugin/0.1:/usr/bin/python/2.6:/some/python/path/vray/1.8.34:/usr/bin/maya/2012/python
-    $ vest vfx/maya clear
-    $ echo "$MAYA_PLUGIN_DIR"
+    echo $MAYA_PLUGIN_DIR # <blank>
+    vest vfx/maya/2012
+    echo $MAYA_PLUGIN_DIR # /2012
+    echo $PYTHONPATH # /2.6:/maya/2012:/plugin/0.1
+    vest vfx/vray
+    echo $MAYA_PLUGIN_DIR # /2013
+    echo $PYTHONPATH # /vray/1.8.34:/2.7:/maya/2013:/plugin/0.6
+    vest vfx/maya_plugins/0.1
+    echo $MAYA_PLUGIN_DIR # /2012
+    echo $PYTHONPATH # /plugin/0.1:/2.6:/vray/1.8.34:/maya/2012
+    vest vfx/maya clear
+    echo $MAYA_PLUGIN_DIR # <blank>
 
 Voila! Now, if you were clever, you noticed a problem with that which is addressed in `Known Limitations` and has a feature planned that will fix it.
 
@@ -37,18 +31,17 @@ Voila! Now, if you were clever, you noticed a problem with that which is address
 
 You'll notice we pass `"$@"`, our input along so that if we get passed `clear` we undo our path modifications, and we utilize globs to clear everything that is not us!
 
-    build_closet pather vfx/maya/2013
-    flannel "vfx/vray/!(1.8.34)" clear
-    create_path VRAY_1_8_34 /some/path/to/vray/1.8.34 "$@"
-    prepend_path PYTHONPATH /some/python/path/vray/1.8.34 "$@"
+    build_closet pather
+    flannel vfx/vray 1.8.34 "$@"
+    flannel vfx/maya/2013 "$@"
+    create_path VRAY_1_8_34 /vray/1.8.34 "$@"
+    prepend_path PYTHONPATH /vray/1.8.34 "$@"
 
 ## Known Limitations
 
 Reverse dependencies! If you follow the example scenario above, at one point we switch from Maya 2013 with a Vray version depending on it to Maya 2012, but Vray doesn't get removed, complain, or updated!
 
 Never fear! I have worked up a solution to this that is laid out in the [Road Map][road-map-md] markdown. 
-
-**I noticed some bugs involving my path functions and globing so I took out those features and made the vfx module more dumb. Bugs will be fixed asap and this will be removed!**
 
 [road-map-md]: ../ROAD_MAP.md "Road Map Markdown Page"
 [vfx-scenario-md]: SCENARIO.md "Vfx Prototype Scenario"
