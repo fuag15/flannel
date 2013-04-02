@@ -66,4 +66,4 @@ Vest currently supports a form of auto complete.
 [legal-licensing-md]: http://github.com/fuag15/flannel/blob/master/LEGAL_LICENSING.md "Legal and Licensing information"
 [vfx-readme]: http://github.com/fuag15/flannel/blob/master/vfx/README.md "Vfx Documentation"
 [fuzzy_plaid-readme]: http://github.com/fuag15/flannel/blob/master/fuzzy_plaid/README.md "Flannel Core Documentation"
-[pather-readme]: http://github.com/fuag15/flannel/blob/master/path/README.md "Pather Documentation"
+[pather-readme]: http://github.com/fuag15/flannel/blob/master/pather/README.md "Pather Documentation"
