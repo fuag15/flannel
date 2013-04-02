@@ -17,3 +17,4 @@ alias gffp='git flow feature publish'
 alias gfff='git flow feature finish'
 alias gco='git checkout'
 alias gbl='git branch -a'
+alias gqc=git_quick_clone
