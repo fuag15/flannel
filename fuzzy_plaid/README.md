@@ -28,5 +28,5 @@ This function appears to be pretty similar to `flannel` however you'll notice th
 
 Looks like this is a good time to read more about [breadcrumbs][breadcrumb-md]. Hungry?, eat a cookie, bread's pretty bland.
 
-[breadcrumb-md] BREAD_CRUMBS.md "Breadcrum Markdown Page"
+[breadcrumb-md]: BREAD_CRUMBS.md "Breadcrum Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"
