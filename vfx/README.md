@@ -17,7 +17,7 @@ Here we go!
     $ echo "$MAYA_PLUGIN_DIR"
     /maya/plugin/2012
     $ echo "$PYTHONPATH"
-    /etc/user/python/maya_plugin/0.1:/usr/bin/python/2.7:/usr/bin/python/2.6:/usr/bin/maya/2012/python
+    /etc/user/python/maya_plugin/0.1:/usr/bin/python/2.6:/usr/bin/maya/2012/python
     $ vest vfx/vray
     $ echo "$MAYA_PLUGIN_DIR"
     /maya/plugin/2013
