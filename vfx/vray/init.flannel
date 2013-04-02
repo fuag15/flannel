@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
-
-flannel vfx/vray/1.8.34 "$@"
+if [[ "${@:(-1)}" == "clear" ]]; then
+  flannel "vfx/vray/*" "$@"
+elif [[ -n "$1" ]]; then
+  flannel "vfx/vray/!($1)" clear
+else
+  flannel vfx/vray/1.8.34
+fi

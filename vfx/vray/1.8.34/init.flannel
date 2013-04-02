@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-build_closet pather vfx/maya/2013
-flannel "vfx/vray/!(1.8.34)" clear
-create_path VRAY_1_8_34 /some/path/to/vray/1.8.34 "$@"
-prepend_path PYTHONPATH /some/python/path/vray/1.8.34 "$@"
+build_closet pather
+flannel vfx/vray 1.8.34 "$@"
+flannel vfx/maya/2013 "$@"
+create_path VRAY_1_8_34 /vray/1.8.34 "$@"
+prepend_path PYTHONPATH /vray/1.8.34 "$@"

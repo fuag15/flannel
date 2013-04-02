@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-build_closet pather vfx/python/2.7
+build_closet pather
 flannel vfx/maya 2013 "$@"
-create_path MAYA_PLUGIN_DIR /maya/plugin/2013 "$@"
-append_path PYTHONPATH /usr/bin/maya/2013/python "$@"
-#flannel vfx/maya_plugins/0.6 "$@"
+flannel vfx/python/2.7 "$@"
+create_path MAYA_PLUGIN_DIR /2013 "$@"
+append_path PYTHONPATH /maya/2013 "$@"
+flannel vfx/maya_plugins/0.6 "$@"

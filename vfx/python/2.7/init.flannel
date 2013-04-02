@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 build_closet pather
 flannel vfx/python 2.7 "$@"
-create_path PYTHONPATH /usr/bin/python/2.7 "$@"
+create_path PYTHONPATH /2.7 "$@"
