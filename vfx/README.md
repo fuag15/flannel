@@ -29,7 +29,7 @@ Voila! Now, if you were clever, you noticed a problem with that which is address
 
 ## example config flannel
 
-You'll notice we pass `"$@"`, our input along so that if we get passed `clear` we undo our path modifications, and we utilize globs to clear everything that is not us!
+You'll notice we pass `"$@"`, our input along so that if we get passed `clear` we undo our path modifications.
 
     build_closet pather
     flannel vfx/vray 1.8.34 "$@"
