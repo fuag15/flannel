@@ -4,10 +4,8 @@
 # it uses an env_var FLANNEL_CRUMBS to manage this that gets whatever params are passed to the modules
 # this way we can load a module twice provided we are giving it different options
 _flannel_fuzzy_plaid_module_crumbs() {
-  # if this is our first run crumbs will be unset, set it
-  if [[ -z "$FLANNEL_CRUMBS" ]]; then
-    export FLANNEL_CRUMBS="${1}:"
-  elif [[ "$FLANNEL_CRUMBS" == *"${1}:"* ]]; then # we already ate this say no
+  # we already ate this say no
+  if [[ "$FLANNEL_CRUMBS" == *"${1}:"* ]]; then 
     return
   else # new food, nom nom
     export FLANNEL_CRUMBS="${FLANNEL_CRUMBS}${1}:"

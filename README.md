@@ -21,12 +21,12 @@ For a more developer oriented overview see the [developers][developers-md] markd
 
 OSX: *( one liner sources in bash_profile )*
 
-    git clone git@github.com:fuag15/flannel ~/.flannel.git && echo "[[ -s ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid" >> ~/.bash_profile && . ~/.bash_profile
+    git clone git@github.com:fuag15/flannel ~/.flannel && echo "[[ -s ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid" >> ~/.bash_profile && . ~/.bash_profile
 
 
 Unix/Linux: *( one liner sources in bashrc )*
 
-    git clone git@github.com:fuag15/flannel ~/.flannel.git && echo "[[ -s ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid" >> ~/.bashrc && . ~/.bashrc
+    git clone git@github.com:fuag15/flannel ~/.flannel && echo "[[ -s ~/.flannel/init.sh ]] && . ~/.flannel/init.sh fuzzy_plaid" >> ~/.bashrc && . ~/.bashrc
 
 Windows: *( look into power shell? [glhf][msdn-powershell] )*
 
