@@ -11,15 +11,23 @@ As a convention modules in flannel are expected to take `clear` as their last ar
 
 Lets walk through the code
 
+---
+
 ### `clean table` *clean table*
   
 Simply unset's our FLANNEL_CRUMBS environment variable.
+
+---
 
 ### `module crumbs` *module_crumbs <crumb>*
   
 First this function checks if we already ate this module with these parameters, if so it returns 0 to tell `flannel` that it should skip the module
 
 If not it appends to `FLANNEL_CRUMBS` in a dumb path like way *( simpler to parse than paths, this is never used as a path )* `<modulename>'<args>':`
+
+---
+
+## Where next?
 
 For more info check out the code!
 

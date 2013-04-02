@@ -1,6 +1,6 @@
 # [Flannel][readme-md] - Road Map
 
-- add `FLANNEL_PELLETS` as global state to help `lint_pellets` track reverse dependency fixes. Provide a strong and weak method, weak clears broken dependencies, strong fixes. takes a glob for module to search for, pellets include parameters passed
+- add `FLANNEL_PELLETS` as global state to help `lint_pellets` track reverse dependency fixes. Provide a strong and weak method, weak clears broken dependencies, strong fixes. takes a glob for module to search for, pellets include parameters passed [spec][plaid-pellets-md] markdown
 - set set up versions
 - Make clear a convention
 - Add README.md to complex modules
@@ -11,6 +11,8 @@
 - Stabilize
 - make verbose
 - add hooks to `flannel`? possibly bad idea, list of functions to run before, after load and before, after glob
+- beautify with an image / icon for this repo
 - Enjoy
 
+[plaid-pellets-md]: fuzzy_plaid/PLAID_PELLETS.md "Pellet Spec Markdown"
 [readme-md]: README.md "Flannel Readme"
