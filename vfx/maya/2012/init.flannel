@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 build_closet pather vfx/python/2.6
-flannel "vfx/maya/!(2012)" clear
+flannel vfx/maya 2012 "$@"
 create_path MAYA_PLUGIN_DIR /maya/plugin/2012 "$@"
 append_path PYTHONPATH /usr/bin/maya/2012/python "$@"
-flannel vfx/maya_plugins/0.1 "$@"
+#flannel vfx/maya_plugins/0.1 "$@"
