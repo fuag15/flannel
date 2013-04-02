@@ -2,4 +2,4 @@
 
 # Register our vest completion
 # expect filenames and dont append a space
-complete -o filenames -o nospace -F __flannel_completion_for_vest vest
+complete -o filenames -o nospace -F _flannel_completion_for_vest vest
