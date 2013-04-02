@@ -1,6 +1,6 @@
 # [Flannel][readme-md] - Fuzzy Plaid *( Core Module )*
 
-This is the main module for Flannel. It contains some helper functions for things such as loading a module `**vest**`, loading modules based on a default configuration `*~/.flannelrc*` or named configurations `*~/.name.flannelrc*` or directory configurations `*./.plaid_patch*` - `**jacket**`
+This is the main module for Flannel. It contains some helper functions for things such as loading a module `vest`, loading modules based on a default configuration `~/.flannelrc` or named configurations `~/.name.flannelrc` or directory configurations `./.plaid_patch` - `jacket`
 
 ## Code Overview
 
