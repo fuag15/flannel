@@ -28,7 +28,7 @@ This is designed to modify `PLAID_PELLETS` in a smart / easy way.
 
 `pellet <module> <rdepend> [clear]`
 
-Where <module>'args' can be a glob, might default to it being treated as a prefix, not a glob to simplify writing modules. Should be left in model config. note, you could pass args here to be more specific. can modify to allow for globbing
+Where <module>'args' can be a glob, might default to it being treated as a prefix, not a glob to simplify writing modules. Should be left in module config. note, you could pass args here to be more specific. can modify to allow for globbing
 
 ### Pseudo Code
 
