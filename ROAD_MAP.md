@@ -13,5 +13,5 @@
 - beautify with an image / icon for this repo
 - Enjoy
 
-[plaid-pellets-md]: fuzzy_plaid/PLAID_PELLETS.md "Pellet Spec Markdown"
+[plaid-pellets-md]: pellets/PLAID_PELLETS.md "Pellet Spec Markdown"
 [readme-md]: README.md "Flannel Readme"
