@@ -7,13 +7,15 @@ Each module load, `flannel` writes `<module name>'<args passed>':` To `FLANNEL_C
 
 As a convention modules in flannel are expected to take `clear` as their last argument, if they receive it, the module undoes whatever was done.
 
----
-
 Lets walk through the code
+
+---
 
 ### `clean table` *clean table*
   
 Simply unset's our FLANNEL_CRUMBS environment variable.
+
+---
 
 ### `module crumbs` *module_crumbs <crumb>*
   

@@ -33,9 +33,8 @@ Where <module>'args' can be a glob, might default to it being treated as a prefi
 ### Pseudo Code
 
 1. if it's a clear remove `<module>[<rdepend>]:` from path and `return`
-3. else if `<module>[<rdepend>]` is in the path. `return`
-4. else, add it to the path!
-5. 
+2. else if `<module>[<rdepend>]` is in the path. `return`
+3. else, add it to the path!
 
 ---
 
