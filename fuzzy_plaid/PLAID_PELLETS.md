@@ -2,7 +2,7 @@
 
 This is a spec sheet for `PLAID_PELLETS` feature prototype.
 
-**[children can find their immediate parent, parents list only immediate children]**
+**children can find their immediate parent, parents list only immediate children**
 
 If this is not 'performant' enough it could be broken down more but prefer to keep the env clean.
 
