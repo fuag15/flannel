@@ -8,10 +8,14 @@ Mimics a system with multiple python versions
 
 - Sets `PYTHONPATH` to point to version
 
+---
+
 ### supplies
 
 - 2.6
 - 2.7
+
+---
 
 ### defaults
 
@@ -24,9 +28,13 @@ Manages Maya environment variables
 - Sets `MAYA_PLUGIN_DIR`
 - Appends `PYTHONPATH`
 
+---
+
 ### needs
 
 - python
+
+---
 
 ### supplies
 
@@ -36,6 +44,8 @@ Manages Maya environment variables
 - 2013
   - needs `python` 2.7
   - sets `maya_plugins` 0.6
+
+---
 
 ### defaults
 
@@ -48,9 +58,13 @@ Meant to mimic third party plug-ins that need different versions
 - prepends `PYTHONPATH`
 - prepends `MAYA_PLUGIN_PATH`
 
+---
+
 ### needs
 
 - `maya`
+
+---
 
 ### supplies
 
@@ -58,6 +72,8 @@ Meant to mimic third party plug-ins that need different versions
   - needs `maya` 2012
 - 0.6
   - needs `maya` 2013
+
+---
 
 ### defaults
 
@@ -71,12 +87,16 @@ Mimics vray for different versions of maya.
 - prepends `PYTHONPATH`
 - needs `maya`
 
+---
+
 ### supplies
 
 - 1.6.10
   - needs `maya` 2012
 - 1.8.34
   - needs `maya` 2013
+
+---
 
 ### defaults
 

@@ -12,10 +12,10 @@ For a more developer oriented overview see the [developers][developers-md] markd
 
 ## Manifesto
 
-- If you do it twice, automate it
-- Nice code is nice, automation is nicer, make pretty a secondary concern
-- improve over time
-- share lots. :)
+1. If you do it twice, automate it
+2. Nice code is nice, automation is nicer, make pretty a secondary concern
+3. improve over time
+4. share lots. :)
 
 ## Installation
 
