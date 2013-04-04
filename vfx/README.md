@@ -55,7 +55,7 @@ Now.. that @odgrim guy... "what if i set vray to 0.9, then i set maya, I don't w
 
 Well, we talked about a block and he had a really cool insight for dealing with versions that are non semantic or uniform! Turns out if you compare versions left to right dumbly as characters, the one with the first character difference thats of higher value is the newer version! Cool beans.
 
-So, incoming in the [road map][road-map-md] is a `requires` module and a `PLAID_SPOOL` environment state variable that together will allow for requiring logical operators on module dependencies! First version is planned to support the standard ones `<=`, `>=`, `==`, `>`, `<`. And who knows, in the future it would be neat to add an `~=` for [semantic][semver-site] version complaint things
+So, incoming in the [road map][road-map-md] is a `requires` module and a `PLAID_SPOOL` environment state variable that together will allow for requiring logical operators on module dependencies! First version is planned to support the standard ones `<=`, `>=`, `==`. In the future it it will have support for a `~=` for [semantic][semver-site] version complaint things
 
 ## example config flannel
 
