@@ -13,15 +13,19 @@ Here is an example run. We set maya 2012 which sets python to be 2.6 then we set
 Here we go!
 
     echo $MAYA_PLUGIN_DIR # <blank>
+
     vest vfx/maya/2012
     echo $MAYA_PLUGIN_DIR # /2012
     echo $PYTHONPATH # /2.6:/maya/2012:/plugin/0.1
+
     vest vfx/vray
     echo $MAYA_PLUGIN_DIR # /2013
     echo $PYTHONPATH # /vray/1.8.34:/2.7:/maya/2013:/plugin/0.6
+
     vest vfx/maya_plugins/0.1
     echo $MAYA_PLUGIN_DIR # /2012
     echo $PYTHONPATH # /plugin/0.1:/2.6:/vray/1.6.10:/maya/2012
+    
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
@@ -37,10 +41,13 @@ In this example we set `vfx/maya` to default *( 2013 )* which requires `vfx/pyth
 
     vest vfx/maya
     echo $PYTHONPATH # /2.7:/maya/2013:/plugin/0.6
+
     vest vfx/python/2.6
     echo $PYTHONPATH # /2.6
+
     vest vfx/maya/2012
     echo $PYTHONPATH # /plugin/0.1:/2.6:/maya/2012
+
     vest vfx/python clear
     echo $PYTHONPATH # <empty>
 
@@ -61,10 +68,10 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
     # pellets with replacement defaults
     lint_pellet vfx/maya/2013 vfx/vray/1.8.34 vfx/vray/1.6.10 "${@:(-1)}"
-     
+
     # clear not us
     flannel "vfx/maya/!(2012)" clear
-    
+
     # regular pellets
     lint_pellets vfx/maya/2012 "${@:(-1)}"
     pellet vfx/python/2.6 vfx/maya/2012 "${@:(-1)}"
