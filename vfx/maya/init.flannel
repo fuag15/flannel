@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
-if [[ "${@:(-1)}" == "clear" ]]; then
-  flannel "vfx/maya/*" "$@"
-elif [[ -n "$1" ]]; then
-  flannel "vfx/maya/!($1)" clear
-else
-  flannel vfx/maya/2013
-fi
+# clear all, clear not a version, or set default
+flannel vfx/maya/2013 "$@"

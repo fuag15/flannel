@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-
+# clear all or set default
 if [[ "${@:(-1)}" == "clear" ]]; then
-  flannel "vfx/*" "$@"
+  flannel "vfx/*" "${@:(-1)}"
 else
   flannel vfx/maya/2013 "$@"
 fi

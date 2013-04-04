@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
-build_closet pather
-flannel vfx/python 2.6 "$@"
-create_path PYTHONPATH /2.6 "$@"
+# set up
+build_closet pather pellets
+flannel "vfx/python/!(2.6)" clear
+
+# pellets
+lint_pellets vfx/python/2.6 "${@:(-1)}"
+
+# does
+create_path PYTHONPATH /2.6 "${@:(-1)}"

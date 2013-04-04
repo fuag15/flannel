@@ -1,7 +1,22 @@
 #!/usr/bin/env bash
-build_closet pather
-flannel vfx/maya 2012 "$@"
-flannel vfx/python/2.6 "$@"
-create_path MAYA_PLUGIN_DIR /2012 "$@"
-append_path PYTHONPATH /maya/2012 "$@"
-flannel vfx/maya_plugins/0.1 "$@"
+
+# set up
+build_closet pather pellets
+
+# pellets with replacement defaults
+lint_pellet vfx/maya/2013 vfx/vray/1.8.34 vfx/vray/1.6.10 "${@:(-1)}"
+
+# clear not us
+flannel "vfx/maya/!(2012)" clear
+
+# regular pellets
+lint_pellets vfx/maya/2012 "${@:(-1)}"
+pellet vfx/python/2.6 vfx/maya/2012 "${@:(-1)}"
+
+# needs
+flannel vfx/python/2.6 "${@:(-1)}"
+
+# does
+create_path MAYA_PLUGIN_DIR /2012 "${@:(-1)}"
+append_path PYTHONPATH /maya/2012 "${@:(-1)}"
+flannel vfx/maya_plugins/0.1 "${@:(-1)}"

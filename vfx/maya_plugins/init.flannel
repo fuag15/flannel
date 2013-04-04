@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
-if [[ "${@:(-1)}" == "clear" ]]; then
-  flannel "vfx/maya_plugins/*" "$@"
-elif [[ -n "$1" ]]; then
-  flannel "vfx/maya_plugins/!($1)" clear
-else
-  flannel vfx/maya_plugins/0.6
-fi
+# clear all, clear not a version, or set default
+flannel vfx/maya_plugins/0.6

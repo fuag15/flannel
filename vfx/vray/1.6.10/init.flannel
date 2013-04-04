@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
-build_closet pather 
-flannel vfx/vray 1.6.10 "$@"
-flannel vfx/maya/2012 "$@"
-create_path VRAY_1_6_10 /vray/1.6.10 "$@"
-prepend_path PYTHONPATH /vray/1.6.10 "$@"
+# set up
+build_closet pather pellets
+flannel "vfx/vray/!(1.6.10)" clear
+
+# pellets
+pellet vfx/maya/2012 vfx/vray/1.6.10 "${@:(-1)}"
+
+# needs
+flannel vfx/maya/2012 "${@:(-1)}"
+
+# does
+create_path VRAY_1_6_10 /vray/1.6.10 "${@:(-1)}"
+prepend_path PYTHONPATH /vray/1.6.10 "${@:(-1)}"
