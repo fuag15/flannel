@@ -1,6 +1,6 @@
 # [Flannel][readme-md] - Road Map
 
-- add reverse dep support [spec][plaid-pellets-md] markdown
+- add `requirements` the version logic module and use it in vfx
 - set set up versions
 - Make `clear` a convention
 - Organize for distribution, make loading precidence to allow for overriding of default modules without modifying source *( most likely lib, dist, contrib model )*

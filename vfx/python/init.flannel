@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
-if [[ "${@:(-1)}" == "clear" ]]; then
-  flannel "vfx/python/*" "$@"
-elif [[ -n "$1" ]]; then
-  flannel "vfx/python/!($1)" clear
-else
-  flannel vfx/python/2.7
-fi
+# clear all, clear not a version, or set default
+flannel vfx/python/2.7 "$@"

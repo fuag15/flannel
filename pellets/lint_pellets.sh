@@ -9,18 +9,18 @@
 #   clear the module!
 lint_pellets() {
   # if we aren't clearing, we don't care
-  if [[ "${@:(-1}" != "clear" ]]; then
+  if [[ "${@:(-1)}" != "clear" ]]; then
     return
   fi
 
   # do we have any pellet deps?
-  local current; while [[ "$PLAID_PELLETS" == *":${module}["* ]]; do
+  local current; while [[ "$PLAID_PELLETS" == *":${1}["* ]]; do
     # get the first dep from the left
-    current = "${PLAID_PELLETS#:$1[}"
-    current = "${current%%]*}"
+    current="${PLAID_PELLETS#:$1\[}"
+    current="${current%%]*}"
 
     # clear it from our pellets
-    export PLAID_PELLETS="${PLAID_PELLETS//:$1[$current]/}"
+    export PLAID_PELLETS="${PLAID_PELLETS//:$1\[$current\]/}"
 
     # clear it because we just broke its dep
     flannel "$current" clear

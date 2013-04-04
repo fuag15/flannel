@@ -8,15 +8,15 @@
 #   flannel clear it
 #   flannel its substitution
 lint_pellet() {
-  # if we aren't clearing, we don't care
-  if [[ "${@:(-1}" != "clear" ]]; then
+  # if we are clearing, we don't care
+  if [[ "${@:(-1)}" == "clear" ]]; then
     return
   fi
-
+  
   # if its in the pellets
-  if [[ $PLAID_PELLETS == *":$1[$2]"* ]]; then
+  if [[ "$PLAID_PELLETS" == *":$1[$2]"* ]]; then
     # clear it from the path
-    export PLAID_PELLETS="${PLAID_PELLETS//:$1[$2]/}"
+    export PLAID_PELLETS="${PLAID_PELLETS//:$1\[$2\]/}"
 
     # clear the rdepend
     flannel "$2" clear
