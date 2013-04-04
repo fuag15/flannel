@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # set up
 build_closet pather pellets
-flannel "vfx/python/!(2.6)" clear
+flannel "vfx/python/!(2.6|*.flannel)" clear
 
 # pellets
 lint_pellets vfx/python/2.6 "${@:(-1)}"

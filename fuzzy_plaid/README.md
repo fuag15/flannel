@@ -36,5 +36,8 @@ This function appears to be pretty similar to `flannel` however you'll notice th
 
 Looks like this is a good time to read more about [breadcrumbs][breadcrumb-md]. Hungry?, eat a cookie, bread's pretty bland.
 
+If your not hungry, you might want to check out [plaid spool][plaid-spool-md] the state snapshot.
+
+[plaid-spool-md]: PLAID_SPOOL.md "Plaid Spool Markdown"
 [breadcrumb-md]: BREAD_CRUMBS.md "Breadcrum Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"

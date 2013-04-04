@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # set up
 build_closet pather pellets
-flannel "vfx/vray/!(1.8.34)" clear
+flannel "vfx/vray/!(1.8.34|*.flannel)" clear
 
 # pellets
 pellet vfx/maya/2013 vfx/vray/1.8.34 "${@:(-1)}"

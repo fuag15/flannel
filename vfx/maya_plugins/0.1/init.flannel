@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # set up
 build_closet pather 
-flannel "vfx/maya_plugins/!(0.1)" clear
+flannel "vfx/maya_plugins/!(0.1|*.flannel)" clear
 #flannel vfx/maya_plugins 0.1 "${@:(-1)}"
 
 # needs

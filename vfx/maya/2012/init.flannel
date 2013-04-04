@@ -7,7 +7,7 @@ build_closet pather pellets
 lint_pellet vfx/maya/2013 vfx/vray/1.8.34 vfx/vray/1.6.10 "${@:(-1)}"
 
 # clear not us
-flannel "vfx/maya/!(2012)" clear
+flannel "vfx/maya/!(2012|*.flannel)" clear
 
 # regular pellets
 lint_pellets vfx/maya/2012 "${@:(-1)}"
