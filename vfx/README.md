@@ -52,13 +52,30 @@ So, incoming in the [road map][road-map-md] is a `requires` module and a `PLAID_
 
 ## example config flannel
 
-You'll notice we pass `"$@"`, our input along so that if we get passed `clear` we undo our path modifications.
+Lets look at the hairiest of the hairy!, here's our maya 2012 config.
 
-    build_closet pather
-    flannel vfx/vray 1.8.34 "$@"
-    flannel vfx/maya/2013 "$@"
-    create_path VRAY_1_8_34 /vray/1.8.34 "$@"
-    prepend_path PYTHONPATH /vray/1.8.34 "$@"
+You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `clear` we undo our path modifications. This will most likely be simplified for later versions.
+
+    # set up
+    build_closet pather pellets
+
+    # pellets with replacement defaults
+    lint_pellet vfx/maya/2013 vfx/vray/1.8.34 vfx/vray/1.6.10 "${@:(-1)}"
+     
+    # clear not us
+    flannel "vfx/maya/!(2012)" clear
+    
+    # regular pellets
+    lint_pellets vfx/maya/2012 "${@:(-1)}"
+    pellet vfx/python/2.6 vfx/maya/2012 "${@:(-1)}"
+
+    # needs
+    flannel vfx/python/2.6 "${@:(-1)}"
+
+    # does
+    create_path MAYA_PLUGIN_DIR /2012 "${@:(-1)}"
+    append_path PYTHONPATH /maya/2012 "${@:(-1)}"
+    flannel vfx/maya_plugins/0.1 "${@:(-1)}"
 
 ## Known Limitations
 
