@@ -16,7 +16,7 @@ The point of this is to maintain the state of flannel as well as provide hooks f
 
 ### Syntax
 
-`<module>[<rdepend>]:*`
+`:<module>[<rdepend>]*`
 
 ---
 
