@@ -20,7 +20,7 @@ On a clear it just returns
 
 ### Syntax
 
-`requires_plaid <module> [{>=,<=,==} <version>]`
+`requires_plaid <module> [{>=,<=,==} <version>] [clear]`
 
 ### Pseudo Code
 
