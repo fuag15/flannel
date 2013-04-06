@@ -30,24 +30,25 @@ requires_plaid() {
       return
     fi
 
-    # else it is time to check our equality
-    # lets get the first different character
-    local diff_char_current
-    local diff_char_needed
-    # this logic is not as simple as thought
-    # need to think about how to compare
+    # get our existing version info
+    local existing_version="${PLAID_SPOOL#$1}"
 
-    # then lets compare them, we invert the test so we get a positive if its bad
-    if [[ "${diff_char_needed}" "${2%=}" "$diff_char_current" ]]; then
-      # we dont have a satisfactory version! flannel it
-      flannel "$1/$3"
+    # else it is time to check our equality, if false load
+    if declare -f _flannel_"$1"_comparator >/dev/null; then
+      # if its satisfied then
+      if _flannel_"$1"_comparator "${existing_version%%:}" "${2/%=/}" "$3"; then
+        return
+      fi
+    else # use default
+      if _flannel_catch_all_comparator "${existing_version%%:}" "${2/%=/}" "$3"; then
+        return
+      fi
     fi
-  else # its not even in our spool!
-    # if our second paramter doesn't contain an equal, just flannel the base
-    if [[ "$2" != *"="* ]]; then
-      flannel "$1"
-    else
-      flannel "$1/$3"
-    fi
+  fi # then we need to fix the error, or it wasn't in our spool
+  # if our second paramter doesn't contain an equal, just flannel the base
+  if [[ "$2" != *"="* ]]; then
+    flannel "$1"
+  else
+    flannel "$1/$3"
   fi
 }
