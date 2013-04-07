@@ -14,55 +14,38 @@
 #     - test with comparator and give 0 for true and 1 for false!
 _flannel_catch_all_comparator() {
   # get our current and target full base
-  local current_base="$1"
-  local target_base="$3"
-
-  # set local vars for current manipulation of each base
-  local current_sub="$1"
-  local target_sub="$3"
-
-  # initialize a remainder var to take of the tail of a string
-  local remainder=""
+  local current_base="$1" target_base="$3" current_sub target_sub remainder
 
   # while there are still things to be compared
   while [[ -n "$current_base" || -n "$target_base" ]]; do
     # remove special characters and letters from left and right
-    current_base="${current_base##*[[:alpha:][:punct:]]}"
-    remainder="${current_base##*[[:digit:]]}"
-    current_sub="${sub%$remainder}"
+    remainder="${current_base%%[[:digit:]]*}"
+    current_base="${current_base#$remainder}"
+    current_sub="${current_base%%[![:digit:]]*}"
 
-    target_base="${target_base##*[[:alpha:][:punct:]]}"
-    remainder="${target_base##*[[:digit:]]}"
-    target_sub="${sub%$remainder}"
+    remainder="${target_base%%[[:digit:]]*}"
+    target_base="${target_base#$remainder}"
+    target_sub="${target_base%%[![:digit:]]*}"
 
     # if current_base is null and we want less than, then tru
-    if [[ -n "$current_base" && "$2" == "<" ]]; then
-      return
-    else
-      return 1
+    if [[ -z "$current_base" ]]; then
+      [[ "$2" == "<" ]]; return
     fi
 
     # if the current_target is null and we want greater than, then return true else false
-    if [[ -n "$current_target" && "$2" == ">" ]]; then
-      return
-    else
-      return 1
+    if [[ -z "$target_base" ]]; then
+      [[ "$2" == ">" ]]; return
     fi
 
     # remove from base
-    current_base="${current_base#current_sub}"
-    target_base="${target_base#target_sub}"
+    current_base="${current_base#$current_sub}"
+    target_base="${target_base#$target_sub}"
 
-    # first we check if they are equal, if are we satisfied or not!
+    # first we check if they are equal, if are we then satisfied!
     if (( current_sub == target_sub )); then
-      # they were equal, move on to the next part
       continue
-    elif (( current_sub "$2" target_sub )); then
-      # satisfactory
-      return
-    else
-      # not satisfied!
-      return 1
+    else  # if they aren't equal, output comparison
+      (( current_sub "$2" target_sub )); return
     fi
   done
 }

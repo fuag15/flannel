@@ -19,4 +19,4 @@ flannel "vfx/python/2.6" "${@:(-1)}"
 # does
 create_path "MAYA_PLUGIN_DIR" "/2012" "${@:(-1)}"
 append_path "PYTHONPATH" "/maya/2012" "${@:(-1)}"
-flannel "vfx/maya_plugins/0.1" "${@:(-1)}"
+# flannel "vfx/maya_plugins/0.1" "${@:(-1)}"
