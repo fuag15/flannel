@@ -4,9 +4,12 @@
 # syntax: `lint_pellet <module> <rdepend> <operator> <version> [clear]
 # if we are not clearing, who cares, return
 # if the module rdepend pair is nour path
-#   clear it form path
-#   flannel clear it
-#   flannel its substitution
+#   check the module operator against any sheep
+#   if a sheep satisfies it then
+#     if the version satisfies our operator
+#       return
+#   else
+#     flannel its substitution
 lint_pellet() {
   # if we are clearing, we don't care
   if [[ "${@:(-1)}" == "clear" ]]; then
