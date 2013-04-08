@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-build_closet "versions"
+build_closet "versions" "sheep"
