@@ -4,13 +4,13 @@
 build_closet "pather" "pellets" "requires"
 
 # pellets with replacement defaults
-lint_pellet "vfx/maya" "2012" "vfx/vray" "<=" "1.8.34" "vfx/vray" ">=" "1.6.10" "${@:(-1)}"
+lint_pellet "vfx/maya" "vfx/vray" "==" "1.6.10" "${@:(-1)}"
 
 # clear not us
 clean_closet "vfx/maya" "2012" "${@:(-1)}"
 
 # regular pellets
-lint_pellets "vfx/maya" "2012" "${@:(-1)}"
+lint_pellets "vfx/maya" "${@:(-1)}"
 pellet "vfx/python" "==" "2.6" "vfx/maya/2012" "${@:(-1)}"
 
 # needs
