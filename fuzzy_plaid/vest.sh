@@ -5,5 +5,11 @@
 # it clears our crumbs from the last run and then passes off vars to flannel
 vest() {
   _flannel_fuzzy_plaid_clean_table
+
+  # clear our old sheep
+  if declare -f _flannel_sheep_disperse >/dev/null; then
+    _flannel_sheep_disperse
+  fi
+  
   flannel "$@"
 }

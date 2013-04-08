@@ -23,8 +23,18 @@ flannel() {
   local module_glob="$1"; shift 
   # loop through glob matches and run them
   for module in ~/.flannel/$module_glob; do
+    # keep track of our incoming sheep
+    if declare -f _flannel_sheep_place >/dev/null; then
+      _flannel_sheep_place "${module#~/.flannel/}" "$@"
+    fi
+
+    # keep track of the state
+    if declare -f _flannel_fuzzy_plaid_spool_plaid >/dev/null; then
+      _flannel_fuzzy_plaid_spool_plaid "${module#~/.flannel/}" "$@"
+    fi
+
     # did we already consume this?
-    if declare -f _flannel_fuzzy_plaid_module_crumbs >/dev/null && _flannel_fuzzy_plaid_module_crumbs "${module#~/.flannel}'$@'"; then
+    if declare -f _flannel_fuzzy_plaid_module_crumbs >/dev/null && _flannel_fuzzy_plaid_module_crumbs "${module#~/.flannel/}'$@'"; then
       # skip this glob match
       continue
     fi
@@ -40,13 +50,13 @@ flannel() {
     # now load the modules requirements if it has any
     [[ -f "$module"/init.flannel ]] && . "$module"/init.flannel "$@"
 
-    # keep track of the state
-    if declare -f _flannel_fuzzy_plaid_spool_plaid >/dev/null; then
-      _flannel_fuzzy_plaid_spool_plaid "${module#~/.flannel}" "$@"
-    fi
-
     # reset our shell opt for next run
     shopt -s nullglob extglob
+
+    # we loaded it
+    if declare -f _flannel_sheep_stitch >/dev/null; then
+      _flannel_sheep_stitch "${module#~/.flannel/}" "$@"
+    fi
   done
   # make sure our shell opt is unset
   shopt -u nullglob extglob

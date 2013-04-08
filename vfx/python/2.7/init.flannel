@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # set up
 build_closet "pather" "pellets"
-clean_closet "vfx/python" "2.7"
+clean_closet "vfx/python" "2.7" "${@:(-1)}"
 
 # pellets
-lint_pellets "vfx/python/2.7" "${@:(-1)}"
+lint_pellets "vfx/python" "2.7" "${@:(-1)}"
 
 # does
 create_path "PYTHONPATH" "/2.7" "${@:(-1)}"

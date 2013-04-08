@@ -8,13 +8,20 @@ _flannel_fuzzy_plaid_spool_plaid() {
   # if we got a clear
   if [[ "${@:(-1)}" == "clear" ]]; then
     # remove our flannel
-    export PLAID_SPOOL="${PLAID_SPOOL//$1:/}"
-    return
+    export PLAID_SPOOL="${PLAID_SPOOL//$1:/}"; return
   fi
 
   # is it not in the path?
   if [[ "$PLAID_SPOOL" != *"$1:"* ]]; then
-    # add it to the path!
+
+    # remove base versions if they are there
+    if [[ "$PLAID_SPOOL" == *"${1%%/[[:digit:]]*}"* ]]; then
+      # remove the base
+      local base="${1%%/[[:digit:]]*}"
+      export PLAID_SPOOL="${PLAID_SPOOL/$base:/}"
+    fi
+
+    # add it to the path
     export PLAID_SPOOL="${PLAID_SPOOL}${1}:"
   fi
 }
