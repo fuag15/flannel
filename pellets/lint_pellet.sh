@@ -39,7 +39,7 @@ lint_pellet() {
     current_rdepend_version="${current_rdepend_version#*[}"
 
     # get just the version info
-    current_rdepend_version="${current_rdepend_version##*[![:digit:]]}"
+    current_rdepend_version="${current_rdepend_version%%[![:digit:]]*}"
 
     # if we have a version
     if [[ -n "$current_rdepend_version" ]]; then

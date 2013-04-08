@@ -8,7 +8,7 @@ place_sheep() {
     return
   fi
 
-  if [[ "$PLAID_SHEEP" != *":$1"* ]]; then
-    export PLAID_SEEP="$PLAID_SHEEP:$1"
+  if [[ "$PLAID_SHEEP" != *":$1'"* ]]; then
+    export PLAID_SEEP="$PLAID_SHEEP:$1'"
   fi
 }

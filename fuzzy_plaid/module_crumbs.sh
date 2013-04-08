@@ -5,10 +5,10 @@
 # this way we can load a module twice provided we are giving it different options
 _flannel_fuzzy_plaid_module_crumbs() {
   # we already ate this say no
-  if [[ "$FLANNEL_CRUMBS" == *"${1}:"* ]]; then 
+  if [[ "$FLANNEL_CRUMBS" == *":${1}"* ]]; then 
     return
   else # new food, nom nom
-    export FLANNEL_CRUMBS="${FLANNEL_CRUMBS}${1}:"
+    export FLANNEL_CRUMBS="${FLANNEL_CRUMBS}:${1}"
   fi
   # we didn't get food already eaten so return 1 to signify this was a new module
   # this is used as an if condition in flannel()

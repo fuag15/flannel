@@ -18,7 +18,7 @@ requires_plaid() {
   fi
 
   # if it is in our spool
-  if [[ "$PLAID_SPOOL" == *"$1"* ]]; then
+  if [[ "$PLAID_SPOOL" == *":$1"* ]]; then
 
     # if our second parramater doesnt contain an equal were done
     if [[ "$2" != *"="* ]]; then
@@ -26,21 +26,21 @@ requires_plaid() {
     fi
 
     # else we got an equality op, lets check it out first if it is equal then return
-    if [[ "$PLAID_SPOOL" == *"$1/$3:"* ]]; then
+    if [[ "$PLAID_SPOOL" == *":$1/$3'"* ]]; then
       return
     fi
 
     # get our existing version info
-    local existing_version="${PLAID_SPOOL#*$1/}"
+    local existing_version="${PLAID_SPOOL#*:$1/}"
 
     # else it is time to check our equality, if false load
     if declare -f _flannel_"$1"_comparator >/dev/null; then
       # if its satisfied then
-      if _flannel_"$1"_comparator "${existing_version%%:}" "${2%=}" "$3"; then
+      if _flannel_"$1"_comparator "${existing_version%%'}" "${2%=}" "$3"; then
         return
       fi
     else # use default
-      if _flannel_catch_all_comparator "${existing_version%%:}" "${2%=}" "$3"; then
+      if _flannel_catch_all_comparator "${existing_version%%'}" "${2%=}" "$3"; then
         return
       fi
     fi

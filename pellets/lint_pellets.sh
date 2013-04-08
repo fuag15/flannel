@@ -19,7 +19,7 @@ lint_pellets() {
     sheep="${PLAID_SHEEP#*:$1/}"
 
     # get the version
-    sheep="${sheep%%:*}"
+    sheep="${sheep%%[![:digit:]]*}"
   fi
 
   local pellet_copy="$PLAID_PELLETS"
