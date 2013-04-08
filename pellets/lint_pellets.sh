@@ -22,10 +22,12 @@ lint_pellets() {
     sheep="${sheep%%:*}"
   fi
 
+  local pellet_copy="$PLAID_PELLETS"
+
   # do we have any pellet deps?
-  local current operator version; while [[ "$PLAID_PELLETS" == *":${1}'"* ]]; do
+  local current operator version; while [[ "$pellet_copy" == *":${1}'"* ]]; do
     # get the first dep from the left and eat the prefix
-    current="${PLAID_PELLETS#:$1'}"
+    current="${pellet_copy#*:$1'}"
 
     # get the operator from the left
     operator="${current%%'*}"
@@ -41,6 +43,9 @@ lint_pellets() {
 
     # get just the current abslute module path
     current="${current%%]*}"
+
+    # remove it from our pellet copy
+    pellet_copy="${pellet_copy//:$1\'$operator\'$version\[$current\]/}"
 
     # if our sheep isn't null or empty and it sati
     if [[ -n "$sheep" ]]; then
@@ -58,9 +63,6 @@ lint_pellets() {
     fi
 
     # if we got here then it needs to be removed, remove it
-    export PLAID_PELLETS="${PLAID_PELLETS//:$1\'$operator\'$version\[$current\]/}"
-
-    # clear it because we just broke its dep
     flannel "$current" clear
   done
 }
