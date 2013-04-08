@@ -25,6 +25,8 @@ OSX/Unix/Linux: *( one liner sources in bash_profile )*
 
 Windows: *( look into power shell? [glhf][msdn-powershell] )*
 
+    I could provide a power shell conversion of this if there is interest. Let me know if you'd like to see one.
+
 ## Basic Usage
 
 Once Installed the important functions are `vest` - *load a module* and `jacket` - load default config, named config, local configs.

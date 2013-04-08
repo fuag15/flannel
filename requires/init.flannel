@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# we need versions
+build_closet "versions"

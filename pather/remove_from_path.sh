@@ -20,9 +20,12 @@ remove_from_path() {
     return
   fi
 
-  # clear from middle / beginning of path
-  local path_contents="${!1//${2}:/}"
+  # clear from beggining
+  local path_contents="${!1#${2}:}"
+
+  # clear from middle of path
+  path_contents="${!1//:${2}:/:}"
 
   # clear from end of path
-  export "$1"="${path_contents%:${2}}"
+  export "$1"="${path_contents%:$2}"
 }

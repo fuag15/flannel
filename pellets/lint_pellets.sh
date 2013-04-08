@@ -1,28 +1,68 @@
 #!/usr/bin/env bash
 # lint pellets should be colled before anything in a configuration except any calls to lint_pellet
 # lint pellets goes through our PLAID_PELLETS and removes and reverse dpendencies
-# if we are not called with clear thin it simple returns.
 # syntax: `lint_pellets <module> [clear]
 # first, check if we got a clear, if not return
-# next if its in our pellet path
-#   remove from plaid pellets
-#   clear the module!
+# next for each rdepend of us
+#   if we dont satisfy it's requirement wiht any existing module in PLAID_SHEEP
+#     remove from plaid pellets
+#     clear the module!
 lint_pellets() {
   # if we aren't clearing, we don't care
   if [[ "${@:(-1)}" != "clear" ]]; then
     return
   fi
 
+  # get the largest relevant sheep
+  local sheep; if [[ "$PLAID_SHEEP" == *":$1/"* ]]; then
+    # get the sheep
+    sheep="${PLAID_SHEEP#*:$1/}"
+
+    # get the version
+    sheep="${sheep%%[![:digit:]]*}"
+  fi
+
+  local pellet_copy="$PLAID_PELLETS"
+
   # do we have any pellet deps?
-  local current; while [[ "$PLAID_PELLETS" == *":${1}["* ]]; do
-    # get the first dep from the left
-    current="${PLAID_PELLETS#:$1\[}"
+  local current operator version; while [[ "$pellet_copy" == *":${1}'"* ]]; do
+    # get the first dep from the left and eat the prefix
+    current="${pellet_copy#*:$1'}"
+
+    # get the operator from the left
+    operator="${current%%'*}"
+
+    # eat the operator
+    current="${current#*'}"
+
+    # get the version
+    version="${current%%[*}"
+
+    # eat off the version
+    current="${current#*[}"
+
+    # get just the current abslute module path
     current="${current%%]*}"
 
-    # clear it from our pellets
-    export PLAID_PELLETS="${PLAID_PELLETS//:$1\[$current\]/}"
+    # remove it from our pellet copy
+    pellet_copy="${pellet_copy//:$1\'$operator\'$version\[$current\]/}"
 
-    # clear it because we just broke its dep
+    # if our sheep isn't null or empty and it sati
+    if [[ -n "$sheep" ]]; then
+      # if we satisfy it with our sheep then continue our loop
+      if declare -f _flannel_"$1"_comparator >/dev/null; then
+        # if its satisfied then
+        if _flannel_"$1"_comparator "$sheep" "${operator%=}" "$version"; then
+          continue
+        fi
+      else # use default
+        if _flannel_catch_all_comparator "$sheep" "${operator%=}" "$version"; then
+          continue
+        fi
+      fi
+    fi
+
+    # if we got here then it needs to be removed, remove it
     flannel "$current" clear
   done
 }

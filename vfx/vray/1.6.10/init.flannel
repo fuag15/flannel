@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # set up
-build_closet pather pellets
-flannel "vfx/vray/!(1.6.10|*.flannel)" clear
+build_closet "pather" "pellets" "requires"
+clean_closet "vfx/vray" "1.6.10" "${@:(-1)}"
 
 # pellets
-pellet vfx/maya/2012 vfx/vray/1.6.10 "${@:(-1)}"
+pellet "vfx/maya" "==" "2012" "vfx/vray/1.6.10" "${@:(-1)}"
 
 # needs
-flannel vfx/maya/2012 "${@:(-1)}"
+requires_plaid "vfx/maya" "==" "2012" "${@:(-1)}"
 
 # does
-create_path VRAY_1_6_10 /vray/1.6.10 "${@:(-1)}"
-prepend_path PYTHONPATH /vray/1.6.10 "${@:(-1)}"
+create_path "VRAY_1_6_10" "/vray/1.6.10" "${@:(-1)}"
+prepend_path "PYTHONPATH" "/vray/1.6.10" "${@:(-1)}"

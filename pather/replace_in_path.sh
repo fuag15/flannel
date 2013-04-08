@@ -27,8 +27,11 @@ replace_in_path() {
     return
   fi
 
-  # replace from beggining or middle
-  local modified_path="${!1//${2}:/${3}:}"
+  # replace from beggining 
+  local modified_path="${!1/#${2}:/${3}:}"
+
+  # replace from middle
+  modified_path="${!1//:${2}:/:${3}:}"
 
   # replace from end
   export "$1"="${modified_path/%:$2/:$3}"

@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # set up
-build_closet pather 
-flannel "vfx/maya_plugins/!(0.1|*.flannel)" clear
-#flannel vfx/maya_plugins 0.1 "${@:(-1)}"
+build_closet "pather" "requires"
+
+# clean up
+clean_closet "vfx/maya_plugins" "0.1" "${@:(-1)}"
 
 # needs
-flannel vfx/maya/2012 "${@:(-1)}"
+requires_plaid "vfx/maya" "==" "2012" "${@:(-1)}"
 
 # does
-prepend_path MAYA_PLUGIN_PATH /plugin/0.1 "${@:(-1)}"
-prepend_path PYTHONPATH /plugin/0.1 "${@:(-1)}"
+prepend_path "MAYA_PLUGIN_PATH" "/plugin/0.1" "${@:(-1)}"
+prepend_path "PYTHONPATH" "/plugin/0.1" "${@:(-1)}"
