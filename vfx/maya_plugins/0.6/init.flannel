@@ -6,7 +6,7 @@ build_closet "pather" "requires"
 clean_closet "vfx/maya_plugins" "0.6" "${@:(-1)}"
 
 # needs
-flannel "vfx/maya" "==" "2013" "${@:(-1)}"
+requires_plaid "vfx/maya" "==" "2013" "${@:(-1)}"
 
 # does
 append_path "MAYA_PLUGIN_PATH" "/plugin/0.6" "${@:(-1)}"

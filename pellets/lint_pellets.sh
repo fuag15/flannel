@@ -25,15 +25,15 @@ lint_pellets() {
   local pellet_copy="$PLAID_PELLETS"
 
   # do we have any pellet deps?
-  local current operator version; while [[ "$pellet_copy" == *":${1}'"* ]]; do
+  local current operator version; while [[ "$pellet_copy" == *":${1};"* ]]; do
     # get the first dep from the left and eat the prefix
-    current="${pellet_copy#*:$1'}"
+    current="${pellet_copy#*:$1;}"
 
     # get the operator from the left
-    operator="${current%%'*}"
+    operator="${current%%;*}"
 
     # eat the operator
-    current="${current#*'}"
+    current="${current#*;}"
 
     # get the version
     version="${current%%[*}"
@@ -45,7 +45,7 @@ lint_pellets() {
     current="${current%%]*}"
 
     # remove it from our pellet copy
-    pellet_copy="${pellet_copy//:$1\'$operator\'$version\[$current\]/}"
+    pellet_copy="${pellet_copy//:$1;$operator;$version\[$current\]/}"
 
     # if our sheep isn't null or empty and it sati
     if [[ -n "$sheep" ]]; then

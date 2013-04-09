@@ -3,11 +3,11 @@
 build_closet "pather" "pellets" "requires"
 clean_closet "vfx/vray" "1.6.10" "${@:(-1)}"
 
-# pellets
-pellet "vfx/maya" "==" "2012" "vfx/vray/1.6.10" "${@:(-1)}"
-
 # needs
 requires_plaid "vfx/maya" "==" "2012" "${@:(-1)}"
+
+# pellets
+pellet "vfx/maya" "==" "2012" "vfx/vray/1.6.10" "${@:(-1)}"
 
 # does
 create_path "VRAY_1_6_10" "/vray/1.6.10" "${@:(-1)}"
