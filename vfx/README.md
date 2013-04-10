@@ -55,34 +55,74 @@ Now.. that @odgrim guy... "what if i set vray to 0.9, then i set maya, I don't w
 
 Well, we talked about a block and he had a really cool insight for dealing with versions that are non semantic or uniform! Turns out if you compare versions left to right dumbly as characters, the one with the first character difference thats of higher value is the newer version! Cool beans.
 
-So, incoming in the [road map][road-map-md] is a `requires` module and a `PLAID_SPOOL` environment state variable that together will allow for requiring logical operators on module dependencies! First version is planned to support the standard ones `<=`, `>=`, `==`. In the future it it will have support for a `~=` for [semantic][semver-site] version complaint things
+So, support has been added for relational logic! on requirements as well as relational logic on reverse dependencies and defaults. Lets look at a small sample of some of this. The supported comparators are `>=`, `<=`, `==`
+
+---
+
+In this exaple we have specified some relational logic on the defaults. Namely, Maya 2013 requires vray >= 1.8.34 and vray 1.9.02 requires maya >= 2013. Let's see this in action
+
+Here we set vray which defaults to 1.8.34 and requires maya >= 2013, it finds no Maya set and sets 2013. We then change maya to 2012 which breaks vray 1.8.34 but by default replaces it with vray 1.6.10 if it is set. Then we swithc maya to 2013 which default sets vray to 18.34. Then we switch vray to 1.9.02 which requires maya >= 2013. Then we swithc maya to 2014 and switch it back to 2013. Note that vray stays at 1.9.02 since 2013 defaults vray to >= 1.8.34 if it was previously set.
+
+Finally we clear maya which breaks all backwards dependencies but leaves python as is. Then we clear all of our vfx module to get rid of our python setting.
+
+Here it goes.
+
+    vest vfx/vray
+    echo $PYTHONPATH # /vray/1.8.34:/2.7:/maya/2013:/plugin/0.6
+
+    vest vfx/maya/2012
+    echo $PYTHONPATH # /plugin/0.1:/2.6:/vray/1.6.10:/maya/2012
+
+    vest vfx/maya/2013
+    echo $PYTHONPATH # /2.7:/vray/1.8.34:/maya/2013:/plugin/0.6
+
+    vest vfx/vray/1.9.02
+    echo $PYTHONPATH # /vray/1.9.02:/2.7:/maya/2013:/plugin/0.6
+
+    vest vfx/maya/2014
+    echo $PYTHONPATH # /vray/1.9.02:/2.7:/maya/2014:/plugin/0.9
+
+    vest vfx/maya/2013
+    echo $PYTHONPATH # /vray/1.9.02:/2.7:/maya/2013:/plugin/0.6
+
+    vest vfx/maya clear
+    echo $PYTHONPATH # /2.7
+
+    vest vfx clear
+    echo $PYTHONPATH # <blank>
+
+Am I a wizard? Yes. Am I modest? ... Yes. ;) The logic for these things could be cleaned up and simplified to make a better front facing format for config files and unit tests for the features are incoming, but I'm dropping further polish, a packaging / distribution system, or a Windows power shell version until external interest is shown in this project.
 
 ## example config flannel
 
-Lets look at the hairiest of the hairy!, here's our maya 2012 config.
+Lets look at the hairiest of the hairy!, here's our maya 2013 config.
 
 You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `clear` we undo our path modifications. This will most likely be simplified for later versions.
 
     # set up
-    build_closet pather pellets
+    build_closet "pather" "pellets" "requires"
 
     # pellets with replacement defaults
-    lint_pellet vfx/maya/2013 vfx/vray/1.8.34 vfx/vray/1.6.10 "${@:(-1)}"
+    lint_pellet "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
     # clear not us
-    flannel "vfx/maya/!(2012)" clear
+    clean_closet "vfx/maya" "2013" "${@:(-1)}"
 
-    # regular pellets
-    lint_pellets vfx/maya/2012 "${@:(-1)}"
-    pellet vfx/python/2.6 vfx/maya/2012 "${@:(-1)}"
+    # pellets
+    lint_pellets "vfx/maya" "${@:(-1)}"
 
     # needs
-    flannel vfx/python/2.6 "${@:(-1)}"
+    requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"
+
+    # lay pellets
+    pellet "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
     # does
-    create_path MAYA_PLUGIN_DIR /2012 "${@:(-1)}"
-    append_path PYTHONPATH /maya/2012 "${@:(-1)}"
-    flannel vfx/maya_plugins/0.1 "${@:(-1)}"
+    create_path "MAYA_PLUGIN_DIR" "/2013" "${@:(-1)}"
+    append_path "PYTHONPATH" "/maya/2013" "${@:(-1)}"
+
+    # example of a tightly bound dependency
+    flannel "vfx/maya_plugins/0.6" "${@:(-1)}"
 
 ## Known Limitations
 

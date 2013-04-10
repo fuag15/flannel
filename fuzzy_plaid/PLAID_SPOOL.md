@@ -12,7 +12,7 @@ This variable just maintains the state of our plaid, it's main use is to allow l
 
 ### Syntax
 
-`<module>:*`
+`:<module>;*`
 
 You've seen it before, and you'll see it again, why not, its a fine syntax for path like variables. *( Provided they are never used as a path )*
 

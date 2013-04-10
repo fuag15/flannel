@@ -2,7 +2,7 @@
 
 The `PLAID_SHEEP` environment variable is a path like variable that is meant to store flannel modules that are currently processing. It is used in conjunction with the `requires` module and `pellets` module to resolve logical reverse dependencies. This could easily be done using the `crumbs` module but I have separated it out for simplicity during early development, could be merged in the future.
 
-This doc will need to be flushed out, however for now here is some code dumping. Consider this a spec sheet.
+This doc will need to be flushed out, however for now here is some code dumping. Overview is we place sheep in the line and stitch them after we have applied them and then in-between run we disperse any leftovers in-case something bad happened.
 
 ---
 
@@ -12,7 +12,7 @@ This will contain the same path like syntax as other such variables and is very 
 
 ### Syntax
 
-`module:*`
+`:module;*`
 
 ---
 
@@ -63,4 +63,6 @@ unset `PLAID_SHEEP`
 
 ---
 
-there ya have it, `PLAID_SHEEP` spec'd
+there ya have it, `PLAID_SHEEP`
+
+[readme-md]: ../README.md "Flannel Readme"

@@ -20,7 +20,7 @@ The point of this is to maintain the state of flannel as well as provide hooks f
 
 ### Syntax
 
-`:<module>[<rdepend>]*`
+`:<module>;{>=,==,>=};version[<rdepend>]*`
 
 ---
 
@@ -30,9 +30,9 @@ This is designed to modify `PLAID_PELLETS` in a smart / easy way.
 
 ### Syntax
 
-`pellet <module> <rdepend> [clear]`
+`pellet <module> <operator> <version> <rdepend> [clear]`
 
-Where <module>'args' can be a glob, might default to it being treated as a prefix, not a glob to simplify writing modules. Should be left in module config. note, you could pass args here to be more specific. can modify to allow for globbing
+Where <module> is the base module you need, operator is one of {==,>=,<=} and <version> is the version you rely on in relation to that operator. <rdepend> is the full module path to yourself
 
 ---
 
@@ -56,9 +56,9 @@ This is meant to be done at the top of an `init.flannel`, it checks if a specifi
 
 ### Syntax
 
-`lint_pellet <module> <rdepend> <substitution> [clear]`
+`lint_pellet <module> <rdepend> <operator> <version> [clear]`
 
-where *<module glob to find>* is the Dependant to find and *<substitution>* is the module to replace it with
+where <module> is the module base you are linting for, <rdepend> is the base of the reverse dependency, and <operator> / <version> are a logical pair for what you want the replacement dependency to be.
 
 [vfx-readme]: ../vfx/README.md "Vfx Prototype Module"
 [readme-md]: ../README.md "Flannel Readme"

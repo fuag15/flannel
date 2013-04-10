@@ -36,6 +36,9 @@ Manages Maya environment variables
 - 2013
   - needs `python` 2.7
   - sets `maya_plugins` 0.6
+- 2014
+  - needs `python` 2.7
+  - sets `maya_plugins` 0.9
 
 ### defaults
 
@@ -58,6 +61,8 @@ Meant to mimic third party plug-ins that need different versions
   - needs `maya` 2012
 - 0.6
   - needs `maya` 2013
+- 0.9
+  - needs `maya` 2014
 
 ### defaults
 
@@ -77,6 +82,8 @@ Mimics vray for different versions of maya.
   - needs `maya` 2012
 - 1.8.34
   - needs `maya` 2013
+- 1.9.02
+  - nees `maya` >= 2013
 
 ### defaults
 
