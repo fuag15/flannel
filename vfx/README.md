@@ -126,9 +126,9 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
 ## Known Limitations
 
-Reverse dependencies! If you follow the example scenario above, at one point we switch from Maya 2013 with a Vray version depending on it to Maya 2012, but Vray doesn't get removed, complain, or updated!
+No technical ones? These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
 
-Never fear! I have worked up a solution to this that is laid out in the [Road Map][road-map-md] markdown. 
+Check out the [Road Map][road-map-md] markdown for what's up next. 
 
 [semver-site]: http://semver.org "Semantic Version System"
 [pellets-readme]: ../pellets/README.md "pellets readme"
