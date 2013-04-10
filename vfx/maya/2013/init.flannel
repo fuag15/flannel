@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-
 # set up
 build_closet "pather" "pellets" "requires"
 
 # pellets with replacement defaults
-# lint_pellet "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
+lint_pellet "vfx/maya" "vfx/vray" "==" "1.8.34" "${@:(-1)}"
 
 # clear not us
 clean_closet "vfx/maya" "2013" "${@:(-1)}"

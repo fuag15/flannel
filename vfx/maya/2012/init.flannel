@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # set up
 build_closet "pather" "pellets" "requires"
 
