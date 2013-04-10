@@ -63,7 +63,7 @@ In this exaple we have specified some relational logic on the defaults. Namely, 
 
 Here we set vray which defaults to 1.8.34 and requires maya >= 2013, it finds no Maya set and sets 2013. We then change maya to 2012 which breaks vray 1.8.34 but by default replaces it with vray 1.6.10 if it is set. Then we swithc maya to 2013 which default sets vray to 18.34. Then we switch vray to 1.9.02 which requires maya >= 2013. Then we swithc maya to 2014 and switch it back to 2013. Note that vray stays at 1.9.02 since 2013 defaults vray to >= 1.8.34 if it was previously set.
 
-Finally we clear maya which breaks all backwards dependencies but leaves python as is. Then we clear all of our vfx module to get rid of our python setting.
+Finally we clear maya which breaks all backwards dependencies but leaves python as is. Then we clear python to get rid of our python setting.
 
 Here it goes.
 
@@ -88,7 +88,7 @@ Here it goes.
     vest vfx/maya clear
     echo $PYTHONPATH # /2.7
 
-    vest vfx clear
+    vest vfx/python clear
     echo $PYTHONPATH # <blank>
 
 Am I a wizard? Yes. Am I modest? ... Yes. ;) The logic for these things could be cleaned up and simplified to make a better front facing format for config files and unit tests for the features are incoming, but I'm dropping further polish, a packaging / distribution system, or a Windows power shell version until external interest is shown in this project.
