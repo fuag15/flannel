@@ -13,6 +13,11 @@
 #   - else
 #     - test with comparator and give 0 for true and 1 for false!
 _flannel_catch_all_comparator() {
+  # if we got an equal, just return if they are equal
+  if [[ "$2" == "=" ]]; then
+    [[ "$1" == "$3" ]]; return
+  fi
+
   # get our current and target full base
   local current_base="$1" target_base="$3" current_sub target_sub remainder
 

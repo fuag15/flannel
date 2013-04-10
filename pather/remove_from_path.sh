@@ -24,7 +24,7 @@ remove_from_path() {
   local path_contents="${!1#${2}:}"
 
   # clear from middle of path
-  path_contents="${!1//:${2}:/:}"
+  path_contents="${path_contents//:${2}:/:}"
 
   # clear from end of path
   export "$1"="${path_contents%:$2}"

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # set up
 build_closet "pather" "pellets" "requires"
 
@@ -9,12 +8,14 @@ lint_pellet "vfx/maya" "vfx/vray" "==" "1.6.10" "${@:(-1)}"
 # clear not us
 clean_closet "vfx/maya" "2012" "${@:(-1)}"
 
-# regular pellets
+# pellets
 lint_pellets "vfx/maya" "${@:(-1)}"
-pellet "vfx/python" "==" "2.6" "vfx/maya/2012" "${@:(-1)}"
 
 # needs
 requires_plaid "vfx/python" "==" "2.6" "${@:(-1)}"
+
+# lay pellets
+pellet "vfx/python" "==" "2.6" "vfx/maya/2012" "${@:(-1)}"
 
 # does
 create_path "MAYA_PLUGIN_DIR" "/2012" "${@:(-1)}"

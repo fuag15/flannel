@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
-
 # set up
 build_closet "pather" "pellets" "requires"
 
 # pellets with replacement defaults
-lint_pellet "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
+lint_pellet "vfx/maya" "vfx/vray" "==" "1.8.34" "${@:(-1)}"
 
 # clear not us
 clean_closet "vfx/maya" "2013" "${@:(-1)}"
 
 # pellets
 lint_pellets "vfx/maya" "${@:(-1)}"
-pellet "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
 # needs
 requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"
+
+# lay pellets
+pellet "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
 # does
 create_path "MAYA_PLUGIN_DIR" "/2013" "${@:(-1)}"

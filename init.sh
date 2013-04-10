@@ -22,10 +22,11 @@ flannel() {
   # store var so we dont do lots of arithmatic on $@
   local module_glob="$1"; shift 
   # loop through glob matches and run them
-  for module in ~/.flannel/$module_glob; do
-    # keep track of our incoming sheep
-    if declare -f _flannel_sheep_place >/dev/null; then
-      _flannel_sheep_place "${module#~/.flannel/}" "$@"
+  local module; for module in ~/.flannel/$module_glob; do
+    # did we already consume this?
+    if declare -f _flannel_fuzzy_plaid_module_crumbs >/dev/null && _flannel_fuzzy_plaid_module_crumbs "${module#~/.flannel/}'$@'"; then
+      # skip this glob match
+      continue
     fi
 
     # keep track of the state
@@ -33,20 +34,19 @@ flannel() {
       _flannel_fuzzy_plaid_spool_plaid "${module#~/.flannel/}" "$@"
     fi
 
-    # did we already consume this?
-    if declare -f _flannel_fuzzy_plaid_module_crumbs >/dev/null && _flannel_fuzzy_plaid_module_crumbs "${module#~/.flannel/}'$@'"; then
-      # skip this glob match
-      continue
+    # keep track of our incoming sheep
+    if declare -f _flannel_place_sheep >/dev/null; then
+      _flannel_place_sheep "${module#~/.flannel/}" "$@"
     fi
  
     # load our modules base files
     for file in "$module"/*.{sh,bash}; do
       . "$file"
     done
+    local current_mod="${module#~/.flannel/}"
 
     # unset our shell opts so modules inits have a clean env
     shopt -u nullglob extglob
-
     # now load the modules requirements if it has any
     [[ -f "$module"/init.flannel ]] && . "$module"/init.flannel "$@"
 

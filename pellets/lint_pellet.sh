@@ -20,15 +20,15 @@ lint_pellet() {
   local pellet_copy="$PLAID_PELLETS"
   
   # if its in the pellets
-  local current_rdepend_version; while [[ "$pellet_copy" == *":$1'"* ]]; do
+  local current_rdepend_version; while [[ "$pellet_copy" == *":$1;"* ]]; do
     # get the first dep from the left and eat the prefix
-    local current_rdepend_version="${pellet_copy#*:$1'}"
+    local current_rdepend_version="${pellet_copy#*:$1;}"
 
     # eat extraneous right hand side
     current_rdepend_version="${current_rdepend_version%%]*}"
 
     # eat it and continue
-    pellet_copy="${pellet_copy//:$1\'$current_rdepend_version\]/}"
+    pellet_copy="${pellet_copy//:$1;$current_rdepend_version\]/}"
 
     # if it is not for the rdepend we are lookin for, continue
     if [[ "$current_rdepend_version" != *"$2"* ]]; then
@@ -39,7 +39,7 @@ lint_pellet() {
     current_rdepend_version="${current_rdepend_version#*[}"
 
     # get just the version info
-    current_rdepend_version="${current_rdepend_version%%[![:digit:]]*}"
+    current_rdepend_version="${current_rdepend_version##*/}"
 
     # if we have a version
     if [[ -n "$current_rdepend_version" ]]; then

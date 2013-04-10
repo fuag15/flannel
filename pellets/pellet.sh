@@ -6,11 +6,11 @@
 pellet() {
   # if its a clear remove our reverse depend
   if [[ "${@:(-1)}" == "clear" ]]; then
-    export PLAID_PELLETS="${PLAID_PELLETS//:${1}\'${2}\'${3}\[$4\]/}"; return
+    export PLAID_PELLETS="${PLAID_PELLETS//:${1};${2};${3}\[$4\]/}"; return
   fi
   
   # if we havent already noted this pellet, note it
-  if [[ "$PLAID_PELLETS" != *":$1'$2'$3[$4]"* ]]; then
-    export PLAID_PELLETS="${PLAID_PELLETS}:$1'$2'$3[$4]"
+  if [[ "$PLAID_PELLETS" != *":$1;$2;$3[$4]"* ]]; then
+    export PLAID_PELLETS="${PLAID_PELLETS}:$1;$2;$3[$4]"
   fi
 }

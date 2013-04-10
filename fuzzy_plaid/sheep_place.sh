@@ -3,12 +3,12 @@
 # syntax: `pace_sheep <module> [clear]
 # - on clear return
 # - else if its not in the path place it in
-place_sheep() {
+_flannel_place_sheep() {
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
   fi
 
-  if [[ "$PLAID_SHEEP" != *":$1'"* ]]; then
-    export PLAID_SEEP="$PLAID_SHEEP:$1'"
+  if [[ "$PLAID_SHEEP" != *":$1;"* ]]; then
+    export PLAID_SHEEP="$PLAID_SHEEP:$1;"
   fi
 }
