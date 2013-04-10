@@ -126,7 +126,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
 ## Known Limitations
 
-No technical ones? These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
+No technical ones, lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
 
 Check out the [Road Map][road-map-md] markdown for what's up next. 
 
