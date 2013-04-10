@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# set up
+build_closet "pather" "pellets" "requires"
+
+# pellets with replacement defaults
+lint_pellet "vfx/maya" "vfx/vray" "==" "1.9.02" "${@:(-1)}"
+
+# clear not us
+clean_closet "vfx/maya" "2014" "${@:(-1)}"
+
+# pellets
+lint_pellets "vfx/maya" "${@:(-1)}"
+
+# needs
+requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"
+
+# lay pellets
+pellet "vfx/python" "==" "2.7" "vfx/maya/2014" "${@:(-1)}"
+
+# does
+create_path "MAYA_PLUGIN_DIR" "/2014" "${@:(-1)}"
+append_path "PYTHONPATH" "/maya/2014" "${@:(-1)}"
+
+# example of a tightly bound dependency
+flannel "vfx/maya_plugins/0.9" "${@:(-1)}"
