@@ -32,7 +32,7 @@ flannel() {
     _flannel_place_sheep "${module#~/.flannel/}" "$@"
  
     # load our modules base files
-    for file in "$module"/*.{sh,bash}; do
+    for file in "$module"/*.bash; do
       . "$file"
     done
 

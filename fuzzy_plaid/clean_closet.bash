@@ -13,7 +13,7 @@ clean_closet() {
 
   shopt -s extglob nullglob
   # each module that matches our params
-  local module; for module in ~/.flannel/"$1"/!("$2"|*.flannel|*.md|*.sh|*.bash); do
+  local module; for module in ~/.flannel/"$1"/!("$2"|*.flannel|*.md|*.bash); do
     # if this is in our path
     if [[ "$PLAID_SPOOL" == *"${module#~/.flannel/}"* ]]; then
       # remove it
