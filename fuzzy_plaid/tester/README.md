@@ -54,4 +54,4 @@ Your tests are expected in module/tests and the flannel should use plaid_test to
 
 - clean up spec var
 
-[readme-md]: ../README.md "Flannel Readme"
+[readme-md]: ../../README.md "Flannel Readme"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-build_closet "tester" "fuzzy_plaid"
+build_closet "fuzzy_plaid/tester" "fuzzy_plaid"
 
 _flannel_tester_store_state
 

@@ -35,6 +35,6 @@ On a clear it just returns
   - if we did not get a 2nd parameter flannel the module
   - else flannel the version, or default if supplied
 
-[plaid-spool-md]: PLAID_SPOOL.md "Plaid Spool Markdown"
-[vfx-prototype-readme]: vfx/README.md "Vfx Prototype Readme"
-[readme-md]: ../README.md "Flannel Readme"
+[plaid-spool-md]: ../PLAID_SPOOL.md "Plaid Spool Markdown"
+[vfx-prototype-readme]: ../../vfx/README.md "Vfx Prototype Readme"
+[readme-md]: ../../README.md "Flannel Readme"

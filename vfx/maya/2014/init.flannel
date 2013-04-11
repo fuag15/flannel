@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-build_closet "pather" "pellets" "requires"
+build_closet "fuzzy_plaid/pather" "fuzzy_plaid/pellets" "fuzzy_plaid/requires"
 
 # pellets with replacement defaults
 lint_pellet "vfx/maya" "vfx/vray" "==" "1.9.02" "${@:(-1)}"

@@ -60,4 +60,4 @@ Exactly what `append_path` does but instead of re-appending it it re-prepends it
 
 Hope that helped :)
 
-[readme-md]: ../README.md "Flannel Readme"
+[readme-md]: ../../README.md "Flannel Readme"
