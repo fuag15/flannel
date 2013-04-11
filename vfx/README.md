@@ -90,7 +90,7 @@ Here it goes.
     vest vfx/maya clear
     echo $PYTHONPATH # /2.7
 
-    vest vfx/vra/1.9.02
+    vest vfx/vray/1.9.02
     echo $PYTHONPATH # /vray/1.9.02:/2.7:/maya/2014:/plugin/0.9
 
     vest vfx/python clear
