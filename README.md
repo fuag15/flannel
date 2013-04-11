@@ -35,7 +35,7 @@ Vest currently supports a form of auto complete.
 
 `vest`: *vest module_path_glob [options]*
 
-    vest prompt
+    vest contrib/prompt
     vest vfx/maya/2013
     vest vfx/maya/2013 clear
 
