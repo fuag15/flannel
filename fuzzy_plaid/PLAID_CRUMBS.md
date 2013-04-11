@@ -1,4 +1,4 @@
-# [Flannel][readme-md] - Bread Crumbs *( Circular Dep Check )*
+# [Flannel][readme-md] - Plaid Crumbs *( Circular Dep Check )*
 
 Flannel uses bread crumbing to prevent circular dependencies in modules. This was initially designed to be a variable passed along by the `flannel` function but got extracted to an env var called `FLANNEL_CRUMBS` in order to simplify the use of `flannel`
 
