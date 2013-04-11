@@ -2,7 +2,7 @@
 # this function helps do version logic on requirements
 # you can do logic such as <= >= or == in requirements.
 # this expects to recieve the optional `clear` variable from your flannel
-# syntax: requires_plaid <module> [{>=,<=,==} <version>] [clear]
+# syntax: requires_plaid <module> [{>=,<=,==} <version> <default>] [clear]
 # if it gets passed no version or operator, it assumes it just needs the module to be present
 # on a clear we do nothing
 # if we get a clear we return
@@ -49,7 +49,7 @@ requires_plaid() {
     # if our second paramter doesn't contain an equal, just flannel the base
   if [[ "$2" != *"="* ]]; then
     flannel "$1"
-  else
-    flannel "$1/$3"
+  else # flannel the last variable, allows for defaults
+    flannel "$1/${@:(-1)}"
   fi
 }

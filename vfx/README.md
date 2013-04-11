@@ -61,9 +61,11 @@ So, support has been added for relational logic! on requirements as well as rela
 
 In this exaple we have specified some relational logic on the defaults. Namely, Maya 2013 requires vray >= 1.8.34 and vray 1.9.02 requires maya >= 2013. Let's see this in action
 
-Here we set vray which defaults to 1.8.34 and requires maya >= 2013, it finds no Maya set and sets 2013. We then change maya to 2012 which breaks vray 1.8.34 but by default replaces it with vray 1.6.10 if it is set. Then we swithc maya to 2013 which default sets vray to 18.34. Then we switch vray to 1.9.02 which requires maya >= 2013. Then we swithc maya to 2014 and switch it back to 2013. Note that vray stays at 1.9.02 since 2013 defaults vray to >= 1.8.34 if it was previously set.
+Here we set vray which defaults to 1.8.34 and requires maya >= 2013, it finds no Maya set and sets 2013. We then change maya to 2012 which breaks vray 1.8.34 but by default replaces it with vray 1.6.10 if it is set. Then we swithc maya to 2013 which default sets vray to 1.8.34. Then we switch vray to 1.9.02 which requires maya >= 2013. Then we swithc maya to 2014 and switch it back to 2013. Note that vray stays at 1.9.02 since 2013 defaults vray to >= 1.8.34 if it was previously set.
 
-Finally we clear maya which breaks all backwards dependencies but leaves python as is. Then we clear python to get rid of our python setting.
+Finally we clear maya which breaks all backwards dependencies but leaves python as is. Then we set vray to 1.9.02 which defaults to maya 2014.
+
+Then we clear python to get rid of our python setting which breaks all backwards dependencies.
 
 Here it goes.
 
@@ -87,6 +89,9 @@ Here it goes.
 
     vest vfx/maya clear
     echo $PYTHONPATH # /2.7
+
+    vest vfx/vra/1.9.02
+    echo $PYTHONPATH # /vray/1.9.02:/2.7:/maya/2014:/plugin/0.9
 
     vest vfx/python clear
     echo $PYTHONPATH # <blank>
@@ -126,7 +131,9 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
 ## Known Limitations
 
-No technical ones, lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
+Current version does not support bounded dependency or pellet logic (less than x but more than y etc). This is easy to add and is in the road map and pseudo coded but falls under the category of `Wont implement until external interest is shown in using flannel.` The line has to be drawn somewhere or I'll bash until I'm 80. :)
+
+No other technical ones, lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
 
 Check out the [Road Map][road-map-md] markdown for what's up next. 
 
