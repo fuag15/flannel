@@ -1,6 +1,5 @@
 # [Flannel][readme-md] - Road Map
 
-- Organize for distribution
 - set up packaging
 - bounded requirement and pellet logic
 - add hooks to `flannel`? possibly bad idea, list of functions to run before, after load and before, after glob

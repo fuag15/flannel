@@ -11,11 +11,11 @@ spec_plaid() {
     echo "Sorry, only bash 4 and greater is supported for tests, bash 4 was released in 2009"; return
   fi
 
-  shopt -s extglob nullglob
+  shopt -s extglob nullglob globstar
   # if we were not passed any params glom all tests
   if [[ "$#" == 0 ]]; then
     local module_test; for module_test in ~/.flannel/**/tests; do
-      shopt -u extglob nullglob
+      shopt -u extglob nullglob globstar
       tput setaf 3
       tput bold
       echo "${module_test#~/.flannel/}"
@@ -27,12 +27,12 @@ spec_plaid() {
       tput bold
       echo " ]"
       tput sgr0
-      shopt -s extglob nullglob
+      shopt -s extglob nullglob globstar
     done
   else
     local test_glob; for test_glob in "$@"; do
-      local module_test; for module_test in ~/.flannel/$test_glob**/tests; do
-        shopt -u extglob nullglob
+      local module_test; for module_test in ~/.flannel/$test_glob/**/tests; do
+        shopt -u extglob nullglob globstar
         tput setaf 3
         tput bold
         echo "${module_test#~/.flannel/}"
@@ -44,9 +44,9 @@ spec_plaid() {
         tput bold
         echo " ]"
         tput sgr0
-        shopt -s extglob nullglob
+        shopt -s extglob nullglob globstar
       done
     done
   fi
-  shopt -u extglob nullglob
+  shopt -u extglob nullglob globstar
 }

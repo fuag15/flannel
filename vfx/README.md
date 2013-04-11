@@ -105,7 +105,7 @@ Lets look at the hairiest of the hairy!, here's our maya 2013 config.
 You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `clear` we undo our path modifications. This will most likely be simplified for later versions.
 
     # set up
-    build_closet "pather" "pellets" "requires"
+    build_closet "fuzzy_plaid/pather" "fuzzy_plaid/pellets" "fuzzy_plaid/requires"
 
     # pellets with replacement defaults
     lint_pellet "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
