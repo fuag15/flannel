@@ -12,8 +12,7 @@
 replace_in_path() {
   # if we get a clear command undo what this does
   if [[ "${@:(-1)}" == "clear" ]]; then
-    replace_in_path "$1" "$3" "$2"
-    return
+    replace_in_path "$1" "$3" "$2"; return
   fi
 
   # could be a blank path
@@ -23,8 +22,7 @@ replace_in_path() {
 
   # could be the only thing in path
   if [[ "${!1}" == "$2" ]]; then
-    export "$1"="$3"
-    return
+    export "$1"="$3"; return
   fi
 
   # replace from beggining 

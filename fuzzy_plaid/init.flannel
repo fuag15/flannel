@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # don't bash without it
 # applies default .flannel and .plaid_patch's
-jacket
+
+if [[ "${@:(-1)}" != "clear" ]]; then
+  jacket
+fi

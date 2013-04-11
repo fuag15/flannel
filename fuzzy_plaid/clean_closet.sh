@@ -6,13 +6,12 @@
 # on a clean we ignore
 # for each thing in the module that isn't requested, if its in our closet, clear it
 clean_closet() {
-  # disable null globs returning literals, and enable glob extensions
-  shopt -s extglob
-  shopt -s nullglob
+  # disable null globs returning literals, and enable glob extensions  
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
   fi
 
+  shopt -s extglob nullglob
   # each module that matches our params
   local module; for module in ~/.flannel/"$1"/!("$2"|*.flannel|*.md|*.sh|*.bash); do
     # if this is in our path
@@ -22,6 +21,5 @@ clean_closet() {
     fi
   done
   # restore state
-  shopt -u extglob
-  shopt -u nullglob
+  shopt -u extglob nullglob
 }

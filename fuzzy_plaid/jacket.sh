@@ -8,9 +8,7 @@ jacket() {
   _flannel_fuzzy_plaid_clean_table
 
   # clear our old sheep
-  if declare -f _flannel_sheep_disperse >/dev/null; then
-    _flannel_sheep_disperse
-  fi
+  _flannel_sheep_disperse
 
   # wear home default config if exists
   [[ -f ~/.flannelrc ]] && _flannel_fuzzy_plaid_wear < ~/.flannelrc

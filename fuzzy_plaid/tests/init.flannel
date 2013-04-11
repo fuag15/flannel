@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+build_closet "tester" "fuzzy_plaid"
+
+_flannel_tester_store_state
+
+local module_test; for module_test in ${PLAID_SPEC[@]}; do
+  _flannel_tester_wipe_state
+  plaid_test "$module_test" 
+done
+
+_flannel_tester_restore_state
+_flannel_tester_wipe_backup_state
+clear_plaid_spec
