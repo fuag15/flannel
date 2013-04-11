@@ -4,7 +4,7 @@ build_closet "pather" "pellets" "requires"
 clean_closet "vfx/vray" "1.9.02" "${@:(-1)}"
 
 # needs
-requires_plaid "vfx/maya" ">=" "2013" "${@:(-1)}"
+requires_plaid "vfx/maya" ">=" "2013" "2014" "${@:(-1)}"
 
 # pellets
 pellet "vfx/maya" ">=" "2013" "vfx/vray/1.9.02" "${@:(-1)}"

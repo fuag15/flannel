@@ -56,7 +56,7 @@ This is meant to be done at the top of an `init.flannel`, it checks if a specifi
 
 ### Syntax
 
-`lint_pellet <module> <rdepend> <operator> <version> [clear]`
+`lint_pellet <module> <rdepend> <operator> <version> [default clear]`
 
 where <module> is the module base you are linting for, <rdepend> is the base of the reverse dependency, and <operator> / <version> are a logical pair for what you want the replacement dependency to be.
 

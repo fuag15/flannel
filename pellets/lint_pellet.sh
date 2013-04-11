@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # this command lints the pellets for dependencies of the given module
 # if the dependency maches the given rdepend it provides a substitution! :)
-# syntax: `lint_pellet <module> <rdepend> <operator> <version> [clear]
+# syntax: `lint_pellet <module> <rdepend> <operator> <version> [default clear]
 # if we are clearing, who cares, return
 # if the module rdepend pair is in our path
 #   get info out of it
@@ -56,7 +56,7 @@ lint_pellet() {
     fi
 
     # if we got here we need to replace it, substitute the new version and return
-    flannel "$2/$4"
+    flannel "$2/${@:(-1)}"
     return
   done
 }
