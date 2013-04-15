@@ -131,9 +131,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
 ## Known Limitations
 
-Current version does not support bounded dependency or pellet logic (less than x but more than y etc). This is easy to add and is in the road map and pseudo coded but falls under the category of `Wont implement until external interest is shown in using flannel.` The line has to be drawn somewhere or I'll bash until I'm 80. :)
-
-No other technical ones, lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
+No other technical ones, support has been added for bounded requirement logic. lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
 
 Check out the [Road Map][road-map-md] markdown for what's up next. 
 

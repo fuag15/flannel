@@ -52,14 +52,48 @@ lint_pellets() {
     # if our sheep isn't null or empty and it sati
     if [[ -n "$sheep" ]]; then
       # if we satisfy it with our sheep then continue our loop
-      if declare -f _flannel_"$1"_comparator >/dev/null; then
-        # if its satisfied then
-        if _flannel_"$1"_comparator "$sheep" "${operator%=}" "$version"; then
+      # first test for equality, are we bounded?
+      if [[ "$operator" == *"="* ]]; then
+        # are we equal?
+        if [[ "$sheep" == "$version" ]];
           continue
         fi
-      else # use default
-        if _flannel_catch_all_comparator "$sheep" "${operator%=}" "$version"; then
+      else # we are bounded, do either top or lower satisfy?
+        if [[ "$sheep" == "$operator" || "$sheep" == "$version" ]]; then
           continue
+        fi
+      fi
+      # then relative
+      if declare -f _flannel_"$1"_comparator >/dev/null; then
+        # if we arent a bounded pellet
+        if [[ "$operator" == *"="* ]]; then
+          # if its satisfied then
+          if _flannel_"$1"_comparator "$sheep" "${operator%=}" "$version"; then
+            continue
+          fi
+        else # we are bounded!
+          # if we are greater than our lower
+          if _flannel_"$1"_comparator "$sheep" ">" "$operator"; then
+            # if we are lower than our greater
+            if _flannel_"$1"_comparator "$sheep" "<" "$version"; then
+              continue
+            fi
+          fi
+        fi
+      else # use default
+        # if we arent a bounded pellet
+        if [[ "$operator" == *"="* ]]; then
+          if _flannel_catch_all_comparator "$sheep" "${operator%=}" "$version"; then
+            continue
+          fi
+        else # we are bounded!
+          # if we are greater than our lower
+          if _flannel_catch_all_comparator "$sheep" ">" "$operator"; then
+            # if we are lower than our greater
+            if _flannel_catch_all_comparator "$sheep" "<" "$version"; then
+              continue
+            fi
+          fi
         fi
       fi
     fi

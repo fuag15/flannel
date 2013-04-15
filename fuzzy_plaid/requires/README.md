@@ -35,6 +35,25 @@ On a clear it just returns
   - if we did not get a 2nd parameter flannel the module
   - else flannel the version, or default if supplied
 
+### `requires_bounded_plaid` *THE requires function for bounded reqs*
+
+This function is pretty much the same as requires_plaid with extra options. It's been split into two functions in order to keep the syntax simple
+
+### Syntax
+
+`requires_bounded_plaid <module> <lower bound> <upper bound> <default> [clear]`
+
+### Pseudo Code
+
+1. if we got a clear
+  - return
+2. if its in our spool
+  - if its equal to either upper or lower bound then return
+  - else if it is greater than our lower and lower than our upper
+    - return
+3. else nothing is satisfied
+  - flannel higher version or default
+
 [plaid-spool-md]: ../PLAID_SPOOL.md "Plaid Spool Markdown"
 [vfx-prototype-readme]: ../../vfx/README.md "Vfx Prototype Readme"
 [readme-md]: ../../README.md "Flannel Readme"

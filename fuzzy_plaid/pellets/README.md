@@ -21,7 +21,23 @@ The point of this is to maintain the state of flannel as well as provide hooks f
 ### Syntax
 
 `:<module>;{>=,==,>=};version[<rdepend>]*`
+or
+`:<module>,<lower bound>,<upper bound>[<rdepend>]*`
 
+---
+
+### `bounded_pellet` *leave a bounded pellet dependency*
+ 
+leaves a bounded reverse dependency behind
+
+### Syntax
+
+`bounded_pellet <module> <lower bound> <upper bound> <rdepend> [clear[`
+
+### Pseudo Code
+
+1. On a clear then remove it
+2. else if its not in the path add it! :)
 ---
 
 ### `pellet` *leave a pellet dependency*
