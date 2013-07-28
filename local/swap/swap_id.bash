@@ -14,9 +14,10 @@ swap_id() {
   cp ~/.ssh/"$@"_pub ~/.ssh/id_rsa.pub
 
   # remove stored keychain identities
-  if [[ -x ssh-add ]]; then
-    ssh-add -D
-  fi
+  ssh-add -D
+  
+  # add new identities
+  ssh-add
 
   # move git username
   cp ~/."$@".gitconfig ~/.gitconfig
