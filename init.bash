@@ -2,12 +2,12 @@
 # to install put this where your bash is sourced
 # [[ -f ~/.flannel/init.sh ]] && . ~/.flannel/init.bash
 
-shopt -s nullglob
+shopt -s nullglob extglob
 # load our main module and flannel it
 for file in ~/.flannel/fuzzy_plaid/*.bash; do
   . "$file"
 done
-shopt -u nullglob
+shopt -u nullglob extglob
 
 # load it!
 vest "fuzzy_plaid"
