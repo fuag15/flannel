@@ -18,3 +18,4 @@ alias gfff='git flow feature finish'
 alias gco='git checkout'
 alias gbl='git branch -a'
 alias gqc=git_quick_clone
+alias tirssi=flannel_irssi_tmux_wrapper
