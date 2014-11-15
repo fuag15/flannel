@@ -32,7 +32,7 @@ Contains a list of functions to run separated by spaces
 
 ### Syntax
 
-`plaid_pre_hook` <function_name> [clear]
+`flannel_pre_hook` <function_name> [clear]
 
 ### Pseudo Code
 
@@ -48,7 +48,7 @@ Contains a list of functions to run separated by spaces
 
 ### Syntax
 
-`plaid_post_hook` <function_name> [clear]
+`flannel_post_hook` <function_name> [clear]
 
 ### Pseudo Code
 
@@ -64,7 +64,7 @@ Contains a list of functions to run separated by spaces
 
 ### Syntax
 
-`plaid_unhook_hooks` [{pre,post}]
+`flannel_unhook_hooks` [{pre,post}]
 
 ### Pseudo Code
 
