@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# lint pellets should be colled before anything in a configuration except any calls to lint_pellet
+# lint pellets should be colled before anything in a configuration except any calls to fix_revdeps
 # lint pellets goes through our FLANNEL_REVDEPS and removes and reverse dpendencies
 # syntax: `remove_broken_revdeps <module> [clear]
 # first, check if we got a clear, if not return
@@ -13,23 +13,23 @@ remove_broken_revdeps() {
     return
   fi
 
-  # get the largest relevant sheep
-  local sheep; if [[ "$FLANNEL_SPOOL" == *":$1/"* ]]; then
-    # get the sheep
-    sheep="${FLANNEL_SPOOL#*:$1/}"
+  # get the most recent item added to the spool
+  local current_module; if [[ "$FLANNEL_SPOOL" == *":$1/"* ]]; then
+    # get the current_module
+    current_module="${FLANNEL_SPOOL#*:$1/}"
 
     # get the version
-    sheep="${sheep%%;*}"
+    current_module="${current_module%%;*}"
   fi
 
-  #echo "found sheep: $sheep"
+  #echo "found current_module: $current_module"
 
-  local pellet_copy="$FLANNEL_REVDEPS"
+  local revdeps_copy="$FLANNEL_REVDEPS"
 
   # do we have any pellet deps?
-  local current operator version; while [[ "$pellet_copy" == *":${1};"* ]]; do
+  local current operator version; while [[ "$revdeps_copy" == *":${1};"* ]]; do
     # get the first dep from the left and eat the prefix
-    current="${pellet_copy#*:$1;}"
+    current="${revdeps_copy#*:$1;}"
 
     # get the operator from the left
     operator="${current%%;*}"
@@ -47,19 +47,19 @@ remove_broken_revdeps() {
     current="${current%%]*}"
 
     # remove it from our pellet copy
-    pellet_copy="${pellet_copy//:$1;$operator;$version\[$current\]/}"
+    revdeps_copy="${revdeps_copy//:$1;$operator;$version\[$current\]/}"
 
-    # if our sheep isn't null or empty and it sati
-    if [[ -n "$sheep" ]]; then
-      # if we satisfy it with our sheep then continue our loop
+    # if our current_module isn't null or empty and it sati
+    if [[ -n "$current_module" ]]; then
+      # if we satisfy it with our current_module then continue our loop
       # first test for equality, are we bounded?
       if [[ "$operator" == *"="* ]]; then
         # are we equal?
-        if [[ "$sheep" == "$version" ]];
+        if [[ "$current_module" == "$version" ]];
           continue
         fi
       else # we are bounded, do either top or lower satisfy?
-        if [[ "$sheep" == "$operator" || "$sheep" == "$version" ]]; then
+        if [[ "$current_module" == "$operator" || "$current_module" == "$version" ]]; then
           continue
         fi
       fi
@@ -68,14 +68,14 @@ remove_broken_revdeps() {
         # if we arent a bounded pellet
         if [[ "$operator" == *"="* ]]; then
           # if its satisfied then
-          if _flannel_"$1"_comparator "$sheep" "${operator%=}" "$version"; then
+          if _flannel_"$1"_comparator "$current_module" "${operator%=}" "$version"; then
             continue
           fi
         else # we are bounded!
           # if we are greater than our lower
-          if _flannel_"$1"_comparator "$sheep" ">" "$operator"; then
+          if _flannel_"$1"_comparator "$current_module" ">" "$operator"; then
             # if we are lower than our greater
-            if _flannel_"$1"_comparator "$sheep" "<" "$version"; then
+            if _flannel_"$1"_comparator "$current_module" "<" "$version"; then
               continue
             fi
           fi
@@ -83,14 +83,14 @@ remove_broken_revdeps() {
       else # use default
         # if we arent a bounded pellet
         if [[ "$operator" == *"="* ]]; then
-          if _flannel_catch_all_comparator "$sheep" "${operator%=}" "$version"; then
+          if _flannel_catch_all_comparator "$current_module" "${operator%=}" "$version"; then
             continue
           fi
         else # we are bounded!
           # if we are greater than our lower
-          if _flannel_catch_all_comparator "$sheep" ">" "$operator"; then
+          if _flannel_catch_all_comparator "$current_module" ">" "$operator"; then
             # if we are lower than our greater
-            if _flannel_catch_all_comparator "$sheep" "<" "$version"; then
+            if _flannel_catch_all_comparator "$current_module" "<" "$version"; then
               continue
             fi
           fi

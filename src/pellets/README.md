@@ -6,7 +6,7 @@ Note this might change to `''` instead of `[]` if globing support is added in th
 
 when a module is unloaded it `remove_broken_revdeps` and clears any modules that rely on it it might have broken by changing!
 
-If you don't like the idea of getting deleted automatically, the module can use `lint_pellet` to look for a specific dep that might be breaking and substitute another default for it.
+If you don't like the idea of getting deleted automatically, the module can use `fix_revdeps` to look for a specific dep that might be breaking and substitute another default for it.
 
 The easiest way to see how this works is by looking at the [vfx][vfx-readme] module which uses it.
 
@@ -66,13 +66,13 @@ where *<module>* is the current module
 
 ---
 
-### `lint_pellet` *check for a pellet and provide a default substitution*
+### `fix_revdeps` *check for a pellet and provide a default substitution*
 
 This is meant to be done at the top of an `init.flannel`, it checks if a specific reverse dependency is currently active and if so provides a default replacement that plays nicely. This only gets run if there is a `clear` flag. Should be called right before remove_broken_revdeps
 
 ### Syntax
 
-`lint_pellet <module> <rdepend> <operator> <version> [default clear]`
+`fix_revdeps <module> <rdepend> <operator> <version> [default clear]`
 
 where <module> is the module base you are linting for, <rdepend> is the base of the reverse dependency, and <operator> / <version> are a logical pair for what you want the replacement dependency to be.
 

@@ -3,7 +3,7 @@
 # dependencies are in the form of <module>[rdepend]: 
 # they are stored in FLANNEL_REVDEPS
 # sytnax is pellet <module> <operator> <version> <rdepend> [clear]
-pellet() {
+define_revdep() {
   # if its a clear remove our reverse depend
   if [[ "${@:(-1)}" == "clear" ]]; then
     export FLANNEL_REVDEPS="${FLANNEL_REVDEPS//:${1};${2};${3}\[$4\]/}"; return

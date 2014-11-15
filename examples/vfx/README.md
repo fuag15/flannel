@@ -29,7 +29,7 @@ Here we go!
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
-Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [pellets][pellets-readme] reverse dependencies with the optional `lint_pellet` to choose a default substitution if we break the dependency!
+Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [pellets][pellets-readme] reverse dependencies with the optional `fix_revdeps` to choose a default substitution if we break the dependency!
 
 What if you want it to just clear vray? thats fine! if vray isn't loaded it will not try to fix what isn't broken.
 
@@ -108,7 +108,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
     build_closet "fuzzy_plaid/pather" "fuzzy_plaid/pellets" "fuzzy_plaid/requires"
 
     # pellets with replacement defaults
-    lint_pellet "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
+    fix_revdeps "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
     # clear not us
     clean_closet "vfx/maya" "2013" "${@:(-1)}"
