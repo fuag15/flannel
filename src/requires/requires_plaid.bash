@@ -2,7 +2,7 @@
 # this function helps do version logic on requirements
 # you can do logic such as <= >= or == in requirements.
 # this expects to recieve the optional `clear` variable from your flannel
-# syntax: requires_plaid <module> [{>=,<=,==} <version> <default>] [clear]
+# syntax: load_requirement <module> [{>=,<=,==} <version> <default>] [clear]
 # if it gets passed no version or operator, it assumes it just needs the module to be present
 # on a clear we do nothing
 # if we get a clear we return
@@ -11,7 +11,7 @@
 # @odgrim pointed out the character comparison gives us larger or smaller versions
 # else its not in our spool so just flannel the given version
 # or just flannel the module
-requires_plaid() {
+load_requirement() {
   # if we got a clear then we dont need to check requirements
   if [[ "${@:(-1)}" == "clear" ]]; then
     return

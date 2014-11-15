@@ -6,7 +6,7 @@ build_closet "fuzzy_plaid/pather" "fuzzy_plaid/requires"
 clean_closet "vfx/maya_plugins" "0.1" "${@:(-1)}"
 
 # needs
-requires_plaid "vfx/maya" "==" "2012" "${@:(-1)}"
+load_requirement "vfx/maya" "==" "2012" "${@:(-1)}"
 
 # does
 prepend_path "MAYA_PLUGIN_PATH" "/plugin/0.1" "${@:(-1)}"

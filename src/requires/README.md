@@ -8,7 +8,7 @@ This module assumes your modules are ordered in such a way that they are organiz
 
 ---
 
-### `requires_plaid` *THE requires function*
+### `load_requirement` *THE requires function*
 
 This function will be the end all of requirements. It is designed to take what you need as inputs and use checks against `FLANNEL_STATE` to see if it is needed, if so it flannel's it, if not it just returns
 
@@ -20,7 +20,7 @@ On a clear it just returns
 
 ### Syntax
 
-`requires_plaid <module> [{>=,<=,==} <version> <default>] [clear]`
+`load_requirement <module> [{>=,<=,==} <version> <default>] [clear]`
 
 ### Pseudo Code
 
@@ -37,7 +37,7 @@ On a clear it just returns
 
 ### `requires_bounded_plaid` *THE requires function for bounded reqs*
 
-This function is pretty much the same as requires_plaid with extra options. It's been split into two functions in order to keep the syntax simple
+This function is pretty much the same as load_requirement with extra options. It's been split into two functions in order to keep the syntax simple
 
 ### Syntax
 

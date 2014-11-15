@@ -117,7 +117,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
     remove_broken_revdeps "vfx/maya" "${@:(-1)}"
 
     # needs
-    requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"
+    load_requirement "vfx/python" "==" "2.7" "${@:(-1)}"
 
     # lay pellets
     pellet "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"

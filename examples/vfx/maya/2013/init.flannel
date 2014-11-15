@@ -12,7 +12,7 @@ clean_closet "vfx/maya" "2013" "${@:(-1)}"
 remove_broken_revdeps "vfx/maya" "${@:(-1)}"
 
 # needs
-requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"
+load_requirement "vfx/python" "==" "2.7" "${@:(-1)}"
 
 # lay pellets
 define_revdep "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
