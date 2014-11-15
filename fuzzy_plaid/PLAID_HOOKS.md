@@ -8,7 +8,7 @@ Heres an overview
 
 ---
 
-### `PLAID_PRE_HOOKS` *environment varialbe*
+### `FLANNEL_PRE_HOOKS` *environment varialbe*
   
 Contains a list of functions to run separated by spaces
 
@@ -18,7 +18,7 @@ Contains a list of functions to run separated by spaces
 
 ---
 
-### `PLAID_POST_HOOKS` *environment varialbe*
+### `FLANNEL_POST_HOOKS` *environment varialbe*
   
 Contains a list of functions to run separated by spaces
 

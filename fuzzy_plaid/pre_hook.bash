@@ -7,10 +7,10 @@
 #  - append it
 flannel_pre_hook() {
   if [[ "${@:(-1)}" == "clear" ]]; then
-    export PLAID_PRE_HOOKS="${PLAID_PRE_HOOKS//:$1:/}"; return
+    export FLANNEL_PRE_HOOKS="${FLANNEL_PRE_HOOKS//:$1:/}"; return
   fi
 
-  if [[ "$PLAID_PRE_HOOKS" != *":$1:"* ]]; then
-    export PLAID_PRE_HOOKS="$PLAID_PRE_HOOKS:$1:"
+  if [[ "$FLANNEL_PRE_HOOKS" != *":$1:"* ]]; then
+    export FLANNEL_PRE_HOOKS="$FLANNEL_PRE_HOOKS:$1:"
   fi
 }

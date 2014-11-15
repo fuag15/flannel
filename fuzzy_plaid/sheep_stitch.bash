@@ -3,7 +3,7 @@
 # syntax `stitch <module> [clear]
 # 1. on a clear ignore
 # 2. take one away
-_flannel_sheep_stitch() {
+_flannel_spool_remove() {
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
   fi

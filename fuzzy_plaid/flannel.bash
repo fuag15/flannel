@@ -15,7 +15,7 @@
 # note! this supports passing paramaters to the submodules like clear which is used in the vfx module
 flannel() {
   # get our pre hooks done
-  local hook; for hook in ${PLAID_PRE_HOOKS[@]//:/ }; do
+  local hook; for hook in ${FLANNEL_PRE_HOOKS[@]//:/ }; do
     "$hook" "$@"
   done
   shopt -s nullglob extglob
@@ -30,10 +30,10 @@ flannel() {
     fi
 
     # keep track of the state
-    _flannel_fuzzy_plaid_spool_plaid "${module#~/.flannel/}" "$@"
+    _flannel_update_state "${module#~/.flannel/}" "$@"
 
     # keep track of our incoming sheep
-    _flannel_place_sheep "${module#~/.flannel/}" "$@"
+    _flannel_spool_add "${module#~/.flannel/}" "$@"
  
     # load our modules base files
     for file in "$module"/*.bash; do
@@ -46,11 +46,11 @@ flannel() {
     shopt -s nullglob extglob
 
     # we loaded it
-    _flannel_sheep_stitch "${module#~/.flannel/}" "$@"
+    _flannel_spool_remove "${module#~/.flannel/}" "$@"
   done
   shopt -u nullglob extglob
   # get our post hooks done
-  local hook; for hook in ${PLAID_POST_HOOKS[@]//:/ }; do
+  local hook; for hook in ${FLANNEL_POST_HOOKS[@]//:/ }; do
     "$hook" "$@"
   done
 }

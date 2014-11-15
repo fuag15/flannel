@@ -7,10 +7,10 @@
 #  - append it
 flannel_post_hook() {
   if [[ "${@:(-1)}" == "clear" ]]; then
-    export PLAID_POST_HOOKS="${PLAID_POST_HOOKS//:$1:/}"; return
+    export FLANNEL_POST_HOOKS="${FLANNEL_POST_HOOKS//:$1:/}"; return
   fi
 
-  if [[ "$PLAID_POST_HOOKS" != *":$1:"* ]]; then
-    export PLAID_POST_HOOKS="$PLAID_POST_HOOKS:$1:"
+  if [[ "$FLANNEL_POST_HOOKS" != *":$1:"* ]]; then
+    export FLANNEL_POST_HOOKS="$FLANNEL_POST_HOOKS:$1:"
   fi
 }

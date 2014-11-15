@@ -4,6 +4,6 @@ _flannel_tester_wipe_state() {
   unset FLANNEL_CRUMBS
   unset FLANNEL_STATE
   unset FLANNEL_SPOOL
-  unset PLAID_PRE_HOOKS
-  unset PLAID_POST_HOOKS
+  unset FLANNEL_PRE_HOOKS
+  unset FLANNEL_POST_HOOKS
 }
