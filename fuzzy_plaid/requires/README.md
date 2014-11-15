@@ -10,7 +10,7 @@ This module assumes your modules are ordered in such a way that they are organiz
 
 ### `requires_plaid` *THE requires function*
 
-This function will be the end all of requirements. It is designed to take what you need as inputs and use checks against `PLAID_SPOOL` to see if it is needed, if so it flannel's it, if not it just returns
+This function will be the end all of requirements. It is designed to take what you need as inputs and use checks against `FLANNEL_STATE` to see if it is needed, if so it flannel's it, if not it just returns
 
 If we pass it no operator or version, it assumes we just want a version and satisfies that by loading the default
 
@@ -54,6 +54,6 @@ This function is pretty much the same as requires_plaid with extra options. It's
 3. else nothing is satisfied
   - flannel higher version or default
 
-[plaid-spool-md]: ../PLAID_SPOOL.md "Plaid Spool Markdown"
+[plaid-spool-md]: ../FLANNEL_STATE.md "Plaid Spool Markdown"
 [vfx-prototype-readme]: ../../vfx/README.md "Vfx Prototype Readme"
 [readme-md]: ../../README.md "Flannel Readme"

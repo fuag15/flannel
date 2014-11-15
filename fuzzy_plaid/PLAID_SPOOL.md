@@ -6,7 +6,7 @@ Lets dive into the code! Man, were always diving.. lets glide into the code.
 
 ---
 
-### `PLAID_SPOOL` *environment variable*
+### `FLANNEL_STATE` *environment variable*
 
 This variable just maintains the state of our plaid, it's main use is to allow logic to be done on module requirements such as version checking.
 
@@ -24,7 +24,7 @@ This function takes a module and adds it to our spool if it isn't already there!
 
 If we get a clear, we remove the module from the state. simple eh?
 
-It is run in flannel and maintains state along with `PLAID_SPOOL` and
+It is run in flannel and maintains state along with `FLANNEL_STATE` and
 
 ---
 

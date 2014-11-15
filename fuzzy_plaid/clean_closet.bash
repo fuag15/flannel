@@ -15,7 +15,7 @@ clean_closet() {
   # each module that matches our params
   local module; for module in ~/.flannel/"$1"/!("$2"|*.flannel|*.md|*.bash); do
     # if this is in our path
-    if [[ "$PLAID_SPOOL" == *"${module#~/.flannel/}"* ]]; then
+    if [[ "$FLANNEL_STATE" == *"${module#~/.flannel/}"* ]]; then
       # remove it
       flannel "${module#~/.flannel/}" clear
     fi

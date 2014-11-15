@@ -8,7 +8,7 @@ _flannel_place_sheep() {
     return
   fi
 
-  if [[ "$PLAID_SHEEP" != *":$1;"* ]]; then
-    export PLAID_SHEEP="$PLAID_SHEEP:$1;"
+  if [[ "$FLANNEL_SPOOL" != *":$1;"* ]]; then
+    export FLANNEL_SPOOL="$FLANNEL_SPOOL:$1;"
   fi
 }

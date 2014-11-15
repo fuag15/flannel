@@ -27,5 +27,5 @@ If not it appends to `FLANNEL_CRUMBS` in a dumb path like way *( simpler to pars
 
 If you haven't looked already, the last part to this module loader module is [plaid spool][plaid-spool-md] the state snapshot.
 
-[plaid-spool-md]: PLAID_SPOOL.md "Plaid Spool Markdown"
+[plaid-spool-md]: FLANNEL_STATE.md "Plaid Spool Markdown"
 [readme-md]: ../README.md "Flannel Readme"

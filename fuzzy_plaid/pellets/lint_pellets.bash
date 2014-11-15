@@ -4,7 +4,7 @@
 # syntax: `lint_pellets <module> [clear]
 # first, check if we got a clear, if not return
 # next for each rdepend of us
-#   if we dont satisfy it's requirement wiht any existing module in PLAID_SHEEP
+#   if we dont satisfy it's requirement wiht any existing module in FLANNEL_SPOOL
 #     remove from plaid pellets
 #     clear the module!
 lint_pellets() {
@@ -14,9 +14,9 @@ lint_pellets() {
   fi
 
   # get the largest relevant sheep
-  local sheep; if [[ "$PLAID_SHEEP" == *":$1/"* ]]; then
+  local sheep; if [[ "$FLANNEL_SPOOL" == *":$1/"* ]]; then
     # get the sheep
-    sheep="${PLAID_SHEEP#*:$1/}"
+    sheep="${FLANNEL_SPOOL#*:$1/}"
 
     # get the version
     sheep="${sheep%%;*}"

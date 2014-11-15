@@ -40,7 +40,7 @@ If your not hungry, you might want to check out [plaid spool][plaid-spool-md] th
 
 Or if your hungry for meat, maybe [plaid sheep][plaid-sheep-md]
 
-[plaid-sheep-md]: PLAID_SHEEP.md "Plaid Sheep Markdown"
-[plaid-spool-md]: PLAID_SPOOL.md "Plaid Spool Markdown"
-[breadcrumb-md]: PLAID_CRUMBS.md "Breadcrum Markdown Page"
+[plaid-sheep-md]: FLANNEL_SPOOL.md "Plaid Sheep Markdown"
+[plaid-spool-md]: FLANNEL_STATE.md "Plaid Spool Markdown"
+[breadcrumb-md]: FLANNEL_CRUMBS.md "Breadcrum Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"

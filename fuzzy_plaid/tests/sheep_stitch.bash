@@ -5,13 +5,13 @@ if declare -f add_plaid_spec >/dev/null; then
   stitch_sheep_test() {
     _flannel_place_sheep "baaa"
     _flannel_sheep_stitch "baaa"
-    [[ "$PLAID_SHEEP" != *"baaa"* ]]
+    [[ "$FLANNEL_SPOOL" != *"baaa"* ]]
   }
 
   add_plaid_spec "place_sheep_clear_test"
   place_sheep_clear_test() {
     _flannel_place_sheep "baaa"
     _flannel_sheep_stitch "baaa" "clear"
-    [[ "$PLAID_SHEEP" == *"baaa"* ]]
+    [[ "$FLANNEL_SPOOL" == *"baaa"* ]]
   }
 fi

@@ -8,7 +8,7 @@
 # - we shift off the glob so we dont have to do complicated array arithmatic the rest of the places we pass things for each pass
 # - if our crumbing function is prepped we simultaneously test for a crumb and add one, if we already had it we exit gracefully
 # - else we load every shell function in a module foldier first, then we load a .flannel init file if it exists
-# - we either add or remove to the PLAID_SPOOL to keep track of state
+# - we either add or remove to the FLANNEL_STATE to keep track of state
 # - then we unset our custom shell ops and run the flannel of hte module if it exists so we dont interfere with any assumptions
 # - unset our extensions when we are done
 #

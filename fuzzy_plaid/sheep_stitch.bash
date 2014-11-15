@@ -8,5 +8,5 @@ _flannel_sheep_stitch() {
     return
   fi
 
-  export PLAID_SHEEP="${PLAID_SHEEP//:$1;/}"
+  export FLANNEL_SPOOL="${FLANNEL_SPOOL//:$1;/}"
 }

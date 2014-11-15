@@ -5,7 +5,7 @@
 # this way we can load a module twice provided we are giving it different options
 _flannel_fuzzy_plaid_crumbs() {
   # we didn't eat this
-  if [[ "$PLAID_CRUMBS" != *":${1}"* ]]; then 
-    export PLAID_CRUMBS="${PLAID_CRUMBS}:${1}"; return 1
+  if [[ "$FLANNEL_CRUMBS" != *":${1}"* ]]; then 
+    export FLANNEL_CRUMBS="${FLANNEL_CRUMBS}:${1}"; return 1
   fi
 }
