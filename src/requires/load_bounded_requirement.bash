@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # this function helps do version logic on requirements for bounded things
 # this expects to recieve the optional `clear` variable from your flannel
-# syntax: requires_bounded_plaid <module> <lower bound> <upper bound> [<default> clear]
+# syntax: load_bounded_requirement <module> <lower bound> <upper bound> [<default> clear]
 # if we got a clear
 #   return
 # if its in our spool
 #   if its equal to either upper or lower, return
 #   if its higher than lower and lower than upper, return
 # flannel our second to last param
-requires_bounded_plaid() {
+load_bounded_requirement() {
   # if we got a clear then we dont need to check requirements
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
