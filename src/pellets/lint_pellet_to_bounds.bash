@@ -17,7 +17,7 @@ lint_pellet_to_bounds() {
   fi
 
   # copy for our own manipulation
-  local pellet_copy="$PLAID_PELLETS"
+  local pellet_copy="$FLANNEL_REVDEPS"
   
   # if its in the pellets
   local current_rdepend_version; while [[ "$pellet_copy" == *":$1;"* ]]; do

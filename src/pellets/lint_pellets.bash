@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 # lint pellets should be colled before anything in a configuration except any calls to lint_pellet
-# lint pellets goes through our PLAID_PELLETS and removes and reverse dpendencies
-# syntax: `lint_pellets <module> [clear]
+# lint pellets goes through our FLANNEL_REVDEPS and removes and reverse dpendencies
+# syntax: `remove_broken_revdeps <module> [clear]
 # first, check if we got a clear, if not return
 # next for each rdepend of us
 #   if we dont satisfy it's requirement wiht any existing module in FLANNEL_SPOOL
 #     remove from plaid pellets
 #     clear the module!
-lint_pellets() {
+remove_broken_revdeps() {
   # if we aren't clearing, we don't care
   if [[ "${@:(-1)}" != "clear" ]]; then
     return
@@ -24,7 +24,7 @@ lint_pellets() {
 
   #echo "found sheep: $sheep"
 
-  local pellet_copy="$PLAID_PELLETS"
+  local pellet_copy="$FLANNEL_REVDEPS"
 
   # do we have any pellet deps?
   local current operator version; while [[ "$pellet_copy" == *":${1};"* ]]; do

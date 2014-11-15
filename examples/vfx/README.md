@@ -114,7 +114,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
     clean_closet "vfx/maya" "2013" "${@:(-1)}"
 
     # pellets
-    lint_pellets "vfx/maya" "${@:(-1)}"
+    remove_broken_revdeps "vfx/maya" "${@:(-1)}"
 
     # needs
     requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"

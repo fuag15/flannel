@@ -9,7 +9,7 @@ lint_pellet "vfx/maya" "vfx/vray" "==" "1.9.02" "${@:(-1)}"
 clean_closet "vfx/maya" "2014" "${@:(-1)}"
 
 # pellets
-lint_pellets "vfx/maya" "${@:(-1)}"
+remove_broken_revdeps "vfx/maya" "${@:(-1)}"
 
 # needs
 requires_plaid "vfx/python" "==" "2.7" "${@:(-1)}"

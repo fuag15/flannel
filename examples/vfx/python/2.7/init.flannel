@@ -4,7 +4,7 @@ build_closet "fuzzy_plaid/pather" "fuzzy_plaid/pellets"
 clean_closet "vfx/python" "2.7" "${@:(-1)}"
 
 # pellets
-lint_pellets "vfx/python" "${@:(-1)}"
+remove_broken_revdeps "vfx/python" "${@:(-1)}"
 
 # does
 create_path "PYTHONPATH" "/2.7" "${@:(-1)}"
