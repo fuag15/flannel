@@ -28,7 +28,7 @@ Contains a list of functions to run separated by spaces
 
 ---
 
-### `plaid pre hook` *hook / unhook pre*
+### `flannel_pre_hook` *Register or unregister pre-hook*
 
 ### Syntax
 
@@ -44,7 +44,7 @@ Contains a list of functions to run separated by spaces
 
 ---
 
-### `plaid post hook` *hook /unhook post*
+### `flannel_pre_hook` *Register or unregister post-hook*
 
 ### Syntax
 
