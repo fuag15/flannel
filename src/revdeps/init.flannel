@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+load_modules "src/versions"
