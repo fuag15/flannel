@@ -4,7 +4,7 @@
 if declare -f add_plaid_spec >/dev/null; then
   add_plaid_spec "clean_closet_clear_spec"
   clean_closet_clear_spec() {
-    build_closet "fuzzy_plaid"
+    load_modules "fuzzy_plaid"
     clean_closet "fuzzy_plaid" "clear"
     [[ "$FLANNEL_STATE" == *"fuzzy_plaid"* ]]
   }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-build_closet "fuzzy_plaid/pather" "fuzzy_plaid/pellets"
+load_modules "fuzzy_plaid/pather" "fuzzy_plaid/pellets"
 clean_closet "vfx/python" "2.7" "${@:(-1)}"
 
 # pellets

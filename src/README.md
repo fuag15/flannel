@@ -14,7 +14,7 @@ This is perfect for reading in from config files!
 
 ---
 
-### `build closet` *build_closet [list of modules]*
+### `build closet` *load_modules [list of modules]*
 
 This function expects a list of module names to load then simply passes that list off to `flannel`, this makes it perfect for loading things like module dependencies etc
 

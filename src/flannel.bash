@@ -24,7 +24,7 @@ flannel() {
   # loop through glob matches and run them
   local module; for module in ~/.flannel/$module_glob; do
     # did we already consume this?
-    if _flannel_fuzzy_plaid_crumbs "${module#~/.flannel/}'$@'"; then
+    if _flannel_track_crumb "${module#~/.flannel/}'$@'"; then
       # skip this glob match
       continue
     fi
