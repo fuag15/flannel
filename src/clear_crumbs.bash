@@ -3,5 +3,5 @@
 # This function clears our breadcrumb type env var between each load request
 _flannel_clear_crumbs() {
   # if we left crumbs, clean them up!
-  unset FLANNEL_CRUMBS
+  unset FLANNEL_REVDEPS
 }

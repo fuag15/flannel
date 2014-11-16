@@ -1,4 +1,4 @@
-# [Flannel][readme-md] - Plaid Crumbs *( Circular Dep Check )*
+# [Flannel][readme-md] - Flannel Crumbs *( Circular Dep Check )*
 
 Flannel uses bread crumbing to prevent circular dependencies in modules. This was initially designed to be a variable passed along by the `flannel` function but got extracted to an env var called `FLANNEL_CRUMBS` in order to simplify the use of `flannel`
 
@@ -11,7 +11,7 @@ Lets walk through the code
 
 ---
 
-### `clean table` *clean table*
+### `_flannel_clear_crumbs` *clear crumbs*
   
 Simply unset's our FLANNEL_CRUMBS environment variable.
 
@@ -25,7 +25,7 @@ If not it appends to `FLANNEL_CRUMBS` in a dumb path like way *( simpler to pars
 
 ---
 
-If you haven't looked already, the last part to this module loader module is [plaid spool][plaid-spool-md] the state snapshot.
+If you haven't looked already, the last part to this module loader module is [flannel state][flannel-state-md] the state snapshot.
 
-[plaid-spool-md]: FLANNEL_STATE.md "Plaid Spool Markdown"
+[flannel-state-md]: FLANNEL_STATE.md "Flannel State Markdown"
 [readme-md]: ../README.md "Flannel Readme"

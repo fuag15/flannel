@@ -1,6 +1,6 @@
-# [Flannel][readme-md] - Plaid Sheep *( Spool Queue )*
+# [Flannel][readme-md] - Plaid Spool *( Spool Queue )*
 
-The `FLANNEL_SPOOL` environment variable is a path like variable that is meant to store flannel modules that are currently processing. It is used in conjunction with the `requires` module and `pellets` module to resolve logical reverse dependencies. This could easily be done using the `crumbs` module but I have separated it out for simplicity during early development, could be merged in the future.
+The `FLANNEL_SPOOL` environment variable is a path like variable that is meant to store flannel modules that are currently processing. It is used in conjunction with the `requires` module and `revdeps` module to resolve logical reverse dependencies. This could easily be done using the `crumbs` module but I have separated it out for simplicity during early development, could be merged in the future.
 
 This doc will need to be flushed out, however for now here is some code dumping. Overview is we place sheep in the line and stitch them after we have applied them and then in-between run we disperse any leftovers in-case something bad happened.
 

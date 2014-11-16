@@ -32,7 +32,7 @@ flannel() {
     # keep track of the state
     _flannel_update_state "${module#~/.flannel/}" "$@"
 
-    # keep track of our incoming sheep
+    # keep track of our currently loading modules
     _flannel_spool_add "${module#~/.flannel/}" "$@"
  
     # load our modules base files
@@ -45,7 +45,7 @@ flannel() {
     [[ -f "$module"/init.flannel ]] && . "$module"/init.flannel "$@"
     shopt -s nullglob extglob
 
-    # we loaded it
+    # we loaded it, flush spool
     _flannel_spool_remove "${module#~/.flannel/}" "$@"
   done
   shopt -u nullglob extglob

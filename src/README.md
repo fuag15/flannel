@@ -24,17 +24,17 @@ This function expects a list of module names to load then simply passes that lis
 
 This function looks in `~/.flannelrc` to see if it's there, if it is, it `wear`s it, then if you pass a name it looks for a special `~/.name.flannelrc` config and if it finds one it `wear`s that. Finally, it loads any directory specific `./.plaid_patch`'s from the current directory and `wear`s them.
 
-This function also clears the table of any breadcrumbs before running. For more on breadcrumbs see the [breadcrumb][breadcrumb-md] markdown.
+This function also clears the table of any reverse dependencies before running. For more on revdepss see the [revdeps][revdeps-md] markdown.
 
 ---
 
 ### `vest` *vest* module_name [module flags]
   
-This function appears to be pretty similar to `flannel` however you'll notice that it clears crumbs from our table before running. For more on how flannel uses breadcrumbs see the [breadcrumb][breadcrumb-md] markdown.
+This function appears to be pretty similar to `flannel` however you'll notice that it clears crumbs from our table before running. For more on how flannel uses revdepss see the [revdeps][revdeps-md] markdown.
 
 ---
 
-Looks like this is a good time to read more about [breadcrumbs][breadcrumb-md]. Hungry?, eat a cookie, bread's pretty bland.
+Looks like this is a good time to read more about [revdepss][revdeps-md]. Hungry?, eat a cookie, bread's pretty bland.
 
 If your not hungry, you might want to check out [plaid spool][plaid-spool-md] the state snapshot.
 
@@ -42,5 +42,5 @@ Or if your hungry for meat, maybe [plaid sheep][plaid-sheep-md]
 
 [plaid-sheep-md]: FLANNEL_SPOOL.md "Plaid Sheep Markdown"
 [plaid-spool-md]: FLANNEL_STATE.md "Plaid Spool Markdown"
-[breadcrumb-md]: FLANNEL_CRUMBS.md "Breadcrum Markdown Page"
+[revdeps-md]: FLANNEL_REVDEPS.md "Breadcrum Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"
