@@ -55,7 +55,7 @@ remove_broken_revdeps() {
       # first test for equality, are we bounded?
       if [[ "$operator" == *"="* ]]; then
         # are we equal?
-        if [[ "$current_module" == "$version" ]];
+        if [[ "$current_module" == "$version" ]]; then
           continue
         fi
       else # we are bounded, do either top or lower satisfy?
