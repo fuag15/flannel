@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-load_modules "fuzzy_plaid/pather" "fuzzy_plaid/requires"
+load_modules "flannel/pather" "flannel/requires"
 
 # clean up
 clean_closet "vfx/maya_plugins" "0.9" "${@:(-1)}"
