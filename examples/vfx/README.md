@@ -29,7 +29,7 @@ Here we go!
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
-Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [pellets][pellets-readme] reverse dependencies with the optional `fix_revdeps` to choose a default substitution if we break the dependency!
+Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [revdeps][revdeps-readme] reverse dependencies with the optional `fix_revdeps` to choose a default substitution if we break the dependency!
 
 What if you want it to just clear vray? thats fine! if vray isn't loaded it will not try to fix what isn't broken.
 
@@ -37,7 +37,7 @@ Another route open to you is to not supply a substitute so that when something c
 
 ---
 
-In this example we set `vfx/maya` to default *( 2013 )* which requires `vfx/python/2.7` then we change to `vfx/python/2.6` which would break maya! But, maya is leaving a pellet so we remove it! Next we set `vfx/maya/2012` and clear `vfx/python` which also removes maya! Lets keep things clean guys or you'll have dirty flannel all over the place! *( no one likes dirty flannel )*
+In this example we set `vfx/maya` to default *( 2013 )* which requires `vfx/python/2.7` then we change to `vfx/python/2.6` which would break maya! But, maya is leaving a revdep so we remove it! Next we set `vfx/maya/2012` and clear `vfx/python` which also removes maya! Lets keep things clean guys or you'll have dirty flannel all over the place! *( no one likes dirty flannel )*
 
     vest vfx/maya
     echo $PYTHONPATH # /2.7:/maya/2013:/plugin/0.6
@@ -105,22 +105,22 @@ Lets look at the hairiest of the hairy!, here's our maya 2013 config.
 You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `clear` we undo our path modifications. This will most likely be simplified for later versions.
 
     # set up
-    load_modules "fuzzy_plaid/pather" "fuzzy_plaid/pellets" "fuzzy_plaid/requires"
+    load_modules "flannelpather" "flannelrevdeps" "flannelrequires"
 
-    # pellets with replacement defaults
+    # revdeps with replacement defaults
     fix_revdeps "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
     # clear not us
     clean_closet "vfx/maya" "2013" "${@:(-1)}"
 
-    # pellets
+    # revdeps
     remove_broken_revdeps "vfx/maya" "${@:(-1)}"
 
     # needs
     load_requirement "vfx/python" "==" "2.7" "${@:(-1)}"
 
-    # lay pellets
-    pellet "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
+    # lay revdeps
+    define_revdep "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
     # does
     create_path "MAYA_PLUGIN_DIR" "/2013" "${@:(-1)}"
@@ -136,7 +136,7 @@ No other technical ones, support has been added for bounded requirement logic. l
 Check out the [Road Map][road-map-md] markdown for what's up next. 
 
 [semver-site]: http://semver.org "Semantic Version System"
-[pellets-readme]: ../pellets/README.md "pellets readme"
+[revdeps-readme]: ../revdeps/README.md "revdeps readme"
 [road-map-md]: ../ROAD_MAP.md "Road Map Markdown Page"
 [vfx-scenario-md]: SCENARIO.md "Vfx Prototype Scenario"
 [readme-md]: ../README.md "Flannel Readme"

@@ -1,16 +1,8 @@
-# [Flannel][readme-md] - Fuzzy Plaid *( Core Module )*
+# [Flannel][readme-md] - Flannel *( Core Module )*
 
 This is the main module for Flannel. It contains some helper functions for things such as loading a module `vest`, loading modules based on a default configuration `~/.flannelrc` or named configurations `~/.name.flannelrc` or directory configurations `./.plaid_patch` - `jacket`
 
 Let's look at how these functions work from the inside-out.
-
----
-
-### `wear` *wear <stdin>*
-
-This function expects standard input in the form of one run of `flannel` *( load a module with args )* per line.
-
-This is perfect for reading in from config files!
 
 ---
 
@@ -30,17 +22,17 @@ This function also clears the table of any reverse dependencies before running. 
 
 ### `vest` *vest* module_name [module flags]
   
-This function appears to be pretty similar to `flannel` however you'll notice that it clears crumbs from our table before running. For more on how flannel uses revdepss see the [revdeps][revdeps-md] markdown.
+This function appears to be pretty similar to `flannel` however you'll notice that it clears crumbs from our table before running. For more on how flannel uses revdeps see the [revdeps][flanne-revdeps-md] markdown.
 
 ---
 
-Looks like this is a good time to read more about [revdepss][revdeps-md]. Hungry?, eat a cookie, bread's pretty bland.
+Looks like this is a good time to read more about [revdepss][flanne-revdeps-md].
 
-If your not hungry, you might want to check out [plaid spool][plaid-spool-md] the state snapshot.
+You might want to check out [flannel state][flannel-state-md] the state snapshot.
 
-Or if your hungry for meat, maybe [plaid sheep][plaid-sheep-md]
+Or if your hungry for meat, maybe [flannel spool][flannel-spool-md]
 
-[plaid-sheep-md]: FLANNEL_SPOOL.md "Plaid Sheep Markdown"
-[plaid-spool-md]: FLANNEL_STATE.md "Plaid Spool Markdown"
-[revdeps-md]: FLANNEL_REVDEPS.md "Breadcrum Markdown Page"
+[flannel-spool-md]: FLANNEL_SPOOL.md "Flannel Spool Markdown"
+[flannel-state-md]: FLANNEL_STATE.md "Flannel State Markdown"
+[flannel-revdeps-md]: FLANNEL_REVDEPS.md "Revdeps Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"
