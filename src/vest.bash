@@ -5,7 +5,7 @@
 # it clears our crumbs from the last run and then passes off vars to flannel
 vest() {
   # flush revdeps
-  _flannel_clear_crumbs
+  _flannel_clear_revdeps
 
   # clear our old sheep
   _flannel_clear_spool

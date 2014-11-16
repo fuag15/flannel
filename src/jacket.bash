@@ -5,7 +5,7 @@
 # - wear's any specified named home default config on top of that
 # - wear's any local plaid_patces
 jacket() { 
-  _flannel_clear_crumbs
+  _flannel_clear_revdeps
 
   # clear our old sheep
   _flannel_clear_spool

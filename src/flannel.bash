@@ -4,7 +4,7 @@
 # # this command is the meat of flannel! Brace Yourself
 #
 # - first we set null and ext glob so we can use our first path as a glob and ext glob
-#   - this is usefull for unloading other modules in vfx that follow a naming pattern
+#   - this is useful for unloading other modules in vfx that follow a naming pattern
 # - we shift off the glob so we dont have to do complicated array arithmatic the rest of the places we pass things for each pass
 # - if our crumbing function is prepped we simultaneously test for a crumb and add one, if we already had it we exit gracefully
 # - else we load every shell function in a module foldier first, then we load a .flannel init file if it exists
@@ -24,7 +24,7 @@ flannel() {
   # loop through glob matches and run them
   local module; for module in ~/.flannel/$module_glob; do
     # did we already consume this?
-    if _flannel_track_crumb "${module#~/.flannel/}'$@'"; then
+    if _flannel_track_revdeps "${module#~/.flannel/}'$@'"; then
       # skip this glob match
       continue
     fi

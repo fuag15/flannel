@@ -1,8 +1,8 @@
 # [Flannel][readme-md] - Flannel Crumbs *( Circular Dep Check )*
 
-Flannel uses bread crumbing to prevent circular dependencies in modules. This was initially designed to be a variable passed along by the `flannel` function but got extracted to an env var called `FLANNEL_CRUMBS` in order to simplify the use of `flannel`
+Flannel uses bread crumbing to prevent circular dependencies in modules. This was initially designed to be a variable passed along by the `flannel` function but got extracted to an env var called `FLANNEL_REVDEPS` in order to simplify the use of `flannel`
 
-Each module load, `flannel` writes `<module name>'<args passed>':` To `FLANNEL_CRUMBS`, if it finds that there is already a crumb matching this call to the module it skips the module load. This breaks circular dependencies while allowing for multiple calls to the same module with different arguments :) 
+Each module load, `flannel` writes `<module name>'<args passed>':` To `FLANNEL_REVDEPS`, if it finds that there is already a crumb matching this call to the module it skips the module load. This breaks circular dependencies while allowing for multiple calls to the same module with different arguments :) 
 
 
 As a convention modules in flannel are expected to take `clear` as their last argument, if they receive it, the module undoes whatever was done.
@@ -11,9 +11,9 @@ Lets walk through the code
 
 ---
 
-### `_flannel_clear_crumbs` *clear crumbs*
+### `_flannel_clear_revdeps` *clear crumbs*
   
-Simply unset's our FLANNEL_CRUMBS environment variable.
+Simply unset's our FLANNEL_REVDEPS environment variable.
 
 ---
 
@@ -21,7 +21,7 @@ Simply unset's our FLANNEL_CRUMBS environment variable.
   
 First this function checks if we already ate this module with these parameters, if so it returns 0 to tell `flannel` that it should skip the module
 
-If not it appends to `FLANNEL_CRUMBS` in a dumb path like way *( simpler to parse than paths, this is never used as a path )* `<modulename>'<args>':`
+If not it appends to `FLANNEL_REVDEPS` in a dumb path like way *( simpler to parse than paths, this is never used as a path )* `<modulename>'<args>':`
 
 ---
 
