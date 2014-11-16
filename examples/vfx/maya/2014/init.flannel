@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-load_modules "fuzzy_plaid/pather" "fuzzy_plaid/pellets" "fuzzy_plaid/requires"
+load_modules "flannel/pather" "flannel/revdeps" "flannel/requires"
 
 # pellets with replacement defaults
 fix_revdeps "vfx/maya" "vfx/vray" "==" "1.9.02" "${@:(-1)}"

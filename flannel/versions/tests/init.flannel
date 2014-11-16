@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-load_modules "fuzzy_plaid/tester" "fuzzy_plaid/versions"
+load_modules "flanneltester" "flannelversions"
 
 _flannel_tester_store_state
 
