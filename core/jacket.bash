@@ -5,7 +5,7 @@
 # - load's any specified named home default config on top of that
 # - load's any local plaid_patces
 jacket() { 
-  _flannel_core_clear_revdeps
+  _flannel_core_clear_reverse_dependencies
 
   _flannel_core_clear_spool
 
