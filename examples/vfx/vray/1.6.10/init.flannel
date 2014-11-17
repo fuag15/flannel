@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # set up
 load_modules "core/pather" "core/revdeps" "core/requires"
-clean_closet "vfx/vray" "1.6.10" "${@:(-1)}"
+clear_modules "vfx/vray" "1.6.10" "${@:(-1)}"
 
 # needs
 load_requirement "vfx/maya" "==" "2012" "${@:(-1)}"

@@ -3,7 +3,7 @@
 load_modules "core/pather" "core/requires"
 
 # clean up
-clean_closet "vfx/maya_plugins" "0.9" "${@:(-1)}"
+clear_modules "vfx/maya_plugins" "0.9" "${@:(-1)}"
 
 # needs
 load_requirement "vfx/maya" "==" "2014" "${@:(-1)}"

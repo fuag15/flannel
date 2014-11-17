@@ -111,7 +111,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
     fix_reverse_dependencies "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
     # clear not us
-    clean_closet "vfx/maya" "2013" "${@:(-1)}"
+    clear_modules "vfx/maya" "2013" "${@:(-1)}"
 
     # revdeps
     remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"

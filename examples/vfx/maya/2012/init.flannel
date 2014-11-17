@@ -6,7 +6,7 @@ load_modules "core/pather" "core/revdeps" "core/requires"
 fix_reverse_dependencies "vfx/maya" "vfx/vray" "==" "1.6.10" "${@:(-1)}"
 
 # clear not us
-clean_closet "vfx/maya" "2012" "${@:(-1)}"
+clear_modules "vfx/maya" "2012" "${@:(-1)}"
 
 # revdeps
 remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"
