@@ -55,7 +55,7 @@ lint_pellets() {
       # first test for equality, are we bounded?
       if [[ "$operator" == *"="* ]]; then
         # are we equal?
-        if [[ "$sheep" == "$version" ]];
+        if [[ "$sheep" == "$version" ]]; then
           continue
         fi
       else # we are bounded, do either top or lower satisfy?
