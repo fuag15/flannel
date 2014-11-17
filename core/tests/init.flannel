@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-load_modules "flanneltester" "flannelversions"
+load_modules "core/tester" "core"
 
 _flannel_tester_store_state
 

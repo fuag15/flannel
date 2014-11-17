@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-load_modules "flannel/pather" "flannel/revdeps" "flannel/requires"
+load_modules "core/pather" "core/revdeps" "core/requires"
 
 # revdeps with replacement defaults
 fix_revdeps "vfx/maya" "vfx/vray" "==" "1.6.10" "${@:(-1)}"

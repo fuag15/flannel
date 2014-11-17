@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-load_modules "flannel/pather" "flannel/revdeps" "flannel/requires"
+load_modules "core/pather" "core/revdeps" "core/requires"
 clean_closet "vfx/vray" "1.8.34" "${@:(-1)}"
 
 # needs
