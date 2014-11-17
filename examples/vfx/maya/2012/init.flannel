@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# set up
+load_modules "core/pather" "core/revdeps" "core/requires"
+
+# revdeps with replacement defaults
+fix_reverse_dependencies "vfx/maya" "vfx/vray" "==" "1.6.10" "${@:(-1)}"
+
+# clear not us
+clear_modules "vfx/maya" "2012" "${@:(-1)}"
+
+# revdeps
+remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"
+
+# needs
+load_requirement "vfx/python" "==" "2.6" "${@:(-1)}"
+
+# lay revdeps
+define_reverse_dependency "vfx/python" "==" "2.6" "vfx/maya/2012" "${@:(-1)}"
+
+# does
+create_path "MAYA_PLUGIN_DIR" "/2012" "${@:(-1)}"
+append_path "PYTHONPATH" "/maya/2012" "${@:(-1)}"
+
+# example of a tightly bound dependency
+flannel "vfx/maya_plugins/0.1" "${@:(-1)}"

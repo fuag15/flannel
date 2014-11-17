@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# set up
+load_modules "core/pather" "core/revdeps" "core/requires"
+clear_modules "vfx/vray" "1.8.34" "${@:(-1)}"
+
+# needs
+load_requirement "vfx/maya" "==" "2013" "${@:(-1)}"
+
+# pellets
+define_reverse_dependency "vfx/maya" "==" "2013" "vfx/vray/1.8.34" "${@:(-1)}"
+
+# does
+create_path "VRAY_1_8_34" "/vray/1.8.34" "${@:(-1)}"
+prepend_path "PYTHONPATH" "/vray/1.8.34" "${@:(-1)}"

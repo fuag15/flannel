@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# set up
+load_modules "fuzzy_plaid/pather" "fuzzy_plaid/requires"
+
+# clean up
+clear_modules "vfx/maya_plugins" "0.6" "${@:(-1)}"
+
+# needs
+load_requirement "vfx/maya" "==" "2013" "${@:(-1)}"
+
+# does
+append_path "MAYA_PLUGIN_PATH" "/plugin/0.6" "${@:(-1)}"
+append_path "PYTHONPATH" "/plugin/0.6" "${@:(-1)}"

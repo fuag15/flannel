@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# we need versions
+load_modules "core/versions"

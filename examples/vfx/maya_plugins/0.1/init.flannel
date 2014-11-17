@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# set up
+load_modules "core/pather" "core/requires"
+
+# clean up
+clear_modules "vfx/maya_plugins" "0.1" "${@:(-1)}"
+
+# needs
+load_requirement "vfx/maya" "==" "2012" "${@:(-1)}"
+
+# does
+prepend_path "MAYA_PLUGIN_PATH" "/plugin/0.1" "${@:(-1)}"
+prepend_path "PYTHONPATH" "/plugin/0.1" "${@:(-1)}"

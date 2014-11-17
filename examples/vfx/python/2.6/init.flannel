@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# set up
+load_modules "core/pather" "core/revdeps"
+clear_modules "vfx/python" "2.6" "${@:(-1)}"
+
+# pellets
+remove_broken_reverse_dependencies "vfx/python" "${@:(-1)}"
+
+# does
+create_path "PYTHONPATH" "/2.6" "${@:(-1)}"

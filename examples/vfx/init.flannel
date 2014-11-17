@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# clear all or set default
+if [[ "${@:(-1)}" == "clear" ]]; then
+  clear_modules "vfx"
+else
+  flannel "vfx/maya/2013" "$@"
+fi
