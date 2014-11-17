@@ -5,7 +5,7 @@
 # syntax: `clean_closet <module_base> [version] [clean]`
 # on a clean we ignore
 # for each thing in the module that isn't requested, if its in our closet, clear it
-clean_closet() {
+clear_modules() {
   # disable null globs returning literals, and enable glob extensions  
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
