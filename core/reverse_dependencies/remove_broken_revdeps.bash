@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# lint pellets should be colled before anything in a configuration except any calls to fix_revdeps
-# lint pellets goes through our FLANNEL_REVDEPS and removes and reverse dpendencies
-# syntax: `remove_broken_revdeps <module> [clear]
+# lint pellets should be colled before anything in a configuration except any calls to fix_reverse_dependencies
+# lint pellets goes through our FLANNEL_REVERSE_DEPENDENCIES and removes and reverse dpendencies
+# syntax: `remove_broken_reverse_dependencies <module> [clear]
 # first, check if we got a clear, if not return
 # next for each rdepend of us
 #   if we dont satisfy it's requirement wiht any existing module in FLANNEL_SPOOL
 #     remove from plaid pellets
 #     clear the module!
-remove_broken_revdeps() {
+remove_broken_reverse_dependencies() {
   # if we aren't clearing, we don't care
   if [[ "${@:(-1)}" != "clear" ]]; then
     return
@@ -24,7 +24,7 @@ remove_broken_revdeps() {
 
   #echo "found current_module: $current_module"
 
-  local revdeps_copy="$FLANNEL_REVDEPS"
+  local revdeps_copy="$FLANNEL_REVERSE_DEPENDENCIES"
 
   # do we have any pellet deps?
   local current operator version; while [[ "$revdeps_copy" == *":${1};"* ]]; do

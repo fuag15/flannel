@@ -4,9 +4,9 @@ In flannel we use pellets to handle reverse dependencies. If you rely on a child
 
 Note this might change to `''` instead of `[]` if globing support is added in the future but this should not affect anything front facing.
 
-when a module is unloaded it `remove_broken_revdeps` and clears any modules that rely on it it might have broken by changing!
+when a module is unloaded it `remove_broken_reverse_dependencies` and clears any modules that rely on it it might have broken by changing!
 
-If you don't like the idea of getting deleted automatically, the module can use `fix_revdeps` to look for a specific dep that might be breaking and substitute another default for it.
+If you don't like the idea of getting deleted automatically, the module can use `fix_reverse_dependencies` to look for a specific dep that might be breaking and substitute another default for it.
 
 The easiest way to see how this works is by looking at the [vfx][vfx-readme] module which uses it.
 
@@ -14,7 +14,7 @@ Lets dive into the code!
 
 ---
 
-### `FLANNEL_REVDEPS` *environment state / dependency variable*
+### `FLANNEL_REVERSE_DEPENDENCIES` *environment state / dependency variable*
 
 The point of this is to maintain the state of flannel as well as provide hooks for reverse dependencies. 
 
@@ -42,7 +42,7 @@ leaves a bounded reverse dependency behind
 
 ### `pellet` *leave a pellet dependency*
 
-This is designed to modify `FLANNEL_REVDEPS` in a smart / easy way.
+This is designed to modify `FLANNEL_REVERSE_DEPENDENCIES` in a smart / easy way.
 
 ### Syntax
 
@@ -52,27 +52,27 @@ Where <module> is the base module you need, operator is one of {==,>=,<=} and <v
 
 ---
 
-### `remove_broken_revdeps` *check for reverse dependencies*
+### `remove_broken_reverse_dependencies` *check for reverse dependencies*
 
-This is designed to be called when flannel is called with a `clear`. It will scan our `FLANNEL_REVDEPS` for any modules referencing the module to be removed that match the argument.
+This is designed to be called when flannel is called with a `clear`. It will scan our `FLANNEL_REVERSE_DEPENDENCIES` for any modules referencing the module to be removed that match the argument.
 
 Called first thing in a config
 
 ### Syntax
 
-`remove_broken_revdeps <module> [clear]`
+`remove_broken_reverse_dependencies <module> [clear]`
 
 where *<module>* is the current module
 
 ---
 
-### `fix_revdeps` *check for a pellet and provide a default substitution*
+### `fix_reverse_dependencies` *check for a pellet and provide a default substitution*
 
-This is meant to be done at the top of an `init.flannel`, it checks if a specific reverse dependency is currently active and if so provides a default replacement that plays nicely. This only gets run if there is a `clear` flag. Should be called right before remove_broken_revdeps
+This is meant to be done at the top of an `init.flannel`, it checks if a specific reverse dependency is currently active and if so provides a default replacement that plays nicely. This only gets run if there is a `clear` flag. Should be called right before remove_broken_reverse_dependencies
 
 ### Syntax
 
-`fix_revdeps <module> <rdepend> <operator> <version> [default clear]`
+`fix_reverse_dependencies <module> <rdepend> <operator> <version> [default clear]`
 
 where <module> is the module base you are linting for, <rdepend> is the base of the reverse dependency, and <operator> / <version> are a logical pair for what you want the replacement dependency to be.
 

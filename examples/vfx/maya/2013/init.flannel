@@ -3,19 +3,19 @@
 load_modules "core/pather" "core/revdeps" "core/requires"
 
 # pellets with replacement defaults
-fix_revdeps "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
+fix_reverse_dependencies "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
 # clear not us
 clean_closet "vfx/maya" "2013" "${@:(-1)}"
 
 # pellets
-remove_broken_revdeps "vfx/maya" "${@:(-1)}"
+remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"
 
 # needs
 load_requirement "vfx/python" "==" "2.7" "${@:(-1)}"
 
 # lay pellets
-define_revdep "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
+define_reverse_dependency "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
 # does
 create_path "MAYA_PLUGIN_DIR" "/2013" "${@:(-1)}"

@@ -29,7 +29,7 @@ Here we go!
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
-Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [revdeps][revdeps-readme] reverse dependencies with the optional `fix_revdeps` to choose a default substitution if we break the dependency!
+Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [revdeps][revdeps-readme] reverse dependencies with the optional `fix_reverse_dependencies` to choose a default substitution if we break the dependency!
 
 What if you want it to just clear vray? thats fine! if vray isn't loaded it will not try to fix what isn't broken.
 
@@ -108,19 +108,19 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
     load_modules "flannelpather" "flannelrevdeps" "flannelrequires"
 
     # revdeps with replacement defaults
-    fix_revdeps "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
+    fix_reverse_dependencies "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
     # clear not us
     clean_closet "vfx/maya" "2013" "${@:(-1)}"
 
     # revdeps
-    remove_broken_revdeps "vfx/maya" "${@:(-1)}"
+    remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"
 
     # needs
     load_requirement "vfx/python" "==" "2.7" "${@:(-1)}"
 
     # lay revdeps
-    define_revdep "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
+    define_reverse_dependency "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
     # does
     create_path "MAYA_PLUGIN_DIR" "/2013" "${@:(-1)}"

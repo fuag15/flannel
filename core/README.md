@@ -34,5 +34,5 @@ Or if your hungry for meat, maybe [flannel spool][flannel-spool-md]
 
 [flannel-spool-md]: FLANNEL_SPOOL.md "Flannel Spool Markdown"
 [flannel-state-md]: FLANNEL_STATE.md "Flannel State Markdown"
-[flannel-revdeps-md]: FLANNEL_REVDEPS.md "Revdeps Markdown Page"
+[flannel-revdeps-md]: FLANNEL_REVERSE_DEPENDENCIES.md "Revdeps Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"

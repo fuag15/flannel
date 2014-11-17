@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # this command lints the pellets for dependencies of the given module
 # if the dependency maches the given rdepend it provides a substitution! :)
-# syntax: `fix_revdeps <module> <rdepend> <lower bound> <upper bound> [default clear]
+# syntax: `fix_reverse_dependencies <module> <rdepend> <operator> <version> [default clear]
 # if we are clearing, who cares, return
 # if the module rdepend pair is in our path
 #   get info out of it
@@ -10,14 +10,14 @@
 #   else
 #     remove from path
 #     flannel substitution
-fix_revdeps_within_bounds() {
+fix_reverse_dependencies() {
   # if we are clearing, we don't care
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
   fi
 
   # copy for our own manipulation
-  local revdeps_copy="$FLANNEL_REVDEPS"
+  local revdeps_copy="$FLANNEL_REVERSE_DEPENDENCIES"
   
   # if its in the pellets
   local current_rdepend_version; while [[ "$revdeps_copy" == *":$1;"* ]]; do
@@ -44,28 +44,21 @@ fix_revdeps_within_bounds() {
     # if we have a version
     if [[ -n "$current_rdepend_version" ]]; then
       if declare -f _flannel_"$2"_comparator >/dev/null; then
-        # first is it equal?
-        if [[ "$current_rdepend_version" == "$3" || "$current_rdepend_version" == "$4" ]]; then
+        # first, is it equal?
+        if [[ "$current_rdepend_version" == "$4" ]]; then
           return
         fi
-        # else are we above our lower bound
-        if _flannel_"$2"_comparator "$current_rdepend_version" ">" "$3"; then
-          # are we below our upper bound?
-          if _flannel_"$2"_comparator "$current_rdepend_version" "<" "$4"; then
-            return
-          fi
+        # if its satisfied then
+        if _flannel_"$2"_comparator "$current_rdepend_version" "${3%=}" "$4"; then
+          return
         fi
       else # use default
-        # first is it equal?
-        if [[ "$current_rdepend_version" == "$3" || "$current_rdepend_version" == "$4" ]]; then
+        # first, is it equal?
+        if [[ "$current_rdepend_version" == "$4" ]]; then
           return
         fi
-        # else are we above our lower bound
-        if _flannel_catch_all_comparator "$current_rdepend_version" ">" "$3"; then
-          # are we below our upper bound?
-          if _flannel_catch_all_comparator "$current_rdepend_version" "<" "$4"; then
-            return
-          fi
+        if _flannel_catch_all_comparator "$current_rdepend_version" "${3%=}" "$4"; then
+          return
         fi
       fi
     fi

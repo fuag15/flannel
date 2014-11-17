@@ -7,7 +7,7 @@ clean_closet "vfx/vray" "1.8.34" "${@:(-1)}"
 load_requirement "vfx/maya" "==" "2013" "${@:(-1)}"
 
 # pellets
-define_revdep "vfx/maya" "==" "2013" "vfx/vray/1.8.34" "${@:(-1)}"
+define_reverse_dependency "vfx/maya" "==" "2013" "vfx/vray/1.8.34" "${@:(-1)}"
 
 # does
 create_path "VRAY_1_8_34" "/vray/1.8.34" "${@:(-1)}"

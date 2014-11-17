@@ -4,7 +4,7 @@ load_modules "core/pather" "core/revdeps"
 clean_closet "vfx/python" "2.6" "${@:(-1)}"
 
 # pellets
-remove_broken_revdeps "vfx/python" "${@:(-1)}"
+remove_broken_reverse_dependencies "vfx/python" "${@:(-1)}"
 
 # does
 create_path "PYTHONPATH" "/2.6" "${@:(-1)}"
