@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # this is a catch all comparator designed to handle all versions "smartly"
-# Syntax: `_flannel_catch_all_comparator <module_base> <comparator{<,>}> <target_version>
+# Syntax: `_flannel_core_catch_all_comparator <module_base> <comparator{<,>}> <target_version>
 # this attempts to smartly match the version by the following criteria
 # - while there are still characters left in either side
 #   - remove all special characters and letters from the left for each version
@@ -12,7 +12,7 @@
 #       - return left <comparator> right
 #   - else
 #     - test with comparator and give 0 for true and 1 for false!
-_flannel_catch_all_comparator() {
+_flannel_core_catch_all_comparator() {
   # if we got an equal, just return if they are equal
   if [[ "$2" == "=" ]]; then
     [[ "$1" == "$3" ]]; return

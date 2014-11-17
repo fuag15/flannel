@@ -43,15 +43,15 @@ fix_reverse_dependencies_within_bounds() {
 
     # if we have a version
     if [[ -n "$current_rdepend_version" ]]; then
-      if declare -f _flannel_"$2"_comparator >/dev/null; then
+      if declare -f _flannel_core_"$2"_comparator >/dev/null; then
         # first is it equal?
         if [[ "$current_rdepend_version" == "$3" || "$current_rdepend_version" == "$4" ]]; then
           return
         fi
         # else are we above our lower bound
-        if _flannel_"$2"_comparator "$current_rdepend_version" ">" "$3"; then
+        if _flannel_core_"$2"_comparator "$current_rdepend_version" ">" "$3"; then
           # are we below our upper bound?
-          if _flannel_"$2"_comparator "$current_rdepend_version" "<" "$4"; then
+          if _flannel_core_"$2"_comparator "$current_rdepend_version" "<" "$4"; then
             return
           fi
         fi
@@ -61,9 +61,9 @@ fix_reverse_dependencies_within_bounds() {
           return
         fi
         # else are we above our lower bound
-        if _flannel_catch_all_comparator "$current_rdepend_version" ">" "$3"; then
+        if _flannel_core_catch_all_comparator "$current_rdepend_version" ">" "$3"; then
           # are we below our upper bound?
-          if _flannel_catch_all_comparator "$current_rdepend_version" "<" "$4"; then
+          if _flannel_core_catch_all_comparator "$current_rdepend_version" "<" "$4"; then
             return
           fi
         fi

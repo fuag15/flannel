@@ -43,13 +43,13 @@ fix_reverse_dependencies() {
 
     # if we have a version
     if [[ -n "$current_rdepend_version" ]]; then
-      if declare -f _flannel_"$2"_comparator >/dev/null; then
+      if declare -f _flannel_core_"$2"_comparator >/dev/null; then
         # first, is it equal?
         if [[ "$current_rdepend_version" == "$4" ]]; then
           return
         fi
         # if its satisfied then
-        if _flannel_"$2"_comparator "$current_rdepend_version" "${3%=}" "$4"; then
+        if _flannel_core_"$2"_comparator "$current_rdepend_version" "${3%=}" "$4"; then
           return
         fi
       else # use default
@@ -57,7 +57,7 @@ fix_reverse_dependencies() {
         if [[ "$current_rdepend_version" == "$4" ]]; then
           return
         fi
-        if _flannel_catch_all_comparator "$current_rdepend_version" "${3%=}" "$4"; then
+        if _flannel_core_catch_all_comparator "$current_rdepend_version" "${3%=}" "$4"; then
           return
         fi
       fi

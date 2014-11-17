@@ -34,13 +34,13 @@ load_requirement() {
     local existing_version="${FLANNEL_STATE#*:$1/}"
 
     # else it is time to check our equality, if false load
-    if declare -f _flannel_"$1"_comparator >/dev/null; then
+    if declare -f _flannel_core_"$1"_comparator >/dev/null; then
       # if its satisfied then
-      if _flannel_"$1"_comparator "${existing_version%%;*}" "${2%=}" "$3"; then
+      if _flannel_core_"$1"_comparator "${existing_version%%;*}" "${2%=}" "$3"; then
         return
       fi
     else # use default
-      if _flannel_catch_all_comparator "${existing_version%%;*}" "${2%=}" "$3"; then
+      if _flannel_core_catch_all_comparator "${existing_version%%;*}" "${2%=}" "$3"; then
         return
       fi
     fi

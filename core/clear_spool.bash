@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # simply clears our spool of modules currently being processed
-# syntax `_flannel_clear_spool`
+# syntax `_flannel_core_clear_spool`
 # - just unset FLANNEL_SPOOL
-_flannel_clear_spool() {
+_flannel_core_clear_spool() {
   unset FLANNEL_SPOOL
 }

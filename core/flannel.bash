@@ -24,16 +24,16 @@ flannel() {
   # loop through glob matches and run them
   local module; for module in ~/.flannel/$module_glob; do
     # did we already consume this?
-    if _flannel_track_revdeps "${module#~/.flannel/}'$@'"; then
+    if _flannel_core_track_revdeps "${module#~/.flannel/}'$@'"; then
       # skip this glob match
       continue
     fi
 
     # keep track of the state
-    _flannel_update_state "${module#~/.flannel/}" "$@"
+    _flannel_core_update_state "${module#~/.flannel/}" "$@"
 
     # keep track of our currently loading modules
-    _flannel_spool_add "${module#~/.flannel/}" "$@"
+    _flannel_core_spool_add "${module#~/.flannel/}" "$@"
  
     # load our modules base files
     for file in "$module"/*.bash; do
@@ -46,7 +46,7 @@ flannel() {
     shopt -s nullglob extglob
 
     # we loaded it, flush spool
-    _flannel_spool_remove "${module#~/.flannel/}" "$@"
+    _flannel_core_spool_remove "${module#~/.flannel/}" "$@"
   done
   shopt -u nullglob extglob
   # get our post hooks done

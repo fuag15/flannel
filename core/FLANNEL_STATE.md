@@ -18,7 +18,7 @@ You've seen it before, and you'll see it again, why not, its a fine syntax for p
 
 ---
 
-### `_flannel_update_state` *<module> [clear]*
+### `_flannel_core_update_state` *<module> [clear]*
 
 This function takes a module and adds it to our state if it isn't already there!
 

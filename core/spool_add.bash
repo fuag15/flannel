@@ -3,7 +3,7 @@
 # syntax: `pace_sheep <module> [clear]
 # - on clear return
 # - else if its not in the path place it in
-_flannel_spool_add() {
+_flannel_core_spool_add() {
   if [[ "${@:(-1)}" == "clear" ]]; then
     return
   fi

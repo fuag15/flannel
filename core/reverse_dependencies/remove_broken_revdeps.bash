@@ -64,18 +64,18 @@ remove_broken_reverse_dependencies() {
         fi
       fi
       # then relative
-      if declare -f _flannel_"$1"_comparator >/dev/null; then
+      if declare -f _flannel_core_"$1"_comparator >/dev/null; then
         # if we arent a bounded pellet
         if [[ "$operator" == *"="* ]]; then
           # if its satisfied then
-          if _flannel_"$1"_comparator "$current_module" "${operator%=}" "$version"; then
+          if _flannel_core_"$1"_comparator "$current_module" "${operator%=}" "$version"; then
             continue
           fi
         else # we are bounded!
           # if we are greater than our lower
-          if _flannel_"$1"_comparator "$current_module" ">" "$operator"; then
+          if _flannel_core_"$1"_comparator "$current_module" ">" "$operator"; then
             # if we are lower than our greater
-            if _flannel_"$1"_comparator "$current_module" "<" "$version"; then
+            if _flannel_core_"$1"_comparator "$current_module" "<" "$version"; then
               continue
             fi
           fi
@@ -83,14 +83,14 @@ remove_broken_reverse_dependencies() {
       else # use default
         # if we arent a bounded pellet
         if [[ "$operator" == *"="* ]]; then
-          if _flannel_catch_all_comparator "$current_module" "${operator%=}" "$version"; then
+          if _flannel_core_catch_all_comparator "$current_module" "${operator%=}" "$version"; then
             continue
           fi
         else # we are bounded!
           # if we are greater than our lower
-          if _flannel_catch_all_comparator "$current_module" ">" "$operator"; then
+          if _flannel_core_catch_all_comparator "$current_module" ">" "$operator"; then
             # if we are lower than our greater
-            if _flannel_catch_all_comparator "$current_module" "<" "$version"; then
+            if _flannel_core_catch_all_comparator "$current_module" "<" "$version"; then
               continue
             fi
           fi

@@ -4,7 +4,7 @@
 # if we got a clear, remove and return
 # if its not in the path
 #   add it to the path
-_flannel_update_state() {
+_flannel_core_update_state() {
   # if we got a clear
   if [[ "${@:(-1)}" == "clear" ]]; then
     # remove our flannel
