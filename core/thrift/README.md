@@ -22,7 +22,7 @@ clones repo
 
 ### Syntax
 
-`thrift_fetch <git ssh uri> [branch_or_tag] [revision_hash]`
+`thrift_fetch <git uri> <username> <repo> [branch_or_tag] [revision_hash]`
 
 ### Pseudo Code
 
@@ -44,7 +44,7 @@ Where <module> is the base module you need
 
 ### `thrift_clean` *remove any installed dependencies*
 
-removes installed dependencies, kesp deps if they are needed elsewhere
+removes installed dependencies, keeps deps if they are needed elsewhere
 
 ### Syntax
 
