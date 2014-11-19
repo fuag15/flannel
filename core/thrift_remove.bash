@@ -6,5 +6,15 @@ thrift_remove() {
   if [ $# -eq 1 ]; then
     # remove the repo
     rm -Rf ~/.flannel/contrib/"${1}"
+
+    # if the parent directory is empty
+    if (
+         shopt -s nullglob dotglob
+         local files=(~/.flannel/contrib/"${1%/*}"/*)
+         (( ! ${#files[@]} ))
+       ); then
+       #remove it
+       rm -Rf ~/.flannel/contrib/"${1%/*}"
+    fi
   fi
 }

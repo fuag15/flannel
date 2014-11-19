@@ -64,4 +64,16 @@ initially just a wrapper to rm -Rf repo dir
 
 where <module> is base of repo to remove
 
+---
+
+## `thrift_update` *updates selected repository in contrib*
+
+updates the repository specified, just a wrapper for git
+
+### Syntax
+
+`thrift_update` <repo uri>
+
+where <repo uri> is the unique identifier for the thrift repository
+
 [readme-md]: ../../README.md "Flannel Readme"
