@@ -1,12 +1,12 @@
 # [Flannel][readme-md] - Developers
 
-This is an overview of the core flannel functionality. There is a pair document in [fuzzy_plaid][fuzzy_plaid-readme] *( core library for flannel )* which goes into more detail.
+This is an overview of the core flannel functionality. There is a pair document in [core][core-readme] *( core library for flannel )* which goes into more detail.
 
 ## Functional Overview
 
-We load `flannel` during the source of ~/.flannel/init.sh and we instruct it to load the `fuzzy_plaid` library.
+We load `flannel` during the source of ~/.flannel/init.sh and we instruct it to load the `core` library.
 
-`flannel` is set up such that you pass it a glob that is the path to a module to load relative to ~/.flannel/ 
+`flannel` is set up such that you pass it a glob that is the path to a module to load relative to ~/.flannel/
 
 It will then match every module against that glob and source a `.sh` / `.bash` files within. This is where you should put function definitions etc.
 
@@ -16,7 +16,7 @@ Then, iff there is an `init.flannel` in the module directory, it will source it.
 
 note that this organization allows for circular dependencies, and submodules.
 
-Now is when you go to [fuzzy_plaid][fuzzy_plaid-readme] to read in more depth :)
+Now is when you go to [core][core-readme] to read in more depth :)
 
-[fuzzy_plaid-readme]: flannelREADME.md "Core Flannel Doc"
+[core-readme]: core/README.md "Core Flannel Doc"
 [readme-md]: ../README.md "Flannel Readme"

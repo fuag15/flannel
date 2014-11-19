@@ -2,7 +2,7 @@
 
 This is a spec for the `requires` module which is meant to allow version matching logic for module requirements for the [vfx][vfx-prototype-readme] prototype project.
 
-It works closely with [plaid spool][plaid-spool-md] so thats some good background to read.
+It works closely with [flannel_state][flannel-state-md] so thats some good background to read.
 
 This module assumes your modules are ordered in such a way that they are organized module/[*(module/)]<version>/ and that flanneling the parent provides a default version.
 
@@ -54,6 +54,6 @@ This function is pretty much the same as load_requirement with extra options. It
 3. else nothing is satisfied
   - flannel higher version or default
 
-[plaid-spool-md]: ../FLANNEL_STATE.md "Plaid Spool Markdown"
+[flannel-state-md]: ../FLANNEL_STATE.md "Plaid Spool Markdown"
 [vfx-prototype-readme]: ../../vfx/README.md "Vfx Prototype Readme"
 [readme-md]: ../../README.md "Flannel Readme"

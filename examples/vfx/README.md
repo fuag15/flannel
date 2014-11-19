@@ -25,7 +25,7 @@ Here we go!
     vest vfx/maya_plugins/0.1
     echo $MAYA_PLUGIN_DIR # /2012
     echo $PYTHONPATH # /plugin/0.1:/2.6:/vray/1.6.10:/maya/2012
-    
+
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
@@ -133,7 +133,7 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
 No other technical ones, support has been added for bounded requirement logic. lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
 
-Check out the [Road Map][road-map-md] markdown for what's up next. 
+Check out the [Road Map][road-map-md] markdown for what's up next.
 
 [semver-site]: http://semver.org "Semantic Version System"
 [reverse_dependencies-readme]: ../reverse_dependencies/README.md "reverse_dependencies readme"
