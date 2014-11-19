@@ -4,6 +4,6 @@
 thrift_remove() {
   # dont run this is accidently called with wrong args
   if [ $# -eq 1 ]; then
-    rm -Rf "~/.flannel/contrib/${1}"
+    rm -Rf ~/.flannel/contrib/"${1}"
   fi
 }

@@ -5,10 +5,11 @@
 thrift_clean() {
   # dont run if this is accidently called with wrong args
   if [ $# -eq 1 ]; then
-    if grep -r "~/.flannel/contrib/**/requirements.thrift ${1/\// /}"; then
-      exit 0
-    else
-      rm -Rf "~/.flannel/contrib/${1}"
-    fi
+    for file in `find ~/.flannel/contrib -name requirements.thrift`; do
+      if cat $file | grep \""${1/\// }"\" >/dev/null; then
+        exit 0
+      fi
+    done
+    thrift_remove "${1}"
   fi
 }

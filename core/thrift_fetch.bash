@@ -11,17 +11,15 @@
 # thrift_fetch <git uri> <username> <repo> [branch_or_tag] [revision_hash]
 thrift_fetch() {
   # only continue if the directory does exist
-  if [[ ! -d "~/.flannel/contrib/${2}/${3}" ]]; then
+  if [[ ! -d ~/.flannel/contrib/${2}/${3} ]]; then
     # create directory
-    mkdir -p ~/.flannel/contrib/${2}
-    # enter directory
-    cd "~/.flannel/contrib/${2}"
+    mkdir -p ~/.flannel/contrib/"${2}"/"${3}"
     # clone utility
-    git clone "${1}"
+    git clone "${1}" ~/.flannel/contrib/"${2}"/"${3}"
 
     # if there was also a branch switch to it
     if [ $# -ge 4 ]; then
-      cd "~/.flannel/contrib/${2}/${3}"
+      cd ~/.flannel/contrib/"${2}"/"${3}"
       git checkout "${4}"
 
       # if there was also a specific revision specified take care of that
