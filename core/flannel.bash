@@ -20,11 +20,11 @@ flannel() {
   done
   shopt -s nullglob extglob
   # store var so we dont do lots of arithmatic on $@
-  local module_glob="$1"; shift 
+  local module_glob="$1"; shift
   # loop through glob matches and run them
   local module; for module in ~/.flannel/$module_glob; do
     # did we already consume this?
-    if _flannel_core_track_revdeps "${module#~/.flannel/}'$@'"; then
+    if _flannel_core_track_reverse_dependencies "${module#~/.flannel/}'$@'"; then
       # skip this glob match
       continue
     fi
@@ -34,7 +34,7 @@ flannel() {
 
     # keep track of our currently loading modules
     _flannel_core_spool_add "${module#~/.flannel/}" "$@"
- 
+
     # load our modules base files
     for file in "$module"/*.bash; do
       . "$file"

@@ -4,10 +4,10 @@
 
 shopt -s nullglob extglob
 # load our main module and flannel it
-for file in ~/.flannel/flannel/*.bash; do
+for file in ~/.flannel/core/*.bash; do
   . "$file"
 done
 shopt -u nullglob extglob
 
 # load it!
-vest "flannel"
+vest "core"

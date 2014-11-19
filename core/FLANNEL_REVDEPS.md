@@ -11,7 +11,7 @@ Lets walk through the code
 
 ---
 
-### `_flannel_core_clear_revdeps` *clear crumbs*
+### `_flannel_core_clear_reverse_dependencies` *clear crumbs*
   
 Simply unset's our FLANNEL_REVERSE_DEPENDENCIES environment variable.
 

@@ -17,18 +17,18 @@ fix_reverse_dependencies_within_bounds() {
   fi
 
   # copy for our own manipulation
-  local revdeps_copy="$FLANNEL_REVERSE_DEPENDENCIES"
+  local reverse_dependencies_copy="$FLANNEL_REVERSE_DEPENDENCIES"
   
   # if its in the pellets
-  local current_rdepend_version; while [[ "$revdeps_copy" == *":$1;"* ]]; do
+  local current_rdepend_version; while [[ "$reverse_dependencies_copy" == *":$1;"* ]]; do
     # get the first dep from the left and eat the prefix
-    local current_rdepend_version="${revdeps_copy#*:$1;}"
+    local current_rdepend_version="${reverse_dependencies_copy#*:$1;}"
 
     # eat extraneous right hand side
     current_rdepend_version="${current_rdepend_version%%]*}"
 
     # eat it and continue
-    revdeps_copy="${revdeps_copy//:$1;$current_rdepend_version\]/}"
+    reverse_dependencies_copy="${reverse_dependencies_copy//:$1;$current_rdepend_version\]/}"
 
     # if it is not for the rdepend we are lookin for, continue
     if [[ "$current_rdepend_version" != *"$2"* ]]; then

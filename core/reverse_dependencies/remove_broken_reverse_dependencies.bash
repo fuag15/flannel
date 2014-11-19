@@ -24,12 +24,12 @@ remove_broken_reverse_dependencies() {
 
   #echo "found current_module: $current_module"
 
-  local revdeps_copy="$FLANNEL_REVERSE_DEPENDENCIES"
+  local reverse_dependencies_copy="$FLANNEL_REVERSE_DEPENDENCIES"
 
   # do we have any pellet deps?
-  local current operator version; while [[ "$revdeps_copy" == *":${1};"* ]]; do
+  local current operator version; while [[ "$reverse_dependencies_copy" == *":${1};"* ]]; do
     # get the first dep from the left and eat the prefix
-    current="${revdeps_copy#*:$1;}"
+    current="${reverse_dependencies_copy#*:$1;}"
 
     # get the operator from the left
     operator="${current%%;*}"
@@ -47,7 +47,7 @@ remove_broken_reverse_dependencies() {
     current="${current%%]*}"
 
     # remove it from our pellet copy
-    revdeps_copy="${revdeps_copy//:$1;$operator;$version\[$current\]/}"
+    reverse_dependencies_copy="${reverse_dependencies_copy//:$1;$operator;$version\[$current\]/}"
 
     # if our current_module isn't null or empty and it sati
     if [[ -n "$current_module" ]]; then
