@@ -4,6 +4,7 @@
 thrift_remove() {
   # dont run this is accidently called with wrong args
   if [ $# -eq 1 ]; then
+    # remove the repo
     rm -Rf ~/.flannel/contrib/"${1}"
   fi
 }

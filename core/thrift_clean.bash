@@ -5,11 +5,14 @@
 thrift_clean() {
   # dont run if this is accidently called with wrong args
   if [ $# -eq 1 ]; then
-    for file in `find ~/.flannel/contrib -name requirements.thrift`; do
-      if cat $file | grep \""${1/\// }"\" >/dev/null; then
-        exit 0
+    shopt -s globstar
+    for file in ~/.flannel/contrib/**/dependencies.thrift; do
+      if cat "${file}" | grep "${1/\// }" >/dev/null; then
+        shopt -u globstar
+        return
       fi
     done
+    shopt -u globstar
     thrift_remove "${1}"
   fi
 }
