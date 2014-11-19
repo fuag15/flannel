@@ -9,25 +9,11 @@
 # custom git setups for internal use in orgs
 # example syntax
 # thrift_fetch <git uri> <username> <repo> [branch_or_tag] [revision_hash]
-thrift_fetch() {
+thrift_update() {
   # only continue if the directory does exist
-  if [[ ! -d "~/.flannel/contrib/${2}/${3}" ]]; then
-    # create directory
-    mkdir -p ~/.flannel/contrib/${2}
-    # enter directory
-    cd "~/.flannel/contrib/${2}"
-    # clone utility
-    git clone "${1}"
-
-    # if there was also a branch switch to it
-    if [ $# -ge 4 ]; then
-      cd "~/.flannel/contrib/${2}/${3}"
-      git checkout "${4}"
-
-      # if there was also a specific revision specified take care of that
-      if [ $# -ge 5 ]; then
-        git checkout "${5}"
-      fi
-    fi
+  if [[ -d ~/.flannel/contrib/${1} ]]; then
+    pushd ~/.flannel/contrib/"${1}" >/dev/null
+    git pull origin
+    popd >/dev/null
   fi
 }

@@ -1,4 +1,4 @@
-# [Flannel][readme-md] - Thrift *( module sharing )*
+# [Flannel][readme-md] - FLANNEL_THRIFT *( module sharing )*
 
 Utilities to install non-core (contributed) modules! Moduels are installed under /contrib/<git_user>/repo_name<branch>[revision]/repo_contents
 
@@ -63,5 +63,17 @@ initially just a wrapper to rm -Rf repo dir
 `thrift_remove <module>`
 
 where <module> is base of repo to remove
+
+---
+
+## `thrift_update` *updates selected repository in contrib*
+
+updates the repository specified, just a wrapper for git
+
+### Syntax
+
+`thrift_update` <repo uri>
+
+where <repo uri> is the unique identifier for the thrift repository
 
 [readme-md]: ../../README.md "Flannel Readme"

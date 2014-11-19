@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# enable or disable verbose xtrace
-if [[ "$1" == "clear" ]]; then
-  set +xv
-else
-  set -xv
-fi
