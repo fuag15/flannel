@@ -1,4 +1,4 @@
-# [Flannel][readme-md] - Thrift *( module sharing )*
+# [Flannel][readme-md] - FLANNEL_THRIFT *( module sharing )*
 
 Utilities to install non-core (contributed) modules! Moduels are installed under /contrib/<git_user>/repo_name<branch>[revision]/repo_contents
 
