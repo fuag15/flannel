@@ -28,7 +28,7 @@ It is run in flannel and maintains `FLANNEL_STATE`.
 
 ---
 
-If you haven't checked it out already you should go take a look at [breadcrumbs][breadcrumb-md] the circular dependency handler.
+If you haven't checked it out already you should go take a look at [spool][spool-md] the circular dependency handler.
 
-[breadcrumb-md]: BREAD_CRUMBS.md "Breadcrum Markdown Page"
+[spool-md]: FLANNEL_SPOOL.md "Breadcrum Markdown Page"
 [readme-md]: ../README.md "Flannel Readme"

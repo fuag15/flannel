@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 # set up
-load_modules "core/pather" "core/revdeps" "core/requires"
+load_modules "core/pather" "core/reverse_dependencies" "core/requires"
 
-# revdeps with replacement defaults
+# reverse_dependencies with replacement defaults
 fix_reverse_dependencies "vfx/maya" "vfx/vray" "==" "1.6.10" "${@:(-1)}"
 
 # clear not us
 clear_modules "vfx/maya" "2012" "${@:(-1)}"
 
-# revdeps
+# reverse_dependencies
 remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"
 
 # needs
 load_requirement "vfx/python" "==" "2.6" "${@:(-1)}"
 
-# lay revdeps
+# lay reverse_dependencies
 define_reverse_dependency "vfx/python" "==" "2.6" "vfx/maya/2012" "${@:(-1)}"
 
 # does

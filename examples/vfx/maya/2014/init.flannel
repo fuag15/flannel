@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-load_modules "core/pather" "core/revdeps" "core/requires"
+load_modules "core/pather" "core/reverse_dependencies" "core/requires"
 
 # pellets with replacement defaults
 fix_reverse_dependencies "vfx/maya" "vfx/vray" "==" "1.9.02" "${@:(-1)}"

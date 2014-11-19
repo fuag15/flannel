@@ -25,11 +25,11 @@ Here we go!
     vest vfx/maya_plugins/0.1
     echo $MAYA_PLUGIN_DIR # /2012
     echo $PYTHONPATH # /plugin/0.1:/2.6:/vray/1.6.10:/maya/2012
-    
+
     vest vfx/maya clear
     echo $MAYA_PLUGIN_DIR # <blank>
 
-Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [revdeps][revdeps-readme] reverse dependencies with the optional `fix_reverse_dependencies` to choose a default substitution if we break the dependency!
+Voila! Now, if you were clever, you noticed some magic there. When we set maya_plugins to 0.1 and it switched maya over to 2012, it knew to change vray to version 1.6.10 in order to support maya 2012! This is because we are using [reverse_dependencies][reverse_dependencies-readme] reverse dependencies with the optional `fix_reverse_dependencies` to choose a default substitution if we break the dependency!
 
 What if you want it to just clear vray? thats fine! if vray isn't loaded it will not try to fix what isn't broken.
 
@@ -105,21 +105,21 @@ Lets look at the hairiest of the hairy!, here's our maya 2013 config.
 You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `clear` we undo our path modifications. This will most likely be simplified for later versions.
 
     # set up
-    load_modules "flannelpather" "flannelrevdeps" "flannelrequires"
+    load_modules "flannelpather" "flannelreverse_dependencies" "flannelrequires"
 
-    # revdeps with replacement defaults
+    # reverse_dependencies with replacement defaults
     fix_reverse_dependencies "vfx/maya" "vfx/vray" ">=" "1.8.34" "${@:(-1)}"
 
     # clear not us
     clear_modules "vfx/maya" "2013" "${@:(-1)}"
 
-    # revdeps
+    # reverse_dependencies
     remove_broken_reverse_dependencies "vfx/maya" "${@:(-1)}"
 
     # needs
     load_requirement "vfx/python" "==" "2.7" "${@:(-1)}"
 
-    # lay revdeps
+    # lay reverse_dependencies
     define_reverse_dependency "vfx/python" "==" "2.7" "vfx/maya/2013" "${@:(-1)}"
 
     # does
@@ -133,10 +133,10 @@ You'll notice we pass `"${@:(-1)}"`, our input along so that if we get passed `c
 
 No other technical ones, support has been added for bounded requirement logic. lookin at @odgrim to break it more. These should all be tested with unit tests and configuration is pretty complex, should provide pretty easy front facing configuration functions.
 
-Check out the [Road Map][road-map-md] markdown for what's up next. 
+Check out the [Road Map][road-map-md] markdown for what's up next.
 
 [semver-site]: http://semver.org "Semantic Version System"
-[revdeps-readme]: ../revdeps/README.md "revdeps readme"
+[reverse_dependencies-readme]: ../reverse_dependencies/README.md "reverse_dependencies readme"
 [road-map-md]: ../ROAD_MAP.md "Road Map Markdown Page"
 [vfx-scenario-md]: SCENARIO.md "Vfx Prototype Scenario"
 [readme-md]: ../README.md "Flannel Readme"

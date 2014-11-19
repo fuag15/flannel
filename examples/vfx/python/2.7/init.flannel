@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # set up
-load_modules "core/pather" "core/revdeps"
+load_modules "core/pather" "core/reverse_dependencies"
 clear_modules "vfx/python" "2.7" "${@:(-1)}"
 
 # pellets
