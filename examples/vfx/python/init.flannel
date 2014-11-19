@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# clear all, clear not a version, or set default
-flannel "vfx/python/2.7" "$@"
