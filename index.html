@@ -4,9 +4,9 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -31,7 +31,10 @@
         <hr>
 
         <section id="main_content">
-          <p>This is a modular bash framework for sharing common scripts between your friends and fellow coders!</p>
+          <h1>
+<a id="flannel---bash-looks-better-in-plaid" class="anchor" href="#flannel---bash-looks-better-in-plaid" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flannel - Bash Looks Better in Plaid</h1>
+
+<p>This is a modular bash framework for sharing common scripts between your friends and fellow coders!</p>
 
 <p>This is opinionated code! Chances are if what your doing doesn't fit in here, you can easily re factor it to play nice.</p>
 
@@ -39,16 +42,20 @@
 
 <p>There is also a proof of concept environment variable manager for visual effects inspired by <a href="https://github.com/odgrim" class="user-mention">@odgrim</a>. <a href="https://github.com/odgrim" class="user-mention">@odgrim</a> did the ground work on auto completion and prompt as well as inspired this whole project / provided the specs and use cases for environment manager proof of concept.</p>
 
-<p>For a more developer oriented overview see the <a href="http://github.com/fuag15/flannel/blob/master/DEVELOPERS.md" title="Developers Markdown">developers</a> markdown. In general the more complex modules should have an associated README.md with them, for example <a href="http://github.com/fuag15/flannel/blob/master/vfx/README.md" title="Vfx Documentation">vfx</a>, <a href="http://github.com/fuag15/flannel/blob/master/pather/README.md" title="Pather Documentation">pather</a>, <a href="http://github.com/fuag15/flannel/blob/master/fuzzy_plaid/README.md" title="Flannel Core Documentation">fuzzy_plaid</a>.</p>
+<p>For a more developer oriented overview see the <a href="http://github.com/fuag15/flannel/blob/master/DEVELOPERS.md" title="Developers Markdown">developers</a> markdown. In general the more complex modules should have an associated README.md with them, for example <a href="http://github.com/fuag15/thrift-examples/blob/master/vfx/README.md" title="Vfx Documentation">vfx</a>, <a href="http://github.com/fuag15/flannel/blob/master/pather/README.md" title="Pather Documentation">pather</a>, <a href="http://github.com/fuag15/flannel/blob/master/fuzzy_plaid/README.md" title="Flannel Core Documentation">fuzzy_plaid</a>.</p>
 
-<h2>Manifesto</h2>
+<h2>
+<a id="manifesto" class="anchor" href="#manifesto" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manifesto</h2>
 
 <ol>
 <li>If you do it twice, automate it</li>
 <li>Nice code is nice, automation is nicer, make pretty a secondary concern</li>
 <li>improve over time</li>
 <li>share lots. :)</li>
-</ol><h2>Installation</h2>
+</ol>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>OSX/Unix/Linux: <em>( one liner sources in bash_profile )</em></p>
 
@@ -60,7 +67,20 @@
 <pre><code>I could provide a power shell conversion of this if there is interest. Let me know if you'd like to see one.
 </code></pre>
 
-<h2>Basic Usage</h2>
+<h2>
+<a id="chekcing-out-a-store" class="anchor" href="#chekcing-out-a-store" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chekcing out a store</h2>
+
+<p>Flannels basic module sharing system is thrift, it allows you to clone named / versioned git repos into contrib. The main thrift store is located at</p>
+
+<p><a href="http://github.com/fuag15/thrift/blob/master/README.md" title="Main thrift store">fuag15/thrift</a>.</p>
+
+<p>To fetch this store:</p>
+
+<pre><code>thrift_fetch git@github.com:fuag15/thrift fuag15 thrift
+</code></pre>
+
+<h2>
+<a id="basic-usage" class="anchor" href="#basic-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
 
 <p>Once Installed the important functions are <code>vest</code> - <em>load a module</em> and <code>jacket</code> - load default config, named config, local configs.</p>
 
@@ -68,9 +88,7 @@
 
 <p><code>vest</code>: <em>vest module_path_glob [options]</em></p>
 
-<pre><code>vest contrib/prompt
-vest vfx/maya/2013
-vest vfx/maya/2013 clear
+<pre><code>vest contrib/fuag15/thrift/prompt
 </code></pre>
 
 <p><code>jacket</code>: <em>jacket [named config]</em></p>
@@ -79,7 +97,8 @@ vest vfx/maya/2013 clear
 jacket work # will reload ~/.flannelrc then  ~/.work.flannelrc then any ./.plaid_patch files
 </code></pre>
 
-<h2>More Documentation / References</h2>
+<h2>
+<a id="more-documentation--references" class="anchor" href="#more-documentation--references" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Documentation / References</h2>
 
 <ul>
 <li>
@@ -94,12 +113,18 @@ jacket work # will reload ~/.flannelrc then  ~/.work.flannelrc then any ./.plaid
 <a href="http://github.com/fuag15/flannel/blob/master/BREAKING_CHANGES.md" title="Breaking Changes Markdown">Breaking Changes</a> What did you break? Why?</li>
 <li>
 <a href="http://github.com/fuag15/flannel/blob/master/LEGAL_LICENSING.md" title="Legal and Licensing information">Legal / Licensing</a> I'd like to use this for work or profit or play, how do I play nice?</li>
+<li>
+<a href="http://github.com/fuag15/thrift/blob/master/README.md" title="Main thrift store">thrift repo</a> Main store for modules</li>
+<li>
+<a href="http://github.com/fuag15/thrift-examples/blob/master/README.md" title="Thrift examples">thrift examples</a> Some examples of more involved modules / packages</li>
+<li>
+<a href="http://github.com/fuag15/thrift-experimental/blob/master/README.md" title="Thrift experimental">thrift experimental</a> Modules i've thrown together for personal use</li>
 </ul>
         </section>
 
         <footer>
           Flannel is maintained by <a href="https://github.com/fuag15">fuag15</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
         
