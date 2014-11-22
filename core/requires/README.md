@@ -1,6 +1,6 @@
 # [Flannel][readme-md] - Requires *( Version Requirements Logic )*
 
-This is a spec for the `requires` module which is meant to allow version matching logic for module requirements for the [vfx][vfx-prototype-readme] prototype project.
+This is a spec for the `requires` module which is meant to allow version matching logic for module requirements for the [vfx][vfx-readme] prototype project.
 
 It works closely with [flannel_state][flannel-state-md] so thats some good background to read.
 
@@ -55,5 +55,5 @@ This function is pretty much the same as load_requirement with extra options. It
   - flannel higher version or default
 
 [flannel-state-md]: ../FLANNEL_STATE.md "Plaid Spool Markdown"
-[vfx-prototype-readme]: ../../vfx/README.md "Vfx Prototype Readme"
+[vfx-readme]: http://github.com/fuag15/thrift-examples/blob/master/vfx/README.md "Vfx Readme"
 [readme-md]: ../../README.md "Flannel Readme"

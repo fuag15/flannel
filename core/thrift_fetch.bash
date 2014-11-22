@@ -8,7 +8,7 @@
 # it also takes the username / repo out of arguments to allow for
 # custom git setups for internal use in orgs
 # example syntax
-# thrift_fetch <git uri> <username> <repo> [branch_or_tag] [revision_hash]
+# thrift_fetch <git uri> <username> <repo> [refspec]
 thrift_fetch() {
   # only continue if the directory does exist
   if [[ ! -d ~/.flannel/contrib/${2}/${3} ]]; then
@@ -21,11 +21,6 @@ thrift_fetch() {
     if [ $# -ge 4 ]; then
       pushd ~/.flannel/contrib/"${2}"/"${3}" >/dev/null
       git checkout "${4}"
-
-      # if there was also a specific revision specified take care of that
-      if [ $# -ge 5 ]; then
-        git checkout "${5}"
-      fi
       popd >/dev/null
     fi
   fi

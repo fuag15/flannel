@@ -1,12 +1,14 @@
 # [Flannel][readme-md] - FLANNEL_THRIFT *( module sharing )*
 
-Utilities to install non-core (contributed) modules! Moduels are installed under /contrib/<git_user>/repo_name<branch>[revision]/repo_contents
+Utilities to install non-core (contributed) modules! Moduels are installed under /contrib/<username>/<repo>/repo_contents where username and
+
+repo are qualifiers of your choosing to allow for multiple versions of a certain thrift store to play nicelye with eachother if deps get complex
 
 the base of each module is supposed to contain a dependencies.thrift which provides the dependencies of the repo, intended just to link to
 
-other repos but it will be interpreted as bash so if you want to hook in crazy things.. feel free, just don't expect people to use your
+other repos but it will be interpreted as bash so if you want to hook in crazy things feel free. Its recommended to use a mixture of thrift_fetch
 
-module.
+and thrift_install in the dependencies.thrift file to allow for recursive dependency checking.
 
 This module is actually one command internal to your module, and 3 management commands as follows
 
@@ -22,7 +24,7 @@ clones repo
 
 ### Syntax
 
-`thrift_fetch <git uri> <username> <repo> [branch_or_tag] [revision_hash]`
+`thrift_fetch <git uri> <username> <repo> [refspec]`
 
 ### Pseudo Code
 

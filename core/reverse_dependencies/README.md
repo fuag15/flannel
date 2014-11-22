@@ -16,7 +16,7 @@ Lets dive into the code!
 
 ### `FLANNEL_REVERSE_DEPENDENCIES` *environment state / dependency variable*
 
-The point of this is to maintain the state of flannel as well as provide hooks for reverse dependencies. 
+The point of this is to maintain the state of flannel as well as provide hooks for reverse dependencies.
 
 ### Syntax
 
@@ -27,7 +27,7 @@ or
 ---
 
 ### `bounded_pellet` *leave a bounded pellet dependency*
- 
+
 leaves a bounded reverse dependency behind
 
 ### Syntax
@@ -76,5 +76,5 @@ This is meant to be done at the top of an `init.flannel`, it checks if a specifi
 
 where <module> is the module base you are linting for, <rdepend> is the base of the reverse dependency, and <operator> / <version> are a logical pair for what you want the replacement dependency to be.
 
-[vfx-readme]: ../../vfx/README.md "Vfx Prototype Module"
+[vfx-readme]: http://github.com/fuag15/thrift-examples/blob/master/vfx/README.md "Vfx Module"
 [readme-md]: ../../README.md "Flannel Readme"

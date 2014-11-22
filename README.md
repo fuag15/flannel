@@ -27,6 +27,16 @@ Windows: *( look into power shell? [glhf][msdn-powershell] )*
 
     I could provide a power shell conversion of this if there is interest. Let me know if you'd like to see one.
 
+## Chekcing out a store
+
+Flannels basic module sharing system is thrift, it allows you to clone named / versioned git repos into contrib. The main thrift store is located at
+
+[fuag15/thrift][thrift-repo].
+
+To fetch this store:
+
+    thrift_fetch git@github.com:fuag15/thrift fuag15 thrift
+
 ## Basic Usage
 
 Once Installed the important functions are `vest` - *load a module* and `jacket` - load default config, named config, local configs.
@@ -35,9 +45,7 @@ Vest currently supports a form of auto complete.
 
 `vest`: *vest module_path_glob [options]*
 
-    vest contrib/prompt
-    vest vfx/maya/2013
-    vest vfx/maya/2013 clear
+    vest contrib/fuag15/thrift/prompt
 
 `jacket`: *jacket [named config]*
 
@@ -52,6 +60,9 @@ Vest currently supports a form of auto complete.
 - [Change Log][changelog-md] What has changed
 - [Breaking Changes][breaking-changes-md] What did you break? Why?
 - [Legal / Licensing][legal-licensing-md] I'd like to use this for work or profit or play, how do I play nice?
+- [thrift repo][thrift-repo] Main store for modules
+- [thrift examples][thrift-examples-repo] Some examples of more involved modules / packages
+- [thrift experimental][thrift-experimental-repo] Modules i've thrown together for personal use
 
 [msdn-powershell]: http://msdn.microsoft.com/en-us/library/dd835506(v=VS.85).aspx "Microsoft Developer Network"
 [semantic-versioning-org]: http://semver.org/ "Semantic Versioning Overview"
@@ -61,6 +72,9 @@ Vest currently supports a form of auto complete.
 [changelog-md]: http://github.com/fuag15/flannel/blob/master/CHANGELOG.md "Changelog Markdown"
 [breaking-changes-md]: http://github.com/fuag15/flannel/blob/master/BREAKING_CHANGES.md "Breaking Changes Markdown"
 [legal-licensing-md]: http://github.com/fuag15/flannel/blob/master/LEGAL_LICENSING.md "Legal and Licensing information"
-[vfx-readme]: http://github.com/fuag15/flannel/blob/master/vfx/README.md "Vfx Documentation"
+[vfx-readme]: http://github.com/fuag15/thrift-examples/blob/master/vfx/README.md "Vfx Documentation"
 [fuzzy_plaid-readme]: http://github.com/fuag15/flannel/blob/master/fuzzy_plaid/README.md "Flannel Core Documentation"
 [pather-readme]: http://github.com/fuag15/flannel/blob/master/pather/README.md "Pather Documentation"
+[thrift-repo]: http://github.com/fuag15/thrift/blob/master/README.md "Main thrift store"
+[thrift-examples-repo]: http://github.com/fuag15/thrift-examples/blob/master/README.md "Thrift examples"
+[thrift-experimental-repo]: http://github.com/fuag15/thrift-experimental/blob/master/README.md "Thrift experimental"
