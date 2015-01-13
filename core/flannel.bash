@@ -22,18 +22,18 @@ flannel() {
   # store var so we dont do lots of arithmatic on $@
   local module_glob="$1"; shift
   # loop through glob matches and run them
-  local module; for module in ~/.flannel/$module_glob; do
+  local module; for module in $FLANNEL_HOME/$module_glob; do
     # did we already consume this?
-    if _flannel_core_track_reverse_dependencies "${module#~/.flannel/}'$@'"; then
+    if _flannel_core_track_reverse_dependencies "${module#$FLANNEL_HOME/}'$@'"; then
       # skip this glob match
       continue
     fi
 
     # keep track of the state
-    _flannel_core_update_state "${module#~/.flannel/}" "$@"
+    _flannel_core_update_state "${module#$FLANNEL_HOME/}" "$@"
 
     # keep track of our currently loading modules
-    _flannel_core_spool_add "${module#~/.flannel/}" "$@"
+    _flannel_core_spool_add "${module#$FLANNEL_HOME/}" "$@"
 
     # load our modules base files
     for file in "$module"/*.bash; do
